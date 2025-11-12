@@ -7,7 +7,7 @@
   width: 100%;
   z-index: 1000;
   display: flex;
-  justify-content: space-between; /* Clave: distribuye los 3 hijos directos */
+  justify-content: center;
   align-items: center;
   background-color: #ffffff;
   padding: 15px 30px;
@@ -16,6 +16,11 @@
 }
 
 /* Estilo del logo */
+.navbar-logo {
+  position: absolute;
+  left: 30px;
+}
+
 .navbar-logo a {
   font-size: 1.5rem;
   font-weight: bold;
@@ -23,20 +28,24 @@
   text-decoration: none;
 }
 
-/* --- (CAMBIO CLAVE) Anulamos el contenedor en escritorio --- */
-/* En la vista de escritorio, queremos que .navbar-links y .navbar-auth
-   sean hijos directos de .medical-navbar a nivel visual. */
+/* Contenedor en escritorio */
 .navbar-right-content {
-  display: contents; /* ¡Esta es la magia! */
+  display: contents;
 }
 
-/* Enlaces de navegación (se mantienen igual) */
+/* Enlaces de navegación */
 .navbar-links {
   list-style: none;
   display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
   gap: 35px;
+}
+
+.navbar-links li {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-links li a {
@@ -45,7 +54,8 @@
   font-weight: 500;
   padding-bottom: 5px;
   transition: color 0.3s, border-bottom 0.3s;
-  cursor: pointer; /* Buen hábito para elementos clicables que no son <Link> */
+  cursor: pointer;
+  display: inline-block;
 }
 
 .navbar-links li a:hover {
@@ -53,13 +63,20 @@
   border-bottom: 2px solid #005a9e;
 }
 
-/* Contenedor de botones (se mantiene igual) */
+/* Estilo para el enlace activo */
+.navbar-links li a.active {
+  color: #005a9e;
+  border-bottom: 2px solid #005a9e;
+}
+
+/* Contenedor de botones */
 .navbar-auth {
   display: flex;
+  align-items: center;
   gap: 15px;
 }
 
-/* Estilos de botones (sin cambios) */
+/* Estilos de botones */
 .login-button, .register-button {
   padding: 10px 20px;
   border-radius: 5px;
@@ -75,13 +92,15 @@
 .register-button { background-color: #28a745; }
 .register-button:hover { background-color: #218838; }
 
-/* --- ESTILOS PARA EL MENÚ MÓVIL (Sin cambios, pero revisados) --- */
+/* --- ESTILOS PARA EL MENÚ MÓVIL --- */
 
 .menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  position: absolute;
+  right: 30px;
 }
 
 .menu-toggle .bar {
@@ -89,51 +108,124 @@
   height: 3px;
   background-color: #005a9e;
   border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 850px) {
-  .menu-toggle {
-    display: flex;
+  /* Ajustar navbar para móvil - ASEGURAR QUE SEA STICKY */
+  .medical-navbar {
+    position: sticky;
+    top: 0;
+    justify-content: flex-start;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    z-index: 1000;
   }
 
-  /* Aquí volvemos a darle un display de flex para que funcione el menú desplegable */
+  /* Logo en móvil */
+  .navbar-logo {
+    position: static;
+    flex: 1;
+  }
+
+  .navbar-logo a {
+    font-size: 1.25rem;
+  }
+
+  /* Mostrar el botón de menú hamburguesa con 3 líneas */
+  .menu-toggle {
+    display: flex;
+    gap: 4px;
+  }
+
+  /* Menú desplegable - posición fixed para que se mantenga visible */
   .navbar-right-content {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    top: 70px;
+    display: none;
+    position: fixed;
+    top: 60px;
     left: 0;
+    right: 0;
     width: 100%;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
     background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     flex-direction: column;
-    padding: 20px 0;
+    padding: 0;
+    z-index: 999;
   }
 
   .navbar-right-content.active {
-    display: flex; /* Visible cuando está activo */
+    display: flex;
   }
 
-  .navbar-links, .navbar-auth {
+  /* Enlaces en móvil - CENTRADOS */
+  .navbar-links {
     flex-direction: column;
     width: 100%;
-    align-items: center;
+    align-items: stretch;
     gap: 0;
+    padding: 0;
+    margin: 0;
   }
 
   .navbar-links li {
     width: 100%;
-    text-align: center;
+    display: block;
   }
 
   .navbar-links li a {
     display: block;
-    padding: 15px 0;
-    border: none !important;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center; /* CENTRADO */
+    border-bottom: 1px solid rgba(0, 90, 158, 0.1);
+    box-sizing: border-box;
   }
 
+  .navbar-links li a:hover {
+    background-color: rgba(0, 90, 158, 0.05);
+    border-bottom: 1px solid rgba(0, 90, 158, 0.1);
+  }
+
+  /* Estilo activo en móvil */
+  .navbar-links li a.active {
+    background-color: rgba(0, 90, 158, 0.1);
+    color: #005a9e;
+    border-bottom: 1px solid rgba(0, 90, 158, 0.2);
+    font-weight: 600;
+  }
+
+  /* Botones de autenticación en móvil */
   .navbar-auth {
-    margin-top: 15px;
-    padding: 0 20px;
+    margin: 15px 20px;
+    padding: 0;
     gap: 10px;
+    flex-direction: column;
+  }
+
+  .login-button, .register-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .navbar-logo a {
+    font-size: 1.1rem;
+  }
+
+  .medical-navbar {
+    padding: 12px 15px;
+  }
+
+  .menu-toggle {
+    right: 15px;
+  }
+
+  .navbar-right-content {
+    top: 50px;
+    max-height: calc(100vh - 50px);
   }
 }

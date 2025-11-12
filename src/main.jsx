@@ -1,18 +1,14 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
-import { AuthProvider } from './context/AuthContext.jsx';
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom' // Importa HashRouter en lugar de BrowserRouter [web:1]
+
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-  <AuthProvider>
+  <HashRouter>
    <App />
-   </AuthProvider>
-  </BrowserRouter>
+  </HashRouter>
    
- 
 )

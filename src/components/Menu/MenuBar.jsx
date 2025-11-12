@@ -1,36 +1,93 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MenuBar.css';
-import { Link, useLocation, useNavigate } from 'react-router-dom'; // 1. Importa los hooks
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const MenuBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation(); // Hook para obtener la ruta actual
-  const navigate = useNavigate(); // Hook para navegar programáticamente
+  const [activeSection, setActiveSection] = useState('inicio');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Función que decide qué hacer al hacer clic
   const handleNavigation = (sectionId) => {
-    // Cierra el menú móvil en cualquier caso
     setMenuOpen(false);
 
-    // 2. Comprueba si estamos en la página de inicio
     if (location.pathname === '/') {
-      // Si estamos en la home, solo hacemos scroll
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // 3. Si NO estamos en la home, navegamos a la home y pasamos el 'id'
-      // de la sección en el 'hash' de la URL.
       navigate(`/#${sectionId}`);
     }
   };
 
+  // useEffect para detectar qué sección está visible al hacer scroll
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const sections = ['inicio', 'service', 'about', 'plan', 'contact'];
+      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visibleEntries = entries.filter(entry => entry.isIntersecting);
+          
+          if (visibleEntries.length > 0) {
+            const mostVisible = visibleEntries.reduce((prev, current) => {
+              return (current.intersectionRatio > prev.intersectionRatio) ? current : prev;
+            });
+            
+            setActiveSection(mostVisible.target.id);
+          }
+        },
+        {
+          threshold: [0, 0.25, 0.5, 0.75, 1],
+          rootMargin: '-80px 0px -60% 0px'
+        }
+      );
+
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          observer.observe(element);
+        }
+      });
+
+      return () => {
+        sections.forEach((sectionId) => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            observer.unobserve(element);
+          }
+        });
+      };
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
+  // useEffect para manejar el hash inicial
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      setActiveSection(id);
+    } else {
+      const sections = ['inicio', 'service', 'about', 'plan', 'contact'];
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    }
+  }, [location.hash, location.pathname]);
+
   return (
     <nav className="medical-navbar">
-      {/* --- AQUÍ ESTÁ LA CORRECCIÓN --- */}
       <div className="navbar-logo">
-        {/* Reemplazamos el <Link> por una etiqueta <a> que llama a handleNavigation */}
         <a href="#inicio" onClick={() => handleNavigation('inicio')}>
           Clínica Bienestar
         </a>
@@ -39,28 +96,51 @@ const MenuBar = () => {
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         <span className="bar"></span>
         <span className="bar"></span>
+        <span className="bar"></span> {/* TERCERA LÍNEA AGREGADA */}
       </div>
 
       <div className={`navbar-right-content ${menuOpen ? 'active' : ''}`}>
         <ul className="navbar-links">
-          {/* 4. Los enlaces ahora son <a> que llaman a nuestra función inteligente */}
-          <li><a href="#service" onClick={() => handleNavigation('service')}>Servicios</a></li>
-          <li><a href="#about" onClick={() => handleNavigation('about')}>Sobre nosotros</a></li>
-          <li><a href="#plan" onClick={() => handleNavigation('plan')}>Planes</a></li>
-          <li><a href="#contact" onClick={() => handleNavigation('contact')}>Contacto</a></li>
-          
+          <li>
+            <a 
+              href="#service" 
+              onClick={() => handleNavigation('service')}
+              className={activeSection === 'service' ? 'active' : ''}
+            >
+              Servicios
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#about" 
+              onClick={() => handleNavigation('about')}
+              className={activeSection === 'about' ? 'active' : ''}
+            >
+              Sobre nosotros
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#plan" 
+              onClick={() => handleNavigation('plan')}
+              className={activeSection === 'plan' ? 'active' : ''}
+            >
+              Planes
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#contact" 
+              onClick={() => handleNavigation('contact')}
+              className={activeSection === 'contact' ? 'active' : ''}
+            >
+              Contacto
+            </a>
+          </li>
         </ul>
-
-        <div className="navbar-auth">
-          {/* --- AQUÍ ESTÁ LA CORRECCIÓN --- */}
-          {/* Añadimos el onClick para cerrar el menú al navegar */}
-          <Link to="/login" className="login-button" onClick={() => setMenuOpen(false)}>Acceder</Link>
-          <Link to="/register" className="register-button" onClick={() => setMenuOpen(false)}>Registrarte</Link>
-        </div>
       </div>
     </nav>
   );
 };
 
 export default MenuBar;
-
