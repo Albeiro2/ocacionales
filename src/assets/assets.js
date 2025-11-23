@@ -8,11 +8,13 @@ import aliado5 from './aliado5.jpg';
 import aliado6 from './aliado6.jpg';
 import aliado7 from './aliado7.jpg';
 import cafe from './cafe.jpg';
+import mision from './mision.jpg';
 
 export const images = {
     fondo,
     logo,
     cafe,
+    mision,
     aliados:[
         aliado1,
         aliado2,

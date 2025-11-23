@@ -39,8 +39,10 @@
   align-items: center;
   margin: 0 auto;
   padding-bottom: 0;
+  position: relative; /* necesario para posicionar flechas */
 }
 
+/* Viewport del slider */
 .aliados-slider-viewport {
   width: 100%;
   overflow: hidden;
@@ -49,8 +51,11 @@
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   min-height: 210px;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
+/* Slider interno */
 .aliados-slider {
   display: flex;
   transition: transform 0.7s cubic-bezier(.5,1.05,.32,1);
@@ -68,7 +73,7 @@
 .aliado-slide img {
   width: auto;
   height: auto;
-  max-width: 96vw;      /* Esto es lo NUEVO: usa casi todo el ancho en móvil */
+  max-width: 96vw;      /* usa casi todo el ancho en móvil */
   max-height: 180px;
   object-fit: contain;
   margin: 0 auto;
@@ -77,6 +82,47 @@
   box-shadow: 0 2px 10px rgba(0,0,0,0.04);
 }
 
+/* Flechas de control */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(13,110,253,0.10);
+  color: #0747a6;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.06);
+}
+.carousel-arrow:hover {
+  background: rgba(13,110,253,0.18);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.12), 0 4px 10px rgba(13,110,253,0.10);
+}
+.carousel-arrow:active { transform: translateY(-50%) scale(0.98); }
+
+.carousel-arrow-left { left: 8px; }
+.carousel-arrow-right { right: 8px; }
+
+/* Ajustes para accesibilidad y foco */
+.carousel-arrow:focus {
+  outline: 3px solid rgba(13,110,253,0.18);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .aliados-slider-wrapper { width: 86vw; }
+}
 @media (max-width: 600px) {
   .aliados-header h1 { font-size: 1.35rem; }
   .aliados-header p { font-size: 0.97rem; }
@@ -84,4 +130,14 @@
   .aliados-slider-viewport { min-height: 85px; border-radius: 10px;}
   .aliado-slide img { max-width: 94vw; max-height: 65px; }
   .aliado-slide { padding: 15px 0;}
+  /* flechas más discretas en móvil */
+  .carousel-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+    left: 6px;
+    right: 6px;
+  }
+  .carousel-arrow-left { left: 6px; }
+  .carousel-arrow-right { right: 6px; }
 }

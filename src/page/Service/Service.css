@@ -379,6 +379,37 @@
   opacity: 1;
 }
 
+
+.step-card,
+.bpo-card,
+.distincion-card,
+.benefit-item {
+  background: rgba(13,110,253,0.04); /* azul suave visible por defecto */
+  border: 1px solid rgba(13,110,253,0.10);
+  border-radius: 10px;
+  padding: 18px;
+  transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+/* Hover: sombra, leve elevación y acento azul más fuerte */
+.step-card:hover,
+.bpo-card:hover,
+.distincion-card:hover,
+.benefit-item:hover {
+  box-shadow: 0 10px 30px rgba(2,6,23,0.12), 0 6px 12px rgba(13,110,253,0.14);
+  transform: translateY(-6px) scale(1.01);
+  background: rgba(13,110,253,0.08);
+  border-color: rgba(13,110,253,0.30);
+}
+
+/* Ajustes opcionales para que el icono y el contenido se vean bien */
+.step-icon, .bpo-icon, .distincion-icon, .benefit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
 @media (max-width: 900px) {
   .distinciones-section h2 { font-size: 1.32rem; }
   .distincion-card { min-height: 190px; }

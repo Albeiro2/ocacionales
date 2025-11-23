@@ -1,5 +1,7 @@
+// ...existing code...
 import React from 'react';
 import './About.css';
+import { images } from '../../assets/assets';
 
 // Íconos SVG representativos:
 const EmpresaIcon = () => (
@@ -46,13 +48,21 @@ const About = () => (
             Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
           </p>
         </div>
-        <div className="about-tarjeta">
-          <div className="about-tarjeta-icon"><MisionIcon /></div>
-          <h3>Misión</h3>
-          <p>
-            Ser aliado estratégico en call/contact center, asesorías jurídicas, contables y más, participando en el crecimiento del cliente con ética, objetividad e integridad.
-          </p>
+
+        {/* Tarjeta Misión con imagen de fondo */}
+        <div
+          className="about-tarjeta about-tarjeta-mision"
+          style={{ backgroundImage: `url(${images.mision})` }}
+        >
+          <div className="about-tarjeta-content">
+            <h3>Misión</h3>
+            <div className="about-tarjeta-icon"><MisionIcon /></div>
+            <p>
+              Ser aliado estratégico en call/contact center, asesorías jurídicas, contables y más, participando en el crecimiento del cliente con ética, objetividad e integridad.
+            </p>
+          </div>
         </div>
+
         <div className="about-tarjeta">
           <div className="about-tarjeta-icon"><VisionIcon /></div>
           <h3>Visión</h3>
@@ -73,3 +83,4 @@ const About = () => (
 );
 
 export default About;
+// ...existing code...
