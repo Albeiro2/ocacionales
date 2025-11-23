@@ -144,7 +144,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 260px; /* igual altura */
+  min-height: 260px;
   justify-content: flex-start;
 }
 
@@ -298,6 +298,85 @@
   color: #555;
   font-size: 1.02rem;
   line-height: 1.45;
+}
+
+/* -------- CAFETERÍA: TEXTO OCULTO HASTA HOVER, BLANCO SOBRE SOMBRA -------- */
+.cafe-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.cafe-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/cafe.jpg'); /* Cambia la ruta al valor real de images.cafe */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* Overlay negro aparece en hover */
+.cafe-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+
+.cafe-card:hover::after {
+  opacity: 1;
+}
+
+/* Oculta el texto en la tarjeta por defecto */
+.cafe-card h3,
+.cafe-card p,
+.cafe-card p strong {
+  color: transparent;
+  transition: color 0.3s;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+/* En hover, letras blancas con sombra */
+.cafe-card:hover h3,
+.cafe-card:hover p,
+.cafe-card:hover p strong {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
+}
+
+.cafe-card:hover p strong {
+  font-weight: 900;
+}
+.cafe-card:hover p {
+  color: #fff;
+}
+
+/* Contenido por encima de los overlays */
+.cafe-card > * {
+  position: relative;
+  z-index: 3;
+}
+/* Oculta ícono por defecto en la tarjeta de cafetería */
+.cafe-card .step-icon {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Muestra ícono solo en hover */
+.cafe-card:hover .step-icon {
+  opacity: 1;
 }
 
 @media (max-width: 900px) {

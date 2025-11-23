@@ -1,5 +1,6 @@
 import React from 'react';
 import './Service.css';
+import{images} from '../../assets/assets';
 
 // Íconos SVG simples para servicios
 const OfficeIcon = () => (
@@ -168,11 +169,11 @@ const Service = () => {
             <h3>Oficina y papelería</h3>
             <p><strong>Servicio y suministro:</strong> Insumos para oficina y papelería de alta calidad, con atención personalizada.</p>
           </div>
-          <div className="step-card">
-            <div className="step-icon"><CoffeeIcon /></div>
-            <h3>Aseo y cafetería</h3>
-            <p><strong>Servicio y suministro:</strong> Productos para limpieza, cafetería y confort laboral.</p>
-          </div>
+        <div className="step-card cafe-card">
+  <div className="step-icon"><CoffeeIcon /></div>
+  <h3>Aseo y cafetería</h3>
+  <p><strong>Servicio y suministro:</strong> Productos para limpieza, cafetería y confort laboral.</p>
+</div>
           <div className="step-card">
             <div className="step-icon"><MedkitIcon /></div>
             <h3>Botiquín y ferretería</h3>
