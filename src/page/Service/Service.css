@@ -189,3 +189,122 @@
   .benefits-grid { grid-template-columns: 1fr; }
   .benefit-item { min-height: 110px; }
 }
+
+.distinciones-section {
+  padding: 60px 20px 30px 20px;
+  text-align: center;
+  background: #fff;
+}
+.distinciones-section h2 {
+  font-size: 2.4rem;
+  color: #005a9e;
+  margin-bottom: 44px;
+}
+.distinciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 33px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.distincion-card {
+  background: #fafdff;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  padding: 32px 18px 22px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 275px;
+  max-width: 330px;
+  margin: 0 auto;
+  justify-content: flex-start;
+}
+.distincion-icon {
+  margin-bottom: 12px;
+  height: 55px;
+  width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.distincion-card h3 {
+  font-size: 1.19rem;
+  color: #2c3e50;
+  margin-bottom: 7px;
+  font-weight: 700;
+}
+.distincion-card p {
+  color: #565656;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+/* NUEVO: Servicios personalizados BPO */
+.bpo-section {
+  background: #fff;
+  padding: 40px 20px 18px 20px;
+  text-align: center;
+}
+
+.bpo-section h2 {
+  font-size: 2rem;
+  margin-bottom: 34px;
+  color: #0077c8;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.bpo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 36px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.bpo-card {
+  background: #fafdff;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  padding: 34px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 244px;
+  max-width: 340px;
+  margin: 0 auto;
+  justify-content: flex-start;
+}
+
+.bpo-icon {
+  margin-bottom: 16px;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bpo-card h3 {
+  font-size: 1.16rem;
+  margin-bottom: 9px;
+  color: #23518b;
+  font-weight: 700;
+}
+.bpo-card p {
+  color: #555;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .distinciones-section h2 { font-size: 1.32rem; }
+  .distincion-card { min-height: 190px; }
+}
+@media (max-width: 600px) {
+  .distinciones-grid { grid-template-columns: 1fr; }
+  .distincion-card { min-height: 125px; max-width: 99vw; }
+}

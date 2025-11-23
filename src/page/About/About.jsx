@@ -1,56 +1,75 @@
 import React from 'react';
-import './About.css'; // Estilos para la página
+import './About.css';
 
-// Ícono simple para el descargo de responsabilidad
-const AlertIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>;
+// Íconos SVG representativos:
+const EmpresaIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 48 48">
+    <rect x="7" y="19" width="34" height="18" rx="5" fill="#e3f2fd"/>
+    <rect x="15" y="10" width="18" height="11" rx="4" fill="#38a9e0"/>
+    <rect x="20" y="25" width="8" height="7" rx="2" fill="#90caf9"/>
+    <rect x="13" y="33" width="5" height="4" rx="1" fill="#bddaf7"/>
+    <rect x="30" y="33" width="5" height="4" rx="1" fill="#bddaf7"/>
+  </svg>
+);
+const MisionIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20" fill="#e8fced"/>
+    <rect x="21" y="13" width="6" height="20" rx="2" fill="#34b97f"/>
+    <rect x="17" y="30" width="14" height="4" rx="2" fill="#56d399"/>
+    <circle cx="24" cy="19" r="3" fill="#34b97f"/>
+  </svg>
+);
+const VisionIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 48 48">
+    <ellipse cx="24" cy="24" rx="18" ry="13" fill="#fffbe6"/>
+    <ellipse cx="24" cy="24" rx="11" ry="6" fill="#ffe59f"/>
+    <ellipse cx="24" cy="24" rx="4" ry="2" fill="#f7ce6f"/>
+  </svg>
+);
+const CalidadIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20" fill="#e3f6ff"/>
+    <rect x="19" y="17" width="10" height="14" rx="2" fill="#4db9e9"/>
+    <circle cx="24" cy="27" r="4" fill="#fff"/>
+    <path d="M18 32l6 4 6-4" stroke="#4db9e9" strokeWidth="2" fill="none"/>
+  </svg>
+);
 
-const About = () => {
-  return (
-    <div className="about-page-container">
-      <div className="about-content">
-        {/* Sección de Misión */}
-        <section className="mission-section">
-          <h1>Nuestra Misión: Claridad y Empoderamiento para tu Salud</h1>
+const About = () => (
+  <div className="about-page-container">
+    <section className="about-tarjetas-section">
+      <div className="about-tarjetas-grid">
+        <div className="about-tarjeta">
+          <div className="about-tarjeta-icon"><EmpresaIcon /></div>
+          <h3>Nuestra empresa</h3>
           <p>
-            Nacimos de una simple idea: nadie debería sentirse confundido o inseguro sobre su propio tratamiento médico. En un mundo donde la "letra de médico" es una barrera común, nosotros usamos la tecnología para construir un puente. Nuestra misión es empoderar a las personas para que comprendan y sigan sus recetas médicas con total confianza.
+            Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
           </p>
-        </section>
-
-        {/* Sección sobre el Rol de la IA */}
-        <section className="role-of-ai-section">
-          <h2>Tecnología como Aliada, no como Doctor</h2>
+        </div>
+        <div className="about-tarjeta">
+          <div className="about-tarjeta-icon"><MisionIcon /></div>
+          <h3>Misión</h3>
           <p>
-            Es fundamental entender nuestro rol. <strong>No somos doctores ni profesionales de la salud.</strong> Somos tecnólogos y diseñadores apasionados por crear herramientas que faciliten la vida. Utilizamos inteligencia artificial (IA) avanzada para interpretar la información de las recetas y, basándonos en el historial que nos proporcionas, generar recomendaciones que buscan ser lo más saludables y coherentes posible.
+            Ser aliado estratégico en call/contact center, asesorías jurídicas, contables y más, participando en el crecimiento del cliente con ética, objetividad e integridad.
           </p>
+        </div>
+        <div className="about-tarjeta">
+          <div className="about-tarjeta-icon"><VisionIcon /></div>
+          <h3>Visión</h3>
           <p>
-            Nuestra IA está diseñada para ser una asistente inteligente que traduce, organiza y sugiere. Sin embargo, la supervisión humana y el juicio de un profesional médico son insustituibles[56].
+            Ser líderes nacionales en nuestros servicios, reconocidos como aliados estratégicos por calidad y cumplimiento, contribuyendo al crecimiento de nuestros clientes y la sociedad.
           </p>
-        </section>
-
-        {/* Sección de Descargo de Responsabilidad */}
-        <section className="disclaimer-section">
-          <div className="disclaimer-header">
-            <AlertIcon />
-            <h2>Descargo de Responsabilidad Importante</h2>
-          </div>
-          <div className="disclaimer-text">
-            <p>
-              Las recomendaciones, resúmenes y cualquier información generada por nuestra plataforma <strong>no están aprobadas por médicos y no constituyen un consejo médico oficial.</strong> Son el resultado de una interpretación automatizada.
-            </p>
-            <p>
-              No es obligación seguir nuestras sugerencias. Antes de realizar cualquier cambio en tu tratamiento, dieta o estilo de vida, <strong>siempre debes consultar a tu médico o a un profesional de la salud calificado.</strong> La responsabilidad final sobre tu salud recae en ti y en los profesionales que te atienden.
-            </p>
-            <p>
-              Para una comprensión completa de nuestras limitaciones y responsabilidades, te invitamos a descargar y leer nuestro documento de Términos de Servicio y Responsabilidad.
-            </p>
-            <a href="/docs/terminos-y-responsabilidad.pdf" className="download-link" download>
-              Descargar Documento de Responsabilidad
-            </a>
-          </div>
-        </section>
+        </div>
+        <div className="about-tarjeta">
+          <div className="about-tarjeta-icon"><CalidadIcon /></div>
+          <h3>Calidad del servicio</h3>
+          <p>
+            Nuestra área de auditoría garantiza procesos efectivos y transparentes, cumpliendo cada requerimiento y asegurando resultados confiables.
+          </p>
+        </div>
       </div>
-    </div>
-  );
-};
+    </section>
+  </div>
+);
 
 export default About;

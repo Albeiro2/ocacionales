@@ -85,21 +85,79 @@ const ConfianzaIcon = () => (
   </svg>
 );
 
+// Íconos servicios personalizados BPO
+const TeleventasIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20" fill="#f7fafc"/>
+    <rect x="17" y="17" width="14" height="14" rx="3" fill="#0077c8"/>
+    <rect x="21" y="28" width="6" height="2" rx="1" fill="#74bcff"/>
+    <circle cx="34" cy="22" r="2.2" fill="#8ecdfc"/>
+  </svg>
+);
+const ClienteIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 48 48">
+    <circle cx="24" cy="20" r="10" fill="#e0f9f4"/>
+    <rect x="12" y="32" width="24" height="8" rx="4" fill="#33c3ac"/>
+    <rect x="17" y="35" width="14" height="3" rx="1.5" fill="#4dddd2"/>
+  </svg>
+);
+const CobranzaIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 48 48">
+    <rect x="6" y="20" width="36" height="16" rx="6" fill="#ffd9d4"/>
+    <rect x="18" y="16" width="12" height="8" rx="2" fill="#ea4b38"/>
+    <rect x="20" y="25" width="8" height="6" rx="2" fill="#fff"/>
+  </svg>
+);
+const MercadeoIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 48 48">
+    <ellipse cx="24" cy="30" rx="15" ry="7" fill="#f6e4e3"/>
+    <rect x="19" y="15" width="10" height="15" rx="3" fill="#d26847"/>
+    <rect x="21" y="27" width="6" height="3" rx="1.5" fill="#ffb789"/>
+    <circle cx="34" cy="22" r="2" fill="#d26847"/>
+  </svg>
+);
+
 const Service = () => {
   return (
     <div className="service-page-container">
       {/* Hero */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1>Soluciones integrales para licitaciones y sector público</h1>
-          <p>
-            En TELEMARKETER BPO & LOGISTICS SAS llevamos desde 2016 ayudando a las <a href="https://www.gesylic.com/" target="_blank" rel="noopener noreferrer">empresas de licitaciones</a> a conseguir contratos de administración pública, así como contratos con el sector público.
-            Nuestro equipo es especialista en licitaciones y trabaja con el único fin de conseguir la adjudicación.
-            <br /><br />
-            <strong>Nuestros servicios y suministros abarcan:</strong> productos para oficina, papelería, aseo, cafetería, ferretería, botiquín, venta y alquiler de equipos de fotocopiado de las mejores y más reconocidas marcas de alta tecnología y calidad.
-          </p>
-        </div>
-      </section>
+      {/* Nos destacamos en */}
+<section className="distinciones-section">
+  <h2>Valores corporativos</h2>
+  <div className="distinciones-grid">
+    <div className="distincion-card">
+      <div className="distincion-icon"><LogisticaIcon /></div>
+      <h3>Gestión integral</h3>
+      <p>Nos ocupamos de todas las fases de la licitación para lograr la adjudicación.</p>
+    </div>
+    <div className="distincion-card">
+      <div className="distincion-icon"><ConfianzaIcon /></div>
+      <h3>Honestidad</h3>
+      <p>Más de 20 años de éxito gracias a nuestra transparencia y ética profesional.</p>
+    </div>
+    <div className="distincion-card">
+      <div className="distincion-icon"><ProveedorIcon /></div>
+      <h3>Profesionalidad</h3>
+      <p>Equipo multidisciplinario experto en cada área clave del negocio.</p>
+    </div>
+    <div className="distincion-card">
+      <div className="distincion-icon"><ComprasIcon /></div>
+      <h3>Asesoramiento</h3>
+      <p>Resolvemos todas tus dudas antes, durante y después del procedimiento.</p>
+    </div>
+    <div className="distincion-card">
+      <div className="distincion-icon"><PaperIcon /></div>
+      <h3>Gestión de concursos</h3>
+      <p>Ayudamos a empresas a ganar concursos públicos y privados desde 1993.</p>
+    </div>
+    <div className="distincion-card">
+      <div className="distincion-icon"><EstrategiaIcon /></div>
+      <h3>Información actualizada</h3>
+      <p>Estamos al tanto de las últimas novedades del sector para tu beneficio.</p>
+    </div>
+  </div>
+</section>
+
 
       {/* Servicios */}
       <section className="how-it-works-section">
@@ -127,6 +185,33 @@ const Service = () => {
           </div>
         </div>
       </section>
+
+       {/* --- Sección servicios personalizados BPO --- */}
+    <section className="bpo-section">
+      <h2>SERVICIOS PERSONALIZADOS BPO</h2>
+      <div className="bpo-grid">
+        <div className="bpo-card">
+          <div className="bpo-icon"><TeleventasIcon /></div>
+          <h3>Televentas</h3>
+          <p>Ventas de servicios y productos financieros por comunicación telefónica. Incluye desde la planificación hasta el análisis y control de resultados.</p>
+        </div>
+        <div className="bpo-card">
+          <div className="bpo-icon"><ClienteIcon /></div>
+          <h3>Servicio al cliente</h3>
+          <p>Recepción y gestión de llamadas para solución de consultas/eventualidades, logrando la satisfacción de los usuarios.</p>
+        </div>
+        <div className="bpo-card">
+          <div className="bpo-icon"><CobranzaIcon /></div>
+          <h3>Cobranzas</h3>
+          <p>Recuperación de cartera en todas sus etapas: preventiva, administrativa, prejurídica y jurídica.</p>
+        </div>
+        <div className="bpo-card">
+          <div className="bpo-icon"><MercadeoIcon /></div>
+          <h3>Mercadeo</h3>
+          <p>Manejo de objeciones y expansión de canales para mayor cobertura y mejores resultados en ventas.</p>
+        </div>
+      </div>
+    </section>
 
       {/* Beneficios - ahora resumidos y con igual tamaño */}
       <section className="benefits-section">
