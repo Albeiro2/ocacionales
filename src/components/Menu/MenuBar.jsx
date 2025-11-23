@@ -73,18 +73,18 @@ const MenuBar = () => {
 
   return (
     <nav className="medical-navbar">
-      <div className="navbar-logo">
-        <div className="logo-link">
-          <div className="logo-text-group">
-            <div className="logo-title">
-              TELEMARKETER <span>BPO</span>
-            </div>
-            <div className="logo-subtitle">
-              & LOGISTICS SAS
-            </div>
-          </div>
-        </div>
+      <div className="navbar-logo" style={{cursor: 'pointer'}} onClick={() => handleNavigation('about')}>
+  <div className="logo-link">
+    <div className="logo-text-group">
+      <div className="logo-title">
+        TELEMARKETER <span>BPO</span>
       </div>
+      <div className="logo-subtitle">
+        & LOGISTICS SAS
+      </div>
+    </div>
+  </div>
+</div>
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         <span className="bar"></span>
         <span className="bar"></span>
@@ -116,7 +116,7 @@ const MenuBar = () => {
               onClick={() => handleNavigation('plan')}
               className={activeSection === 'plan' ? 'active' : ''}
             >
-              Planes
+              Aliados
             </a>
           </li>
           <li>

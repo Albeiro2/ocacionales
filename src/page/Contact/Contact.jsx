@@ -37,7 +37,7 @@ const Contact = () => {
             se pondrá en contacto contigo a la brevedad.
           </p>
           <div className="info-item">
-            <strong>Email:</strong> <a href="mailto:soporte@clinicabienestar.com">soporte@clinicabienestar.com</a>
+            <strong>Email:</strong> <a href="mailto:soporte@clinicabienestar.com">soporte@telemarket.com</a>
           </div>
           <div className="info-item">
             <strong>Teléfono:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a>
