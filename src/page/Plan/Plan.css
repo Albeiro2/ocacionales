@@ -1,149 +1,87 @@
-/* Fondo y contenedor principal */
-.plans-background {
-  background-color: #f0f4f8; /* Un fondo gris azulado claro */
-  padding: 60px 20px;
+.aliados-background {
+  background-color: #f0f4f8;
+  padding: 34px 0 70px 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  min-height: 100vh;
+  min-height: 0;
 }
 
-.plans-container {
+.aliados-container {
   max-width: 900px;
   margin: 0 auto;
-}
-
-/* Encabezado de la página */
-.plans-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.plans-header h1 {
-  font-size: 2.5rem;
-  color: #0d2c4b; /* Azul oscuro */
-  margin-bottom: 10px;
-}
-
-.plans-header p {
-  font-size: 1.1rem;
-  color: #5a6f84;
-}
-
-/* Contenedor de las tarjetas */
-.plan-cards-wrapper {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-/* Estilo general de las tarjetas de plan */
-.plan-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  padding: 30px;
-  width: 320px;
-  text-align: center;
-  border: 1px solid #e2e8f0;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative; /* Para la insignia de "Más Popular" */
-}
-
-.plan-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 90, 158, 0.1);
-}
-
-.plan-title h2 {
-  font-size: 1.8rem;
-  color: #005a9e; /* Azul médico */
-  margin-bottom: 15px;
-}
-
-.plan-price {
-  font-size: 2.8rem;
-  font-weight: bold;
-  color: #0d2c4b;
-  margin-bottom: 10px;
-}
-
-.plan-price span {
-  font-size: 1rem;
-  color: #5a6f84;
-  font-weight: normal;
-  display: block;
-}
-
-/* Lista de características */
-.plan-features {
-  list-style: none;
-  padding: 0;
-  margin: 30px 0;
-  text-align: left;
-  color: #333;
-}
-
-.plan-features li {
-  margin-bottom: 15px;
-  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.check-icon {
-  color: #28a745; /* Verde de éxito */
-  font-weight: bold;
-  margin-right: 10px;
-  font-size: 1.2rem;
+/* Header alineado */
+.aliados-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.aliados-header h1 {
+  font-size: 2.3rem;
+  color: #0d2c4b;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.aliados-header p {
+  font-size: 1.1rem;
+  color: #5a6f84;
+  font-weight: 400;
 }
 
-/* Estilo de los botones */
-.btn {
-  padding: 12px 30px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  border: 2px solid;
-  cursor: pointer;
-  transition: all 0.3s;
+/* Slider de aliados, grande y responsivo */
+.aliados-slider-wrapper {
+  width: 520px;
+  max-width: 98vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 0;
+}
+
+.aliados-slider-viewport {
   width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  min-height: 210px;
+  margin: 0;
 }
 
-.btn-outline {
-  background-color: transparent;
-  border-color: #005a9e;
-  color: #005a9e;
+.aliados-slider {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(.5,1.05,.32,1);
+  will-change: transform;
 }
 
-.btn-outline:hover {
-  background-color: #005a9e;
-  color: #ffffff;
+.aliado-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 0;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: #ffffff;
+.aliado-slide img {
+  width: auto;
+  height: auto;
+  max-width: 96vw;      /* Esto es lo NUEVO: usa casi todo el ancho en móvil */
+  max-height: 180px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-
-/* Estilos específicos para la tarjeta Premium */
-.premium-card {
-  border-color: #007bff;
-}
-
-.popular-badge {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ffc107; /* Amarillo para destacar */
-  color: #333;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
+@media (max-width: 600px) {
+  .aliados-header h1 { font-size: 1.35rem; }
+  .aliados-header p { font-size: 0.97rem; }
+  .aliados-slider-wrapper { width: 99vw; max-width: 100vw; }
+  .aliados-slider-viewport { min-height: 85px; border-radius: 10px;}
+  .aliado-slide img { max-width: 94vw; max-height: 65px; }
+  .aliado-slide { padding: 15px 0;}
 }
