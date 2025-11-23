@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './MenuBar.css';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const MenuBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('inicio');
+  const [activeSection, setActiveSection] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Función que decide qué hacer al hacer clic
   const handleNavigation = (sectionId) => {
     setMenuOpen(false);
     if (location.pathname === '/') {
@@ -21,10 +20,9 @@ const MenuBar = () => {
     }
   };
 
-  // useEffect para detectar qué sección está visible al hacer scroll
   useEffect(() => {
     const timer = setTimeout(() => {
-      const sections = ['inicio', 'service', 'about', 'plan', 'contact'];
+      const sections = ['about', 'service', 'plan', 'contact'];
       const observer = new IntersectionObserver(
         (entries) => {
           const visibleEntries = entries.filter(entry => entry.isIntersecting);
@@ -36,38 +34,30 @@ const MenuBar = () => {
           }
         },
         {
-          threshold: [0, 0.25, 0.5, 0.75, 1],
+          threshold: [0, 0.1, 0.3, 0.7, 1],
           rootMargin: '-80px 0px -60% 0px'
         }
       );
-
       sections.forEach((sectionId) => {
         const element = document.getElementById(sectionId);
-        if (element) {
-          observer.observe(element);
-        }
+        if (element) observer.observe(element);
       });
-
       return () => {
         sections.forEach((sectionId) => {
           const element = document.getElementById(sectionId);
-          if (element) {
-            observer.unobserve(element);
-          }
+          if (element) observer.unobserve(element);
         });
       };
     }, 100);
-
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
-  // useEffect para manejar el hash inicial
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.substring(1);
       setActiveSection(id);
     } else {
-      const sections = ['inicio', 'service', 'about', 'plan', 'contact'];
+      const sections = ['about', 'service', 'plan', 'contact'];
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -84,7 +74,7 @@ const MenuBar = () => {
   return (
     <nav className="medical-navbar">
       <div className="navbar-logo">
-        <a href="#inicio" onClick={() => handleNavigation('inicio')} className="logo-link">
+        <div className="logo-link">
           <div className="logo-text-group">
             <div className="logo-title">
               TELEMARKETER <span>BPO</span>
@@ -93,7 +83,7 @@ const MenuBar = () => {
               & LOGISTICS SAS
             </div>
           </div>
-        </a>
+        </div>
       </div>
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         <span className="bar"></span>
@@ -104,20 +94,20 @@ const MenuBar = () => {
         <ul className="navbar-links">
           <li>
             <a 
+              href="#about" 
+              onClick={() => handleNavigation('about')}
+              className={activeSection === 'about' ? 'active' : ''}
+            >
+              ¿Quiénes somos?
+            </a>
+          </li>
+          <li>
+            <a 
               href="#service" 
               onClick={() => handleNavigation('service')}
               className={activeSection === 'service' ? 'active' : ''}
             >
               Servicios
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#about" 
-              onClick={() => handleNavigation('about')}
-              className={activeSection === 'about' ? 'active' : ''}
-            >
-              Sobre nosotros
             </a>
           </li>
           <li>
