@@ -11,7 +11,6 @@ const MenuBar = () => {
   // Función que decide qué hacer al hacer clic
   const handleNavigation = (sectionId) => {
     setMenuOpen(false);
-
     if (location.pathname === '/') {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -26,16 +25,13 @@ const MenuBar = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       const sections = ['inicio', 'service', 'about', 'plan', 'contact'];
-      
       const observer = new IntersectionObserver(
         (entries) => {
           const visibleEntries = entries.filter(entry => entry.isIntersecting);
-          
           if (visibleEntries.length > 0) {
             const mostVisible = visibleEntries.reduce((prev, current) => {
               return (current.intersectionRatio > prev.intersectionRatio) ? current : prev;
             });
-            
             setActiveSection(mostVisible.target.id);
           }
         },
@@ -88,17 +84,22 @@ const MenuBar = () => {
   return (
     <nav className="medical-navbar">
       <div className="navbar-logo">
-        <a href="#inicio" onClick={() => handleNavigation('inicio')}>
-          Clínica Bienestar
+        <a href="#inicio" onClick={() => handleNavigation('inicio')} className="logo-link">
+          <div className="logo-text-group">
+            <div className="logo-title">
+              TELEMARKETER <span>BPO</span>
+            </div>
+            <div className="logo-subtitle">
+              & LOGISTICS SAS
+            </div>
+          </div>
         </a>
       </div>
-
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         <span className="bar"></span>
         <span className="bar"></span>
-        <span className="bar"></span> {/* TERCERA LÍNEA AGREGADA */}
+        <span className="bar"></span>
       </div>
-
       <div className={`navbar-right-content ${menuOpen ? 'active' : ''}`}>
         <ul className="navbar-links">
           <li>

@@ -1,39 +1,79 @@
 /* --- ESTILOS DE ESCRITORIO --- */
-
-/* Contenedor principal de la barra de navegación */
 .medical-navbar {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: #ffffff;
   padding: 15px 30px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Helvetica Neue', Arial, sans-serif;
+  flex-wrap: wrap;
 }
 
-/* Estilo del logo */
+/* Logo en letras a la izquierda, compacto */
 .navbar-logo {
   position: absolute;
   left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: auto;
+  display: flex;
+  align-items: center;
+  max-width: 270px;
+  min-width: min-content;
+  padding-right: 12px;
+  margin-right: 4px;
+  z-index: 2;
 }
 
-.navbar-logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #005a9e;
+.logo-link {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-/* Contenedor en escritorio */
+/* Bloque de textos */
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.logo-title {
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #2f4054;
+  font-size: 1.25rem;
+  margin-top: 2px;
+}
+.logo-title span {
+  color: #005a9e;
+  font-weight: bold;
+  font-size: 1.12rem;
+}
+.logo-subtitle {
+  color: #333;
+  font-size: 1.09rem;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* Contenedor de los links del menú en escritorio */
 .navbar-right-content {
-  display: contents;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
 }
 
-/* Enlaces de navegación */
 .navbar-links {
   list-style: none;
   display: flex;
@@ -41,13 +81,12 @@
   margin: 0;
   padding: 0;
   gap: 35px;
+  flex-wrap: wrap;   /* Menús nunca se empalman */
 }
-
 .navbar-links li {
   display: flex;
   align-items: center;
 }
-
 .navbar-links li a {
   text-decoration: none;
   color: #333333;
@@ -57,13 +96,10 @@
   cursor: pointer;
   display: inline-block;
 }
-
 .navbar-links li a:hover {
   color: #005a9e;
   border-bottom: 2px solid #005a9e;
 }
-
-/* Estilo para el enlace activo */
 .navbar-links li a.active {
   color: #005a9e;
   border-bottom: 2px solid #005a9e;
@@ -75,8 +111,6 @@
   align-items: center;
   gap: 15px;
 }
-
-/* Estilos de botones */
 .login-button, .register-button {
   padding: 10px 20px;
   border-radius: 5px;
@@ -86,14 +120,12 @@
   transition: background-color 0.3s;
   white-space: nowrap;
 }
-
 .login-button { background-color: #007bff; }
 .login-button:hover { background-color: #0056b3; }
 .register-button { background-color: #28a745; }
 .register-button:hover { background-color: #218838; }
 
-/* --- ESTILOS PARA EL MENÚ MÓVIL --- */
-
+/* --- MENÚ MÓVIL --- */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -101,8 +133,10 @@
   gap: 5px;
   position: absolute;
   right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
 }
-
 .menu-toggle .bar {
   width: 25px;
   height: 3px;
@@ -111,8 +145,20 @@
   transition: all 0.3s ease;
 }
 
+/* Responsive mediano: el logo y los links se compactan para no chocar ni interrumpirse */
+@media (max-width: 1100px) {
+  .navbar-logo {
+    max-width: 165px;
+    padding-right: 5px;
+  }
+  .logo-title { font-size: 1rem; }
+  .logo-title span { font-size: .95rem; }
+  .logo-subtitle { font-size: .9rem; }
+  .navbar-links { gap: 18px; }
+}
+
+/* Responsive: menú móvil desplegable y logo en la zona superior */
 @media (max-width: 850px) {
-  /* Ajustar navbar para móvil - ASEGURAR QUE SEA STICKY */
   .medical-navbar {
     position: sticky;
     top: 0;
@@ -121,24 +167,28 @@
     background-color: #ffffff;
     z-index: 1000;
   }
-
-  /* Logo en móvil */
   .navbar-logo {
     position: static;
+    left: 0;
+    top: 0;
+    transform: none;
     flex: 1;
+    max-width: 98vw;
+    margin-bottom: 8px;
+    padding-right: 0;
+    z-index: 2;
   }
-
-  .navbar-logo a {
-    font-size: 1.25rem;
-  }
-
-  /* Mostrar el botón de menú hamburguesa con 3 líneas */
+  .logo-title { font-size: 1.05rem; }
+  .logo-title span { font-size: 1rem; }
+  .logo-subtitle { font-size: .96rem; }
   .menu-toggle {
     display: flex;
     gap: 4px;
+    position: absolute;
+    right: 30px;
+    top: 18px;
+    transform: none;
   }
-
-  /* Menú desplegable - posición fixed para que se mantenga visible */
   .navbar-right-content {
     display: none;
     position: fixed;
@@ -154,12 +204,9 @@
     padding: 0;
     z-index: 999;
   }
-
   .navbar-right-content.active {
     display: flex;
   }
-
-  /* Enlaces en móvil - CENTRADOS */
   .navbar-links {
     flex-direction: column;
     width: 100%;
@@ -168,62 +215,60 @@
     padding: 0;
     margin: 0;
   }
-
   .navbar-links li {
     width: 100%;
     display: block;
   }
-
   .navbar-links li a {
     display: block;
     width: 100%;
     padding: 15px 20px;
-    text-align: center; /* CENTRADO */
+    text-align: center;
     border-bottom: 1px solid rgba(0, 90, 158, 0.1);
     box-sizing: border-box;
   }
-
   .navbar-links li a:hover {
     background-color: rgba(0, 90, 158, 0.05);
     border-bottom: 1px solid rgba(0, 90, 158, 0.1);
   }
-
-  /* Estilo activo en móvil */
   .navbar-links li a.active {
     background-color: rgba(0, 90, 158, 0.1);
     color: #005a9e;
     border-bottom: 1px solid rgba(0, 90, 158, 0.2);
     font-weight: 600;
   }
-
-  /* Botones de autenticación en móvil */
   .navbar-auth {
     margin: 15px 20px;
     padding: 0;
     gap: 10px;
     flex-direction: column;
   }
-
   .login-button, .register-button {
     width: 100%;
     text-align: center;
   }
 }
 
-/* Para pantallas muy pequeñas */
+/* Responsive en muy pequeños */
 @media (max-width: 480px) {
-  .navbar-logo a {
-    font-size: 1.1rem;
+  .navbar-logo {
+    max-width: 98vw;
+    margin-bottom: 6px;
+    padding-right: 0;
+    left: 0;
+    top: 0;
+    transform: none;
   }
-
+  .logo-title { font-size: .8rem; }
+  .logo-title span { font-size: .73rem; }
+  .logo-subtitle { font-size: .75rem; }
   .medical-navbar {
     padding: 12px 15px;
   }
-
   .menu-toggle {
     right: 15px;
+    top: 11px;
   }
-
   .navbar-right-content {
     top: 50px;
     max-height: calc(100vh - 50px);
