@@ -102,6 +102,8 @@
   z-index: 20;
   transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
   box-shadow: 0 2px 6px rgba(2,6,23,0.06);
+  left: auto;
+  right: auto;
 }
 .carousel-arrow:hover {
   background: rgba(13,110,253,0.18);
@@ -110,8 +112,9 @@
 }
 .carousel-arrow:active { transform: translateY(-50%) scale(0.98); }
 
-.carousel-arrow-left { left: 8px; }
-.carousel-arrow-right { right: 8px; }
+/* default lateral placement for desktop/tablet */
+.carousel-arrow-left { left: 8px; right: auto; }
+.carousel-arrow-right { right: 8px; left: auto; }
 
 /* Ajustes para accesibilidad y foco */
 .carousel-arrow:focus {
@@ -119,10 +122,12 @@
   outline-offset: 2px;
 }
 
-/* Responsive */
+/* Responsive general */
 @media (max-width: 900px) {
   .aliados-slider-wrapper { width: 86vw; }
 }
+
+/* Móvil: < =600px (ajustes generales) */
 @media (max-width: 600px) {
   .aliados-header h1 { font-size: 1.35rem; }
   .aliados-header p { font-size: 0.97rem; }
@@ -130,14 +135,53 @@
   .aliados-slider-viewport { min-height: 85px; border-radius: 10px;}
   .aliado-slide img { max-width: 94vw; max-height: 65px; }
   .aliado-slide { padding: 15px 0;}
-  /* flechas más discretas en móvil */
   .carousel-arrow {
     width: 34px;
     height: 34px;
     font-size: 20px;
-    left: 6px;
-    right: 6px;
+    left: auto;
+    right: auto;
   }
+  /* por defecto en móviles mantenemos lateral pequeño si hay espacio */
   .carousel-arrow-left { left: 6px; }
   .carousel-arrow-right { right: 6px; }
+}
+
+/* Punto específico para pantallas tipo 600 x 812 (o menores de 600 de ancho y altura <=812)
+   Aquí colocamos las flechas una arriba y otra abajo, centradas horizontalmente. */
+@media (max-width: 600px) and (max-height: 812px) {
+  .carousel-arrow {
+    /* centrar horizontalmente y quitar el transform que mueve por Y */
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    right: auto;
+    bottom: auto;
+  }
+
+  /* Flecha superior (anterior) */
+  .carousel-arrow-left {
+    top: -20px;         /* encima del contenedor */
+    left: 50%;
+    transform: translateX(-50%); /* centrar */
+  }
+
+  /* Flecha inferior (siguiente) */
+  .carousel-arrow-right {
+    bottom: -20px;      /* debajo del contenedor */
+    left: 50%;
+    transform: translateX(-50%); /* centrar */
+  }
+
+  /* aumentar z-index para que queden por encima y sean táctiles */
+  .carousel-arrow-left,
+  .carousel-arrow-right {
+    z-index: 30;
+  }
+
+  /* si necesita más espacio visual, reducir la sombra/contraste ligeramente */
+  .carousel-arrow {
+    box-shadow: 0 6px 16px rgba(2,6,23,0.10);
+    background: rgba(13,110,253,0.12);
+  }
 }
