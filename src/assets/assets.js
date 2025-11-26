@@ -13,6 +13,10 @@ import oficina from './oficina.jpeg';
 import vision from './vision.webp';
 import empresa from './empresa.jpg';
 import calidad from './calidad.jpg';
+import televenta from './televenta.jpg';
+import cliente from './serviciocliente.webp';
+import cobranza from './cobranza.png';
+import mercadeo from './mercadeo.jpg';
 export const images = {
     fondo,
     logo,
@@ -22,6 +26,10 @@ export const images = {
     vision,
     empresa,
     calidad,
+    televenta,
+    cliente,
+    cobranza,
+    mercadeo,
     aliados:[
         aliado1,
         aliado2,

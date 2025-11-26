@@ -56,14 +56,17 @@
   margin-bottom: 50px;
 }
 
-.steps-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 1000px;
+.steps-container,
+.bpo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px; /* o prueba con menos, como 20px */
+  max-width: 704px; /* ajusta según el ancho REAL de tus cards */
   margin: 0 auto;
+  align-items: stretch;
+  justify-items: center;
 }
+
 
 .step-card {
   background: #fff;
@@ -169,6 +172,7 @@
   min-height: 70px;
 }
 
+/* Responsive */
 @media (max-width: 950px) {
   .steps-container { gap: 16px; }
   .step-card { width: 96vw; min-width: 215px; max-width: 99vw; padding: 22px 8px; }
@@ -190,64 +194,7 @@
   .benefit-item { min-height: 110px; }
 }
 
-/* NUEVO: Servicios personalizados BPO */
-.bpo-section {
-  background: #fff;
-  padding: 40px 20px 18px 20px;
-  text-align: center;
-}
-
-.bpo-section h2 {
-   font-size: 2.5rem;
-  color: #005a9e;
-  margin-bottom: 50px;
-}
-
-.bpo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 36px;
-  max-width: 1100px;
-  margin: 0 auto;
-  align-items: stretch;
-}
-
-.bpo-card {
-  background: #fafdff;
-  border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-  padding: 34px 18px 18px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 244px;
-  max-width: 340px;
-  margin: 0 auto;
-  justify-content: flex-start;
-}
-
-.bpo-icon {
-  margin-bottom: 16px;
-  height: 48px;
-  width: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bpo-card h3 {
-  font-size: 1.16rem;
-  margin-bottom: 9px;
-  color: #23518b;
-  font-weight: 700;
-}
-.bpo-card p {
-  color: #555;
-  font-size: 1.02rem;
-  line-height: 1.45;
-}
-
-/* -------- CAFETERÍA: TEXTO OCULTO HASTA HOVER, BLANCO SOBRE SOMBRA -------- */
+/* -------- CAFETERÍA: COLOR ORIGINAL, OSCURECE SÓLO EN HOVER -------- */
 .cafe-card {
   position: relative;
   overflow: hidden;
@@ -259,10 +206,10 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/cafe.jpg'); /* Cambia la ruta si usas otro path o import */
+  background-image: url('../../assets/cafe.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.7;
+  opacity: 1;
   z-index: 1;
 }
 .cafe-card::after {
@@ -312,7 +259,7 @@
   opacity: 1;
 }
 
-/* -------- OFICINA: TEXTO OCULTO HASTA HOVER, BLANCO SOBRE SOMBRA -------- */
+/* -------- OFICINA: COLOR ORIGINAL, OSCURECE SÓLO EN HOVER -------- */
 .oficina-card {
   position: relative;
   overflow: hidden;
@@ -324,10 +271,10 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/oficina.jpeg'); /* Cambia la ruta si usas otro path o import */
+  background-image: url('../../assets/oficina.jpeg');
   background-size: cover;
   background-position: center;
-  opacity: 0.7;
+  opacity: 1;
   z-index: 1;
 }
 .oficina-card::after {
@@ -377,44 +324,7 @@
   opacity: 1;
 }
 
-/* Hover efectos comunes */
-.step-card,
-.bpo-card,
-.distincion-card,
-.benefit-item {
-  background: rgba(13,110,253,0.04);
-  border: 1px solid rgba(13,110,253,0.10);
-  border-radius: 10px;
-  padding: 18px;
-  transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease, border-color 220ms ease;
-}
-
-.step-card:hover,
-.bpo-card:hover,
-.distincion-card:hover,
-.benefit-item:hover {
-  box-shadow: 0 10px 30px rgba(2,6,23,0.12), 0 6px 12px rgba(13,110,253,0.14);
-  transform: translateY(-6px) scale(1.01);
-  background: rgba(13,110,253,0.08);
-  border-color: rgba(13,110,253,0.30);
-}
-
-.step-icon, .bpo-icon, .distincion-icon, .benefit-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-@media (max-width: 900px) {
-  .distinciones-section h2 { font-size: 1.32rem; }
-  .distincion-card { min-height: 190px; }
-}
-@media (max-width: 600px) {
-  .distinciones-grid { grid-template-columns: 1fr; }
-  .distincion-card { min-height: 125px; max-width: 99vw; }
-}
-/* -------- BOTIQUÍN: TEXTO OCULTO HASTA HOVER, BLANCO SOBRE SOMBRA -------- */
+/* -------- BOTIQUIN: COLOR ORIGINAL, OSCURECE SÓLO EN HOVER -------- */
 .botiquin-card {
   position: relative;
   overflow: hidden;
@@ -426,10 +336,10 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/botiquin.jpg'); /* Cambia la ruta si usas otro path o import */
+  background-image: url('../../assets/botiquin.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.7;
+  opacity: 1;
   z-index: 1;
 }
 .botiquin-card::after {
@@ -479,7 +389,7 @@
   opacity: 1;
 }
 
-/* -------- IMPRESORA: TEXTO OCULTO HASTA HOVER, BLANCO SOBRE SOMBRA -------- */
+/* -------- IMPRESORA: COLOR ORIGINAL, OSCURECE SÓLO EN HOVER -------- */
 .impresora-card {
   position: relative;
   overflow: hidden;
@@ -491,10 +401,10 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/impresora.jpg'); /* Cambia la ruta si usas otro path o import */
+  background-image: url('../../assets/impresora.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.7;
+  opacity: 1;
   z-index: 1;
 }
 .impresora-card::after {
@@ -542,4 +452,155 @@
 }
 .impresora-card:hover .step-icon {
   opacity: 1;
+}
+
+/* Hover efectos comunes */
+.step-card,
+.bpo-card,
+.distincion-card,
+.benefit-item {
+  background: rgba(13,110,253,0.04);
+  border: 1px solid rgba(13,110,253,0.10);
+  border-radius: 10px;
+  padding: 18px;
+  transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.step-card:hover,
+.bpo-card:hover,
+.distincion-card:hover,
+.benefit-item:hover {
+  box-shadow: 0 10px 30px rgba(2,6,23,0.12), 0 6px 12px rgba(13,110,253,0.14);
+  transform: translateY(-6px) scale(1.01);
+  background: rgba(13,110,253,0.08);
+  border-color: rgba(13,110,253,0.30);
+}
+
+.step-icon, .bpo-icon, .distincion-icon, .benefit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* ... El resto de tu CSS (servicios personalizados, responsive, etc) ... */
+
+
+/*Servicios personalizados*/
+
+.bpo-section {
+  background: #fff;
+  padding: 40px 20px 18px 20px;
+  text-align: center;
+}
+.bpo-section h2 {
+   font-size: 2.5rem;
+  color: #005a9e;
+  margin-bottom: 50px;
+}
+.bpo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas FIJAS */
+  gap: 36px;
+  max-width: 740px; /* Igual que steps-container: 2 cards x 340px + gap */
+  margin: 0 auto;
+  align-items: stretch;
+  justify-items: center;
+}
+.bpo-card {
+  background: #fafdff;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  padding: 34px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 244px;
+  max-width: 340px;
+  margin: 0 auto;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  border: 0;
+}
+
+/* Tarjetas personalizadas: imagen de fondo, texto SIEMPRE visible, sin icono */
+.bpo-televentas,
+.bpo-cliente,
+.bpo-cobranza,
+.bpo-mercadeo {
+  padding: 34px 18px 18px 18px;
+  min-height: 244px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  border-radius: 15px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagen de fondo y oscuro, igual que empresa y calidad */
+.bpo-televentas::before,
+.bpo-cliente::before,
+.bpo-cobranza::before,
+.bpo-mercadeo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(4,12,30,0.35), rgba(4,12,30,0.35));
+  z-index: 0;
+  transition: background 220ms ease, opacity 220ms ease;
+}
+.bpo-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.bpo-card h3 {
+  color: #fff;
+  font-size: 1.23rem;
+  margin-bottom: 13px;
+  text-shadow: 0 2px 8px rgba(2,6,23,0.45);
+  font-weight: 700;
+}
+.bpo-card p {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(20,20,40,.19), 0 4px 24px rgba(0,0,0,0.12);
+  font-size: 1.03rem;
+  line-height: 1.45;
+}
+
+.bpo-card .bpo-icon { display: none !important; }
+
+.bpo-televentas:hover,
+.bpo-cliente:hover,
+.bpo-cobranza:hover,
+.bpo-mercadeo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(2,6,23,0.11), 0 6px 18px rgba(13,110,253,0.09);
+  border: none;
+  background-color: transparent;
+}
+.bpo-televentas:hover::before,
+.bpo-cliente:hover::before,
+.bpo-cobranza:hover::before,
+.bpo-mercadeo:hover::before {
+  background: linear-gradient(rgba(4,12,30,0.21), rgba(4,12,30,0.21));
+}
+
+/* Responsive igual que antes */
+@media (max-width: 900px) {
+  .bpo-card, .bpo-televentas, .bpo-cliente, .bpo-cobranza, .bpo-mercadeo { min-height: 180px; padding: 16px; }
+}
+@media (max-width: 600px) {
+  .bpo-grid { grid-template-columns: 1fr; }
+  .bpo-card, .bpo-televentas, .bpo-cliente, .bpo-cobranza, .bpo-mercadeo { min-height: 99px; max-width: 99vw; }
 }

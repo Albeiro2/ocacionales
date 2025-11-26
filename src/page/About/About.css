@@ -242,3 +242,21 @@
   .about-tarjeta-mision h3, .about-tarjeta-vision h3,
   .about-tarjeta-empresa h3, .about-tarjeta-calidad h3 { font-size: 1.05rem; }
 }
+
+.about-tarjeta-empresa .about-tarjeta-content,
+.about-tarjeta-calidad .about-tarjeta-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centro vertical */
+  align-items: center;       /* centro horizontal */
+  text-align: center;        /* centra el texto */
+}
+
+.about-tarjeta-empresa h3,
+.about-tarjeta-calidad h3,
+.about-tarjeta-empresa p,
+.about-tarjeta-calidad p {
+  text-align: center;
+  width: 100%;
+}
