@@ -91,6 +91,13 @@ const ConfianzaIcon = () => (
 
 const About = () => (
   <div className="about-page-container">
+    {/* Título corporativo */}
+  <img
+  src={images.vitreum}
+  alt="Corporación Vitreum"
+  className="about-corporativo-imagen"
+/>
+
     <section className="about-tarjetas-section">
       <div className="about-tarjetas-grid">
 
@@ -102,7 +109,7 @@ const About = () => (
           <div className="about-tarjeta-content">
             <h3>Nuestra empresa</h3>
             <p>
-              Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
+              Corporacion Vitreum Organización sin animo de lucro, trabajamos para transformar la vida de niñas, niños, adolescentes y jóvenes promoviendo sus derechos y brindando oportunidades de desarrollo. A través de programas educativos, de salud y protección, impactamos positivamente el futuro de miles de personas, fomentando un mundo más justo e inclusivo
             </p>
           </div>
         </div>
@@ -115,8 +122,7 @@ const About = () => (
           <div className="about-tarjeta-content">
             <h3>Calidad del servicio</h3>
             <p>
-              Nuestra área de auditoría garantiza procesos efectivos y transparentes, cumpliendo cada requerimiento y asegurando resultados confiables.
-            </p>
+            La Corporación Vitreum, como organización sin ánimo de lucro, orienta su labor mediante cuatro ejes: articular esfuerzos, facilitar acceso a información como centro de conocimiento, fortalecer institucionalmente a sus asociadas y promover un entorno que favorezca su labor, contribuyendo al desarrollo y la inversión social en Colombia            </p>
           </div>
         </div>
 
@@ -129,7 +135,7 @@ const About = () => (
             <h3>Misión</h3>
             <div className="about-tarjeta-icon"><MisionIcon /></div>
             <p>
-              Ser aliado estratégico en call/contact center, asesorías jurídicas, contables y más, participando en el crecimiento del cliente con ética, objetividad e integridad.
+              La Corporación Vitreum es una entidad sin ánimo de lucro que desde 2012 impulsa el desarrollo integral de personas y comunidades, promoviendo educación para el trabajo, acceso a salud y bienestar, y apoyo a la niñez y el adulto mayor para mejorar su calidad de vida. Ejecuta programas sociales y educativos, propios y en alianza con el Estado y otras entidades, guiándose por la transparencia, la ética y el compromiso con el desarrollo humano sostenible.
             </p>
           </div>
         </div>
@@ -143,13 +149,34 @@ const About = () => (
             <h3>Visión</h3>
             <div className="about-tarjeta-icon"><VisionIcon /></div>
             <p>
-              Ser líderes nacionales en nuestros servicios, reconocidos como aliados estratégicos por calidad y cumplimiento, contribuyendo al crecimiento de nuestros clientes y la sociedad.
+              Para 2035, la Corporación Vitreum será reconocida a nivel regional y nacional como líder en formación para el trabajo, promoción de la salud y protección de la niñez y el adulto mayor. Será una organización innovadora y confiable en la ejecución de proyectos sociales, destacada por su transparencia, calidad e impacto sostenible, consolidándose como referente en oportunidades, desarrollo humano e inclusión social.
             </p>
           </div>
         </div>
 
       </div>
     </section>
+
+    {/* Tarjeta declaración de servicio */}
+  <div className="about-servicio-declaracion">
+    <h2>DECLARACIÓN DE SERVICIO</h2>
+    <p>
+      La Corporación Vitreum, como organización sin ánimo de lucro dedicada desde el año 2012 a la
+      educación para el trabajo, la promoción de la salud y la atención integral de la niñez y del adulto mayor, desarrolla sus actividades con el objetivo de generar bienestar y oportunidades para las comunidades.
+      <br />
+      Con el fin de ampliar el impacto social de sus programas, la Corporación se encuentra habilitada y comprometida para celebrar contratos, convenios y alianzas con entidades del Estado, en todos los niveles territoriales, de acuerdo con la normatividad vigente en materia de contratación pública. A través de estos mecanismos, Vitreum busca:
+    </p>
+    <ul>
+      <li>Ejecutar proyectos de formación, bienestar y asistencia social dirigidos a poblaciones vulnerables.</li>
+      <li>Desarrollar procesos educativos orientados al trabajo y al fortalecimiento del talento humano.</li>
+      <li>Implementar acciones de promoción, prevención y atención en salud en diversos entornos comunitarios.</li>
+      <li>Realizar programas de protección integral y acompañamiento para la niñez y el adulto mayor.</li>
+      <li>Contribuir al cumplimiento de los planes, políticas públicas y metas sociales definidas por las entidades estatales.</li>
+    </ul>
+    <p>
+      La Corporación Vitreum garantiza transparencia, eficiencia, responsabilidad social y cumplimiento normativo en cada proceso contractual, velando por una gestión ética y orientada a resultados que transformen positivamente las comunidades.
+    </p>
+  </div>
 
     {/* Valores corporativos (distinciones) */}
     <section className="distinciones-section">

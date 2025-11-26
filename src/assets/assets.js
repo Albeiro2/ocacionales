@@ -31,6 +31,7 @@ import alimento2 from './eventos/10.jpg';
 import animar1 from './eventos/11.jpg';
 import animar2 from './eventos/12.jpg';
 import animar3 from './eventos/13.jpg';
+import vitreum from './vitreum.png';
 export const images = {
     fondo,
     logo,
@@ -44,6 +45,7 @@ export const images = {
     cliente,
     cobranza,
     mercadeo,
+    vitreum,
     ninos:[nino1,nino2],
     regalos:[regalo1,regalo2,regalo3],
     sonidos:[sonido1,sonido2,sonido3],
