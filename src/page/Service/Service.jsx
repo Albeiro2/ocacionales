@@ -122,43 +122,6 @@ const Service = () => {
   return (
     <div className="service-page-container">
       {/* Hero */}
-      {/* Nos destacamos en */}
-<section className="distinciones-section">
-  <h2>Valores corporativos</h2>
-  <div className="distinciones-grid">
-    <div className="distincion-card">
-      <div className="distincion-icon"><LogisticaIcon /></div>
-      <h3>Gestión integral</h3>
-      <p>Nos ocupamos de todas las fases de la licitación para lograr la adjudicación.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><ConfianzaIcon /></div>
-      <h3>Honestidad</h3>
-      <p>Más de 20 años de éxito gracias a nuestra transparencia y ética profesional.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><ProveedorIcon /></div>
-      <h3>Profesionalidad</h3>
-      <p>Equipo multidisciplinario experto en cada área clave del negocio.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><ComprasIcon /></div>
-      <h3>Asesoramiento</h3>
-      <p>Resolvemos todas tus dudas antes, durante y después del procedimiento.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><PaperIcon /></div>
-      <h3>Gestión de concursos</h3>
-      <p>Ayudamos a empresas a ganar concursos públicos y privados desde 1993.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><EstrategiaIcon /></div>
-      <h3>Información actualizada</h3>
-      <p>Estamos al tanto de las últimas novedades del sector para tu beneficio.</p>
-    </div>
-  </div>
-</section>
-
 
       {/* Servicios */}
       <section className="how-it-works-section">

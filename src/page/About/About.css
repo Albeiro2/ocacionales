@@ -124,6 +124,59 @@
   border: none;
 }
 
+
+/* Valores corporativos*/
+.distinciones-section {
+  padding: 60px 20px 30px 20px;
+  text-align: center;
+  background: #fff;
+}
+.distinciones-section h2 {
+  font-size: 2.4rem;
+  color: #005a9e;
+  margin-bottom: 44px;
+}
+.distinciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 33px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.distincion-card {
+  background: #fafdff;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  padding: 32px 18px 22px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 275px;
+  max-width: 330px;
+  margin: 0 auto;
+  justify-content: flex-start;
+}
+.distincion-icon {
+  margin-bottom: 12px;
+  height: 55px;
+  width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.distincion-card h3 {
+  font-size: 1.19rem;
+  color: #2c3e50;
+  margin-bottom: 7px;
+  font-weight: 700;
+}
+.distincion-card p {
+  color: #565656;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .about-tarjetas-grid { grid-template-columns: 1fr; }

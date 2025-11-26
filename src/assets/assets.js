@@ -9,12 +9,14 @@ import aliado6 from './aliado6.jpg';
 import aliado7 from './aliado7.jpg';
 import cafe from './cafe.jpg';
 import mision from './mision.jpg';
+import oficina from './oficina.jpeg';
 
 export const images = {
     fondo,
     logo,
     cafe,
     mision,
+    oficina,
     aliados:[
         aliado1,
         aliado2,

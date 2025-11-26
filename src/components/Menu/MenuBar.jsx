@@ -94,20 +94,20 @@ const MenuBar = () => {
         <ul className="navbar-links">
           <li>
             <a 
-              href="#about" 
-              onClick={() => handleNavigation('about')}
-              className={activeSection === 'about' ? 'active' : ''}
-            >
-              ¿Quiénes somos?
-            </a>
-          </li>
-          <li>
-            <a 
               href="#service" 
               onClick={() => handleNavigation('service')}
               className={activeSection === 'service' ? 'active' : ''}
             >
               Servicios
+            </a>
+          </li>
+           <li>
+            <a 
+              href="#about" 
+              onClick={() => handleNavigation('about')}
+              className={activeSection === 'about' ? 'active' : ''}
+            >
+              ¿Quiénes somos?
             </a>
           </li>
           <li>
