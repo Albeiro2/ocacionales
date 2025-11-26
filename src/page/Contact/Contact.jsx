@@ -18,13 +18,24 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario (ej: usando EmailJS, o a un backend)
-    console.log('Formulario enviado:', formData);
-    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-    // Limpiar el formulario
-    setFormData({ name: '', email: '', phone: '', comment: '' });
-  };
+  e.preventDefault();
+
+  // Construye cuerpo
+  const body =
+    `Nombre: ${formData.name}\n` +
+    `Email: ${formData.email}\n` +
+    `Teléfono: ${formData.phone}\n` +
+    `Comentario:\n${formData.comment}`;
+
+  // Arma el mailto
+  const mailtoLink = `mailto:telemarketergerencia@gmail.com?subject=Consulta%20desde%20sitio%20web&body=${encodeURIComponent(body)}`;
+
+  // Abre el correo con los datos ya prellenados
+  window.location.href = mailtoLink;
+
+  // Opcional: limpiar formulario después de abrir el mail
+  setFormData({ name: '', email: '', phone: '', comment: '' });
+};
 
   return (
     <div className="contact-page-wrapper">
@@ -37,10 +48,19 @@ const Contact = () => {
             se pondrá en contacto contigo a la brevedad.
           </p>
           <div className="info-item">
-            <strong>Email:</strong> <a href="mailto:soporte@clinicabienestar.com">soporte@telemarket.com</a>
+            <strong>Email:</strong> <a href="telemarketergerencia@gmail.com">telemarketergerencia@gmail.com</a>
           </div>
           <div className="info-item">
-            <strong>Teléfono:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a>
+            <strong>Direccion:</strong> <a href="direccion:BogotáD.C.Carrera7No.6450">Bogotá D.C. Carrera 7 No. 64 50</a>
+          </div>
+          <div className="info-item">
+            <strong>Teléfono:</strong> <a href="tel:+573243869227">+57 3243869227</a>
+          </div>
+          <div className="info-item">
+            <strong>Direccion:</strong> <a href="direccion:BarranquillaCarrera57No.7471">Barranquilla Carrera 57 No. 74 71</a>
+          </div>
+          <div className="info-item">
+            <strong>Teléfono:</strong> <a href="tel:+573103612721">+57 3103612721</a>
           </div>
           <div className="info-item">
             <strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 5:00 PM
