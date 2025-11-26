@@ -73,7 +73,7 @@ const MenuBar = () => {
 
   return (
     <nav className="medical-navbar">
-      <div className="navbar-logo" style={{cursor: 'pointer'}} onClick={() => handleNavigation('about')}>
+      <div className="navbar-logo" style={{cursor: 'pointer'}} onClick={() => handleNavigation('service')}>
   <div className="logo-link">
     <div className="logo-text-group">
       <div className="logo-title">

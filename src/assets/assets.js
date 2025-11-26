@@ -1,12 +1,12 @@
 import fondo from './fondo.jpg';
 import logo from './logo.png';
-import aliado1 from './aliado1.jpg';
-import aliado2 from './aliado2.jpg';
-import aliado3 from './aliado3.jpg';
-import aliado4 from './aliado4.jpg';
-import aliado5 from './aliado5.jpg';
-import aliado6 from './aliado6.jpg';
-import aliado7 from './aliado7.jpg';
+import aliado1 from './aliados/aliado1.jpg';
+import aliado2 from './aliados/aliado2.jpg';
+import aliado3 from './aliados/aliado3.jpg';
+import aliado4 from './aliados/aliado4.jpg';
+import aliado5 from './aliados/aliado5.jpg';
+import aliado6 from './aliados/aliado6.jpg';
+import aliado7 from './aliados/aliado7.jpg';
 import cafe from './cafe.jpg';
 import mision from './mision.jpg';
 import oficina from './oficina.jpeg';
@@ -37,6 +37,19 @@ import empresa2 from './empresa2.jpg';
 import calidad2 from './calidad2.jpg';
 import vision2 from './vision2.jpg';
 import mision2 from './mision2.jpg';
+/*alidaos*/
+import cliente1 from './clientes/cliente1.jpg';
+import cliente2 from './clientes/cliente2.jpg';
+import cliente3 from './clientes/cliente3.jpg';
+import cliente4 from './clientes/cliente4.jpg';
+import cliente5 from './clientes/cliente5.jpg';
+import cliente6 from './clientes/cliente6.jpg';
+import cliente7 from './clientes/cliente7.jpg';
+import cliente8 from './clientes/cliente8.jpg';
+import cliente9 from './clientes/cliente9.jpg';
+import cliente10 from './clientes/cliente10.jpg';
+import cliente11 from './clientes/cliente11.jpg';
+import cliente12 from './clientes/cliente12.jpg';
 export const images = {
     fondo,
     logo,
@@ -61,6 +74,20 @@ export const images = {
     sonidos:[sonido1,sonido2,sonido3],
     alimentos:[alimento1,alimento2],
     animacion:[animar1,animar2,animar3],
+    clientes:[
+        cliente1,
+        cliente2,
+        cliente3,
+        cliente4,
+        cliente5,
+        cliente6,
+        cliente7,
+        cliente8,
+        cliente9,
+        cliente10,
+        cliente11,
+        cliente12,
+    ],
     aliados:[
         aliado1,
         aliado2,
