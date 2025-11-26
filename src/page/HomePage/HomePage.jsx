@@ -5,6 +5,7 @@ import About from '../About/About';
 import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
 import Plan from '../Plan/Plan';
+import AboutV from '../AboutV/AboutV';
 
 const HomePage = () => {
   const location = useLocation();
@@ -33,6 +34,11 @@ const HomePage = () => {
       <section id="plan">
         <Plan />
       </section>
+
+      <section id="aboutV">
+        <AboutV />
+      </section>
+
       <section id="contact">
         <Contact />
       </section>

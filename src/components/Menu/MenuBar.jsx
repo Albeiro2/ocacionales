@@ -22,7 +22,7 @@ const MenuBar = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const sections = ['about', 'service', 'plan', 'contact'];
+      const sections = ['service','about', 'plan', 'aboutV', 'contact'];
       const observer = new IntersectionObserver(
         (entries) => {
           const visibleEntries = entries.filter(entry => entry.isIntersecting);
@@ -57,7 +57,7 @@ const MenuBar = () => {
       const id = location.hash.substring(1);
       setActiveSection(id);
     } else {
-      const sections = ['about', 'service', 'plan', 'contact'];
+      const sections = ['service','about', 'plan', 'aboutV', 'contact'];
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -119,6 +119,17 @@ const MenuBar = () => {
               Aliados
             </a>
           </li>
+
+          <li>
+            <a 
+              href="#aboutV" 
+              onClick={() => handleNavigation('aboutV')}
+              className={activeSection === 'aboutV' ? 'active' : ''}
+            >
+              Vitreum
+            </a>
+          </li>
+
           <li>
             <a 
               href="#contact" 

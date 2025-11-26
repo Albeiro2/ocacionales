@@ -56,18 +56,20 @@
   margin-bottom: 50px;
 }
 
+/* Consolidado: steps-container y bpo-grid responsive */
 .steps-container,
 .bpo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5px; /* o prueba con menos, como 20px */
-  max-width: 704px; /* ajusta según el ancho REAL de tus cards */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
   align-items: stretch;
   justify-items: center;
+  padding: 0 12px;
 }
 
-
+/* tarjetas (pasos) */
 .step-card {
   background: #fff;
   border-radius: 16px;
@@ -75,13 +77,14 @@
   padding: 32px 18px 24px 18px;
   margin-bottom: 20px;
   text-align: center;
-  width: 300px;
-  min-width: 250px;
+  width: 100%;
   max-width: 340px;
+  min-width: 0; /* clave para que en grid no genere overflow */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .step-icon {
@@ -149,6 +152,9 @@
   align-items: center;
   min-height: 260px;
   justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .benefit-icon {
@@ -175,7 +181,7 @@
 /* Responsive */
 @media (max-width: 950px) {
   .steps-container { gap: 16px; }
-  .step-card { width: 96vw; min-width: 215px; max-width: 99vw; padding: 22px 8px; }
+  .step-card { width: 100%; padding: 22px 8px; }
   .step-card h3 { font-size: 1.06rem; }
   .step-card p { font-size: .98rem; }
   .step-icon { width: 54px; height: 54px; margin-bottom: 12px; }
@@ -464,6 +470,9 @@
   border-radius: 10px;
   padding: 18px;
   transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease, border-color 220ms ease;
+  min-width: 0; /* evita overflow en grid */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .step-card:hover,
@@ -485,28 +494,29 @@
 
 /* ... El resto de tu CSS (servicios personalizados, responsive, etc) ... */
 
-
-/*Servicios personalizados*/
-
+/* Servicios/BPO Section */
 .bpo-section {
   background: #fff;
   padding: 40px 20px 18px 20px;
   text-align: center;
 }
 .bpo-section h2 {
-   font-size: 2.5rem;
+  font-size: 2.5rem;
   color: #005a9e;
   margin-bottom: 50px;
 }
+
+/* Grid para BPO: ahora responsive con auto-fit */
 .bpo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas FIJAS */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 36px;
-  max-width: 740px; /* Igual que steps-container: 2 cards x 340px + gap */
+  max-width: 980px;
   margin: 0 auto;
   align-items: stretch;
   justify-items: center;
+  padding: 0 12px;
 }
+
 .bpo-card {
   background: #fafdff;
   border-radius: 15px;
@@ -516,6 +526,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 244px;
+  width: 100%;
   max-width: 340px;
   margin: 0 auto;
   justify-content: flex-start;
@@ -526,13 +537,17 @@
   background-repeat: no-repeat;
   color: #fff;
   border: 0;
+  box-sizing: border-box;
+  min-width: 0; /* evita overflow sorpresivo */
 }
 
-/* Tarjetas personalizadas: imagen de fondo, texto SIEMPRE visible, sin icono */
+/* Tarjetas personalizadas: imagen de fondo, texto de alto contraste SIEMPRE visible */
 .bpo-televentas,
 .bpo-cliente,
 .bpo-cobranza,
-.bpo-mercadeo {
+.bpo-mercadeo,
+.bpo-aseo,
+.bpo-venta-alquiler { /* agregar clases de aseo y venta/alquiler aquí si existen */
   padding: 34px 18px 18px 18px;
   min-height: 244px;
   background-size: cover;
@@ -543,13 +558,18 @@
   border: 0;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
 }
 
-/* Imagen de fondo y oscuro, igual que empresa y calidad */
+/* overlay para asegurar legibilidad */
 .bpo-televentas::before,
 .bpo-cliente::before,
 .bpo-cobranza::before,
-.bpo-mercadeo::before {
+.bpo-mercadeo::before,
+.bpo-aseo::before,
+.bpo-venta-alquiler::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -562,6 +582,9 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .bpo-card h3 {
@@ -580,10 +603,13 @@
 
 .bpo-card .bpo-icon { display: none !important; }
 
+/* Hover: solo elevación y shadow, no colorear fondo para que imagen no cambie bruscamente */
 .bpo-televentas:hover,
 .bpo-cliente:hover,
 .bpo-cobranza:hover,
-.bpo-mercadeo:hover {
+.bpo-mercadeo:hover,
+.bpo-aseo:hover,
+.bpo-venta-alquiler:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 36px rgba(2,6,23,0.11), 0 6px 18px rgba(13,110,253,0.09);
   border: none;
@@ -592,12 +618,13 @@
 .bpo-televentas:hover::before,
 .bpo-cliente:hover::before,
 .bpo-cobranza:hover::before,
-.bpo-mercadeo:hover::before {
+.bpo-mercadeo:hover::before,
+.bpo-aseo:hover::before,
+.bpo-venta-alquiler:hover::before {
   background: linear-gradient(rgba(4,12,30,0.21), rgba(4,12,30,0.21));
 }
 
-/*eventos*/
-
+/* Eventos section (sin cambios funcionales) */
 .eventos-section {
   width: 100%;
   margin: 80px 0 30px 0;
@@ -636,6 +663,7 @@
   border-color: #0c2863;
 }
 
+/* Carrusel */
 .eventos-carrusel-wrap {
   position: relative;
   width: 100%;
@@ -665,7 +693,6 @@
   border-radius: 16px;
   box-shadow: 0 2px 18px #0002;
   display: block;
-  /* No opacity ni scale aquí */
 }
 .evento-img-activa {
   left: 150px;
@@ -724,7 +751,7 @@
 
 .evento-img-wrapper {
   position: absolute;
-  width: 900px;       
+  width: 900px;
   height: 600px;
   top: 0;
   left: 0;
@@ -760,7 +787,7 @@
   line-height: 1.18;
 }
 
-/* Responsivo para overlay explicativo */
+/* Responsive for carousel overlay */
 @media (max-width: 1100px) {
   .evento-img-wrapper { width: 86vw; height: calc(86vw * 0.67); }
   .evento-explicacion-overlay span { font-size: 1.5rem; padding: 15px 2vw; }
@@ -774,81 +801,17 @@
   .evento-explicacion-overlay span { font-size: .93rem; padding: 7px 2vw; }
 }
 
-
-
-/* ----------- Responsive para carrusel de eventos ----------- */
-
-@media (max-width: 1100px) {
-  .eventos-carrusel-wrap {
-    max-width: 99vw;
-  }
-  .evento-img,
-  .evento-img-activa {
-    width: 86vw;
-    max-width: 540px;
-    height: calc(86vw * 0.67); /* mantiene proporción */
-    min-height: 280px;
-    left: 7vw;
-  }
-  .evento-img-anterior {
-    left: -25vw;
-  }
-  .evento-img-siguiente {
-    left: 54vw;
-  }
-}
-@media (max-width: 700px) {
-  .eventos-carrusel-wrap {
-    max-width: 99vw;
-  }
-  .evento-img,
-  .evento-img-activa {
-    width: 96vw;
-    max-width: 390px;
-    height: calc(96vw * 0.67); /* proporción móvil */
-    min-height: 170px;
-    left: 2vw;
-  }
-  .evento-img-anterior {
-    left: -28vw;
-    opacity: .44;
-    transform: scale(0.91) translateX(-40px);
-  }
-  .evento-img-siguiente {
-    left: 54vw;
-    opacity: .44;
-    transform: scale(0.91) translateX(40px);
-  }
-  .eventos-section h2 { font-size: 1.38rem; }
-  .evento-categoria-boton { font-size: .98rem; padding: 5px 11px;}
-  .evento-carrusel-btn { width: 38px; height: 41px; font-size: 1.8rem; }
-}
-@media (max-width: 420px) {
-  .evento-img,
-  .evento-img-activa {
-    max-width: 93vw;
-    width: 93vw;
-    height: 140px;
-    left: 1vw;
-    border-radius: 9px;
-  }
-  .evento-img-anterior {
-    left: -29vw;
-  }
-  .evento-img-siguiente {
-    left: 56vw;
-  }
-  .evento-carrusel-btn { width: 28px; height: 29px; font-size: 1.2rem; }
-}
-
-
-
-
-/* Responsive igual que antes */
+/* Responsive adjustments for cards */
 @media (max-width: 900px) {
-  .bpo-card, .bpo-televentas, .bpo-cliente, .bpo-cobranza, .bpo-mercadeo { min-height: 180px; padding: 16px; }
+  .bpo-card, .bpo-televentas, .bpo-cliente, .bpo-cobranza, .bpo-mercadeo,
+  .bpo-aseo, .bpo-venta-alquiler { min-height: 180px; padding: 18px; }
+  .steps-container, .bpo-grid { gap: 16px; max-width: 90vw; padding: 0 8px; }
 }
 @media (max-width: 600px) {
-  .bpo-grid { grid-template-columns: 1fr; }
-  .bpo-card, .bpo-televentas, .bpo-cliente, .bpo-cobranza, .bpo-mercadeo { min-height: 99px; max-width: 99vw; }
+  .bpo-grid { grid-template-columns: 1fr; gap: 14px; }
+  .bpo-card, .bpo-televentas, .bpo-cliente, .bpo-cobranza, .bpo-mercadeo,
+  .bpo-aseo, .bpo-venta-alquiler { min-height: 140px; max-width: 100%; }
 }
+
+/* Ensures children in grid/flex shrink properly */
+.step-card, .bpo-card, .benefit-item, .distincion-card { min-width: 0; }
