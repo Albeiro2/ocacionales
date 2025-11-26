@@ -32,6 +32,11 @@ import animar1 from './eventos/11.jpg';
 import animar2 from './eventos/12.jpg';
 import animar3 from './eventos/13.jpg';
 import vitreum from './vitreum.png';
+import temas from './tema.png';
+import empresa2 from './empresa2.jpg';
+import calidad2 from './calidad2.jpg';
+import vision2 from './vision2.jpg';
+import mision2 from './mision2.jpg';
 export const images = {
     fondo,
     logo,
@@ -46,6 +51,11 @@ export const images = {
     cobranza,
     mercadeo,
     vitreum,
+    temas,
+    empresa2,
+    calidad2,
+    vision2,
+    mision2,
     ninos:[nino1,nino2],
     regalos:[regalo1,regalo2,regalo3],
     sonidos:[sonido1,sonido2,sonido3],

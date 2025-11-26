@@ -1,3 +1,4 @@
+/* --- Contenedor general --- */
 .about-page-container {
   padding: 32px 18px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -198,7 +199,7 @@
   margin: 0 auto;
 }
 .distincion-card {
-  background: #fafdff;
+  background: #fafdff; /* fondo claro por defecto (sin verde) */
   border-radius: 15px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.04);
   padding: 32px 18px 22px 18px;
@@ -210,6 +211,7 @@
   max-width: 330px;
   margin: 0 auto;
   justify-content: flex-start;
+  border: none; /* quitar borde rojo */
 }
 .distincion-icon {
   margin-bottom: 12px;
@@ -231,8 +233,7 @@
   line-height: 1.45;
 }
 
-/*Declaracion servicio*/
-
+/* Declaracion servicio */
 .about-corporativo-titulo {
   text-align: center;
   font-size: 2.5rem;
@@ -243,14 +244,9 @@
 }
 
 .about-servicio-declaracion {
-  background: #eaf6fb;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px #285a891a;
-  padding: 32px 20px 22px 20px;
   max-width: 820px;
   margin: 0 auto 40px auto;
-  color: #145275;
-  border: 1px solid #aed8f7;
+  padding: 32px 20px 22px 20px;
 }
 
 .about-servicio-declaracion h2 {
@@ -296,17 +292,44 @@
   }
 }
 
+/* --- Temas de capacitaciones (imagen y título) --- */
+.temas-section {
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 24px 18px;
+  text-align: center;
+}
+.temas-section h2 {
+  font-size: 1.9rem;
+  margin-bottom: 18px;
+  color: #005a9e;
+  font-weight: 700;
+}
+.temas-content {
+  display: flex;
+  justify-content: center;
+}
+.temas-image {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  display: block;
+}
 
 /* Responsive */
 @media (max-width: 900px) {
   .about-tarjetas-grid { grid-template-columns: 1fr; }
   .about-tarjeta-mision, .about-tarjeta-vision, .about-tarjeta-empresa, .about-tarjeta-calidad { min-height: 180px; padding: 18px; }
+  .temas-section { margin: 28px auto; padding: 18px; }
 }
 @media (max-width: 480px) {
   .about-tarjeta { padding: 14px; }
   .about-tarjeta h3 { font-size: 1rem; }
   .about-tarjeta-mision h3, .about-tarjeta-vision h3,
   .about-tarjeta-empresa h3, .about-tarjeta-calidad h3 { font-size: 1.05rem; }
+  .temas-section h2 { font-size: 1.12rem; }
 }
 
 .about-tarjeta-empresa .about-tarjeta-content,
@@ -325,4 +348,13 @@
 .about-tarjeta-calidad p {
   text-align: center;
   width: 100%;
+}
+.about-tarjeta-mision:hover h3,
+.about-tarjeta-mision:hover p,
+.about-tarjeta-mision:hover .about-tarjeta-icon,
+.about-tarjeta-vision:hover h3,
+.about-tarjeta-vision:hover p,
+.about-tarjeta-vision:hover .about-tarjeta-icon {
+  color: #fff !important;
+  fill: #fff !important;
 }

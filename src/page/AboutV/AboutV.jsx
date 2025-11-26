@@ -92,11 +92,11 @@ const ConfianzaIcon = () => (
 const About = () => (
   <div className="about-page-container">
     {/* Título corporativo */}
-  <img
-  src={images.vitreum}
-  alt="Corporación Vitreum"
-  className="about-corporativo-imagen"
-/>
+    <img
+      src={images.vitreum}
+      alt="Corporación Vitreum"
+      className="about-corporativo-imagen"
+    />
 
     <section className="about-tarjetas-section">
       <div className="about-tarjetas-grid">
@@ -104,10 +104,10 @@ const About = () => (
         {/* Empresa: sin icono */}
         <div
           className="about-tarjeta about-tarjeta-empresa"
-          style={{ backgroundImage: `url(${images.empresa})` }}
+          style={{ backgroundImage: `url(${images.empresa2})` }}
         >
           <div className="about-tarjeta-content">
-            <h3>Nuestra empresa</h3>
+            <h3>Vitreum</h3>
             <p>
               Corporacion Vitreum Organización sin animo de lucro, trabajamos para transformar la vida de niñas, niños, adolescentes y jóvenes promoviendo sus derechos y brindando oportunidades de desarrollo. A través de programas educativos, de salud y protección, impactamos positivamente el futuro de miles de personas, fomentando un mundo más justo e inclusivo
             </p>
@@ -117,19 +117,20 @@ const About = () => (
         {/* Calidad del servicio: sin icono */}
         <div
           className="about-tarjeta about-tarjeta-calidad"
-          style={{ backgroundImage: `url(${images.calidad})` }}
+          style={{ backgroundImage: `url(${images.calidad2})` }}
         >
           <div className="about-tarjeta-content">
-            <h3>Calidad del servicio</h3>
+            <h3>Orientación laboral</h3>
             <p>
-            La Corporación Vitreum, como organización sin ánimo de lucro, orienta su labor mediante cuatro ejes: articular esfuerzos, facilitar acceso a información como centro de conocimiento, fortalecer institucionalmente a sus asociadas y promover un entorno que favorezca su labor, contribuyendo al desarrollo y la inversión social en Colombia            </p>
+              La Corporación Vitreum, como organización sin ánimo de lucro, orienta su labor mediante cuatro ejes: articular esfuerzos, facilitar acceso a información como centro de conocimiento, fortalecer institucionalmente a sus asociadas y promover un entorno que favorezca su labor, contribuyendo al desarrollo y la inversión social en Colombia
+            </p>
           </div>
         </div>
 
         {/* Misión: sí tiene icono */}
         <div
           className="about-tarjeta about-tarjeta-mision"
-          style={{ backgroundImage: `url(${images.mision})` }}
+          style={{ backgroundImage: `url(${images.mision2})` }}
         >
           <div className="about-tarjeta-content">
             <h3>Misión</h3>
@@ -143,7 +144,7 @@ const About = () => (
         {/* Visión: sí tiene icono */}
         <div
           className="about-tarjeta about-tarjeta-mision about-tarjeta-vision"
-          style={{ backgroundImage: `url(${images.vision})` }}
+          style={{ backgroundImage: `url(${images.vision2})` }}
         >
           <div className="about-tarjeta-content">
             <h3>Visión</h3>
@@ -158,60 +159,68 @@ const About = () => (
     </section>
 
     {/* Tarjeta declaración de servicio */}
-  <div className="about-servicio-declaracion">
-    <h2>DECLARACIÓN DE SERVICIO</h2>
-    <p>
-      La Corporación Vitreum, como organización sin ánimo de lucro dedicada desde el año 2012 a la
-      educación para el trabajo, la promoción de la salud y la atención integral de la niñez y del adulto mayor, desarrolla sus actividades con el objetivo de generar bienestar y oportunidades para las comunidades.
-      <br />
-      Con el fin de ampliar el impacto social de sus programas, la Corporación se encuentra habilitada y comprometida para celebrar contratos, convenios y alianzas con entidades del Estado, en todos los niveles territoriales, de acuerdo con la normatividad vigente en materia de contratación pública. A través de estos mecanismos, Vitreum busca:
-    </p>
-    <ul>
-      <li>Ejecutar proyectos de formación, bienestar y asistencia social dirigidos a poblaciones vulnerables.</li>
-      <li>Desarrollar procesos educativos orientados al trabajo y al fortalecimiento del talento humano.</li>
-      <li>Implementar acciones de promoción, prevención y atención en salud en diversos entornos comunitarios.</li>
-      <li>Realizar programas de protección integral y acompañamiento para la niñez y el adulto mayor.</li>
-      <li>Contribuir al cumplimiento de los planes, políticas públicas y metas sociales definidas por las entidades estatales.</li>
-    </ul>
-    <p>
-      La Corporación Vitreum garantiza transparencia, eficiencia, responsabilidad social y cumplimiento normativo en cada proceso contractual, velando por una gestión ética y orientada a resultados que transformen positivamente las comunidades.
-    </p>
-  </div>
+    <div className="about-tarjeta about-servicio-declaracion">
+      <h2>DECLARACIÓN DE SERVICIO</h2>
+      <p>
+        La Corporación Vitreum, como organización sin ánimo de lucro dedicada desde el año 2012 a la
+        educación para el trabajo, la promoción de la salud y la atención integral de la niñez y del adulto mayor, desarrolla sus actividades con el objetivo de generar bienestar y oportunidades para las comunidades.
+        <br />
+        Con el fin de ampliar el impacto social de sus programas, la Corporación se encuentra habilitada y comprometida para celebrar contratos, convenios y alianzas con entidades del Estado, en todos los niveles territoriales, de acuerdo con la normatividad vigente en materia de contratación pública. A través de estos mecanismos, Vitreum busca:
+      </p>
+      <ul>
+        <li>Ejecutar proyectos de formación, bienestar y asistencia social dirigidos a poblaciones vulnerables.</li>
+        <li>Desarrollar procesos educativos orientados al trabajo y al fortalecimiento del talento humano.</li>
+        <li>Implementar acciones de promoción, prevención y atención en salud en diversos entornos comunitarios.</li>
+        <li>Realizar programas de protección integral y acompañamiento para la niñez y el adulto mayor.</li>
+        <li>Contribuir al cumplimiento de los planes, políticas públicas y metas sociales definidas por las entidades estatales.</li>
+      </ul>
+      <p>
+        La Corporación Vitreum garantiza transparencia, eficiencia, responsabilidad social y cumplimiento normativo en cada proceso contractual, velando por una gestión ética y orientada a resultados que transformen positivamente las comunidades.
+      </p>
+    </div>
 
     {/* Valores corporativos (distinciones) */}
     <section className="distinciones-section">
-      <h2>Valores corporativos</h2>
+      <h2>¿PORQUÉ SOMOS LA MEJOR OPCIÓN?</h2>
       <div className="distinciones-grid">
         <div className="distincion-card">
           <div className="distincion-icon"><LogisticaIcon /></div>
-          <h3>Gestión integral</h3>
-          <p>Nos ocupamos de todas las fases de la licitación para lograr la adjudicación.</p>
+          <h3>Desarrollo</h3>
+          <p>Desarrollo integral del saber</p>
         </div>
         <div className="distincion-card">
           <div className="distincion-icon"><ConfianzaIcon /></div>
           <h3>Honestidad</h3>
-          <p>Más de 20 años de éxito gracias a nuestra transparencia y ética profesional.</p>
+          <p>Ser feliz con lo que haces</p>
         </div>
         <div className="distincion-card">
           <div className="distincion-icon"><ProveedorIcon /></div>
           <h3>Profesionalidad</h3>
-          <p>Equipo multidisciplinario experto en cada área clave del negocio.</p>
+          <p>Avanza por el camino laboral, profesional</p>
         </div>
         <div className="distincion-card">
           <div className="distincion-icon"><ComprasIcon /></div>
           <h3>Asesoramiento</h3>
-          <p>Resolvemos todas tus dudas antes, durante y después del procedimiento.</p>
+          <p>La formación que necesitas para mejorar tus competencias</p>
         </div>
         <div className="distincion-card">
           <div className="distincion-icon"><PaperIcon /></div>
-          <h3>Gestión de concursos</h3>
-          <p>Ayudamos a empresas a ganar concursos públicos y privados desde 1993.</p>
+          <h3>Calidad</h3>
+          <p>Docentes con alta calidad profesional</p>
         </div>
         <div className="distincion-card">
           <div className="distincion-icon"><EstrategiaIcon /></div>
-          <h3>Información actualizada</h3>
-          <p>Estamos al tanto de las últimas novedades del sector para tu beneficio.</p>
+          <h3>Enseñar</h3>
+          <p>Enseñar con el ejemplo, practicar haciendo</p>
         </div>
+      </div>
+    </section>
+
+    {/* Temas de capacitaciones: imagen desde images.temas */}
+    <section className="temas-section">
+      <h2>Temas de capacitaciones</h2>
+      <div className="temas-content">
+        <img src={images.temas} alt="Temas de capacitaciones" className="temas-image" />
       </div>
     </section>
   </div>
