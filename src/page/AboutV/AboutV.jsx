@@ -181,7 +181,7 @@ const About = () => (
 
     {/* Valores corporativos (distinciones) */}
     <section className="distinciones-section">
-      <h2>¿PORQUÉ SOMOS LA MEJOR OPCIÓN?</h2>
+      <h2>¿Por qué somos la mejor opción?</h2>
       <div className="distinciones-grid">
         <div className="distincion-card">
           <div className="distincion-icon"><LogisticaIcon /></div>

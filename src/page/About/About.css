@@ -260,3 +260,43 @@
   text-align: center;
   width: 100%;
 }
+
+/* Logo textual centrado sobre las tarjetas */
+.about-logo-center {
+  max-width: 1000px;
+  margin: 0 auto 24px auto;
+  text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.about-logo-line1 {
+  color: #1e3d55;            /* azul principal */
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  font-size: 2.1rem;
+}
+
+.about-logo-line1 span {
+  color: #2077bb;            /* BPO resaltado */
+  font-weight: 900;
+}
+
+.about-logo-line2 {
+  margin-top: 4px;
+  color: #2b3b4a;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.15rem;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .about-logo-line1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.8px;
+  }
+  .about-logo-line2 {
+    font-size: 0.98rem;
+    letter-spacing: 0.7px;
+  }
+}

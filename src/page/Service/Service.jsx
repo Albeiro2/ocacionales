@@ -178,7 +178,7 @@ const Service = () => {
 
       {/* --- Sección servicios personalizados BPO --- */}
       <section className="bpo-section">
-  <h2>SERVICIOS PERSONALIZADOS BPO</h2>
+  <h2>Servicios personalizados</h2>
   <div className="bpo-grid">
     <div
       className="bpo-card bpo-televentas"
