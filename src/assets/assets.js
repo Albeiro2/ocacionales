@@ -17,6 +17,20 @@ import televenta from './televenta.jpg';
 import cliente from './serviciocliente.webp';
 import cobranza from './cobranza.png';
 import mercadeo from './mercadeo.jpg';
+/*eventos*/
+import nino1 from './eventos/1.jpg';
+import nino2 from './eventos/2.jpg';
+import regalo1 from './eventos/3.jpg';
+import regalo2 from './eventos/4.jpg';
+import regalo3 from './eventos/5.jpg';
+import sonido1 from './eventos/6.jpg';
+import sonido2 from './eventos/7.jpg';
+import sonido3 from './eventos/8.jpg';
+import alimento1 from './eventos/9.jpg';
+import alimento2 from './eventos/10.jpg';
+import animar1 from './eventos/11.jpg';
+import animar2 from './eventos/12.jpg';
+import animar3 from './eventos/13.jpg';
 export const images = {
     fondo,
     logo,
@@ -30,6 +44,11 @@ export const images = {
     cliente,
     cobranza,
     mercadeo,
+    ninos:[nino1,nino2],
+    regalos:[regalo1,regalo2,regalo3],
+    sonidos:[sonido1,sonido2,sonido3],
+    alimentos:[alimento1,alimento2],
+    animacion:[animar1,animar2,animar3],
     aliados:[
         aliado1,
         aliado2,

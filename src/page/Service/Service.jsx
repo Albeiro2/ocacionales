@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Service.css';
 import { images } from '../../assets/assets';
 
+const eventosCategorias = [
+  { nombre: 'Niños', key: 'ninos' },
+  { nombre: 'Regalos', key: 'regalos' },
+  { nombre: 'Sonidos', key: 'sonidos' },
+  { nombre: 'Alimentos', key: 'alimentos' },
+  { nombre: 'Animación', key: 'animacion' }
+];
 // Íconos SVG simples para servicios
 const OfficeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#007bff" viewBox="0 0 16 16">
@@ -119,6 +126,15 @@ const MercadeoIcon = () => (
 );
 
 const Service = () => {
+
+  const [catActual, setCatActual] = useState('ninos');
+  const [slide, setSlide] = useState(0);
+
+  const imgs = images[catActual] || [];
+
+  const nextImg = () => setSlide(s => (s < imgs.length - 1 ? s + 1 : s));
+  const prevImg = () => setSlide(s => (s > 0 ? s - 1 : s));
+
   return (
     <div className="service-page-container">
 
@@ -193,6 +209,54 @@ const Service = () => {
     </div>
   </div>
 </section>
+
+{/* EVENTOS */}
+<section className="eventos-section">
+  <h2>Eventos</h2>
+  <div className="eventos-categorias">
+    {eventosCategorias.map(cat => (
+      <button
+        key={cat.key}
+        className={`evento-categoria-boton${catActual === cat.key ? ' active' : ''}`}
+        onClick={() => { setCatActual(cat.key); setSlide(0); }}
+      >
+        {cat.nombre}
+      </button>
+    ))}
+  </div>
+  <div className="eventos-carrusel-wrap">
+    <button
+      className="evento-carrusel-btn prev"
+      onClick={prevImg}
+      disabled={slide === 0}
+      style={{ visibility: slide === 0 ? 'hidden' : 'visible', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)' }}
+    >‹</button>
+    <div className="eventos-carrusel">
+      {/* El carrusel muestra la imagen actual, anterior y siguiente (peek) */}
+      {imgs.map((img, idx) => {
+        let estado = 'evento-img-hidden';
+        if (idx === slide) estado = 'evento-img-activa';
+        else if (idx === slide - 1) estado = 'evento-img-anterior';
+        else if (idx === slide + 1) estado = 'evento-img-siguiente';
+        return (
+          <img
+            key={img}
+            src={img}
+            alt=""
+            className={`evento-img ${estado}`}
+          />
+        );
+      })}
+    </div>
+    <button
+      className="evento-carrusel-btn next"
+      onClick={nextImg}
+      disabled={slide === imgs.length - 1}
+      style={{ visibility: slide === imgs.length - 1 ? 'hidden' : 'visible', position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)' }}
+    >›</button>
+  </div>
+</section>
+
 
       {/* Beneficios - ahora resumidos y con igual tamaño */}
       <section className="benefits-section">
