@@ -1,4 +1,3 @@
-// ...existing code...
 import React from 'react';
 import './About.css';
 import { images } from '../../assets/assets';
@@ -94,15 +93,34 @@ const About = () => (
   <div className="about-page-container">
     <section className="about-tarjetas-section">
       <div className="about-tarjetas-grid">
-        <div className="about-tarjeta">
-          <div className="about-tarjeta-icon"><EmpresaIcon /></div>
-          <h3>Nuestra empresa</h3>
-          <p>
-            Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
-          </p>
+
+        {/* Empresa: sin icono */}
+        <div
+          className="about-tarjeta about-tarjeta-empresa"
+          style={{ backgroundImage: `url(${images.empresa})` }}
+        >
+          <div className="about-tarjeta-content">
+            <h3>Nuestra empresa</h3>
+            <p>
+              Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
+            </p>
+          </div>
         </div>
 
-        {/* Tarjeta Misión con imagen de fondo */}
+        {/* Calidad del servicio: sin icono */}
+        <div
+          className="about-tarjeta about-tarjeta-calidad"
+          style={{ backgroundImage: `url(${images.calidad})` }}
+        >
+          <div className="about-tarjeta-content">
+            <h3>Calidad del servicio</h3>
+            <p>
+              Nuestra área de auditoría garantiza procesos efectivos y transparentes, cumpliendo cada requerimiento y asegurando resultados confiables.
+            </p>
+          </div>
+        </div>
+
+        {/* Misión: sí tiene icono */}
         <div
           className="about-tarjeta about-tarjeta-mision"
           style={{ backgroundImage: `url(${images.mision})` }}
@@ -116,61 +134,60 @@ const About = () => (
           </div>
         </div>
 
-        <div className="about-tarjeta">
-          <div className="about-tarjeta-icon"><VisionIcon /></div>
-          <h3>Visión</h3>
-          <p>
-            Ser líderes nacionales en nuestros servicios, reconocidos como aliados estratégicos por calidad y cumplimiento, contribuyendo al crecimiento de nuestros clientes y la sociedad.
-          </p>
+        {/* Visión: sí tiene icono */}
+        <div
+          className="about-tarjeta about-tarjeta-mision about-tarjeta-vision"
+          style={{ backgroundImage: `url(${images.vision})` }}
+        >
+          <div className="about-tarjeta-content">
+            <h3>Visión</h3>
+            <div className="about-tarjeta-icon"><VisionIcon /></div>
+            <p>
+              Ser líderes nacionales en nuestros servicios, reconocidos como aliados estratégicos por calidad y cumplimiento, contribuyendo al crecimiento de nuestros clientes y la sociedad.
+            </p>
+          </div>
         </div>
-        <div className="about-tarjeta">
-          <div className="about-tarjeta-icon"><CalidadIcon /></div>
-          <h3>Calidad del servicio</h3>
-          <p>
-            Nuestra área de auditoría garantiza procesos efectivos y transparentes, cumpliendo cada requerimiento y asegurando resultados confiables.
-          </p>
-        </div>
+
       </div>
     </section>
 
-          {/* Nos destacamos en */}
-<section className="distinciones-section">
-  <h2>Valores corporativos</h2>
-  <div className="distinciones-grid">
-    <div className="distincion-card">
-      <div className="distincion-icon"><LogisticaIcon /></div>
-      <h3>Gestión integral</h3>
-      <p>Nos ocupamos de todas las fases de la licitación para lograr la adjudicación.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><ConfianzaIcon /></div>
-      <h3>Honestidad</h3>
-      <p>Más de 20 años de éxito gracias a nuestra transparencia y ética profesional.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><ProveedorIcon /></div>
-      <h3>Profesionalidad</h3>
-      <p>Equipo multidisciplinario experto en cada área clave del negocio.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><ComprasIcon /></div>
-      <h3>Asesoramiento</h3>
-      <p>Resolvemos todas tus dudas antes, durante y después del procedimiento.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><PaperIcon /></div>
-      <h3>Gestión de concursos</h3>
-      <p>Ayudamos a empresas a ganar concursos públicos y privados desde 1993.</p>
-    </div>
-    <div className="distincion-card">
-      <div className="distincion-icon"><EstrategiaIcon /></div>
-      <h3>Información actualizada</h3>
-      <p>Estamos al tanto de las últimas novedades del sector para tu beneficio.</p>
-    </div>
-  </div>
-</section>
+    {/* Valores corporativos (distinciones) */}
+    <section className="distinciones-section">
+      <h2>Valores corporativos</h2>
+      <div className="distinciones-grid">
+        <div className="distincion-card">
+          <div className="distincion-icon"><LogisticaIcon /></div>
+          <h3>Gestión integral</h3>
+          <p>Nos ocupamos de todas las fases de la licitación para lograr la adjudicación.</p>
+        </div>
+        <div className="distincion-card">
+          <div className="distincion-icon"><ConfianzaIcon /></div>
+          <h3>Honestidad</h3>
+          <p>Más de 20 años de éxito gracias a nuestra transparencia y ética profesional.</p>
+        </div>
+        <div className="distincion-card">
+          <div className="distincion-icon"><ProveedorIcon /></div>
+          <h3>Profesionalidad</h3>
+          <p>Equipo multidisciplinario experto en cada área clave del negocio.</p>
+        </div>
+        <div className="distincion-card">
+          <div className="distincion-icon"><ComprasIcon /></div>
+          <h3>Asesoramiento</h3>
+          <p>Resolvemos todas tus dudas antes, durante y después del procedimiento.</p>
+        </div>
+        <div className="distincion-card">
+          <div className="distincion-icon"><PaperIcon /></div>
+          <h3>Gestión de concursos</h3>
+          <p>Ayudamos a empresas a ganar concursos públicos y privados desde 1993.</p>
+        </div>
+        <div className="distincion-card">
+          <div className="distincion-icon"><EstrategiaIcon /></div>
+          <h3>Información actualizada</h3>
+          <p>Estamos al tanto de las últimas novedades del sector para tu beneficio.</p>
+        </div>
+      </div>
+    </section>
   </div>
 );
 
 export default About;
-// ...existing code...

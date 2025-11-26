@@ -1,6 +1,6 @@
 import React from 'react';
 import './Service.css';
-import{images} from '../../assets/assets';
+import { images } from '../../assets/assets';
 
 // Íconos SVG simples para servicios
 const OfficeIcon = () => (
@@ -121,61 +121,62 @@ const MercadeoIcon = () => (
 const Service = () => {
   return (
     <div className="service-page-container">
+
       {/* Hero */}
 
       {/* Servicios */}
       <section className="how-it-works-section">
         <h2>¿Qué servicios y suministros ofrecemos?</h2>
         <div className="steps-container">
-          <div className="step-card">
+          <div className="step-card oficina-card">
             <div className="step-icon"><OfficeIcon /></div>
             <h3>Oficina y papelería</h3>
             <p><strong>Servicio y suministro:</strong> Insumos para oficina y papelería de alta calidad, con atención personalizada.</p>
           </div>
-        <div className="step-card cafe-card">
-  <div className="step-icon"><CoffeeIcon /></div>
-  <h3>Aseo y cafetería</h3>
-  <p><strong>Servicio y suministro:</strong> Productos para limpieza, cafetería y confort laboral.</p>
+          <div className="step-card cafe-card">
+            <div className="step-icon"><CoffeeIcon /></div>
+            <h3>Aseo y cafetería</h3>
+            <p><strong>Servicio y suministro:</strong> Productos para limpieza, cafetería y confort laboral.</p>
+          </div>
+          <div className="step-card botiquin-card">
+  <div className="step-icon"><MedkitIcon /></div>
+  <h3>Botiquín y ferretería</h3>
+  <p><strong>Servicio y suministro:</strong> Botiquines y herramientas para la oficina y salud ocupacional.</p>
 </div>
-          <div className="step-card">
-            <div className="step-icon"><MedkitIcon /></div>
-            <h3>Botiquín y ferretería</h3>
-            <p><strong>Servicio y suministro:</strong> Botiquines y herramientas para la oficina y salud ocupacional.</p>
-          </div>
-          <div className="step-card">
-            <div className="step-icon"><PrinterIcon /></div>
-            <h3>Venta y alquiler de equipos de impresión</h3>
-            <p><strong>Servicio y suministro:</strong> Venta y renta de fotocopiadoras y multifuncionales de última generación.</p>
-          </div>
+<div className="step-card impresora-card">
+  <div className="step-icon"><PrinterIcon /></div>
+  <h3>Venta y alquiler de equipos de impresión</h3>
+  <p><strong>Servicio y suministro:</strong> Venta y renta de fotocopiadoras y multifuncionales de última generación.</p>
+</div>
         </div>
       </section>
 
-       {/* --- Sección servicios personalizados BPO --- */}
-    <section className="bpo-section">
-      <h2>SERVICIOS PERSONALIZADOS BPO</h2>
-      <div className="bpo-grid">
-        <div className="bpo-card">
-          <div className="bpo-icon"><TeleventasIcon /></div>
-          <h3>Televentas</h3>
-          <p>Ventas de servicios y productos financieros por comunicación telefónica. Incluye desde la planificación hasta el análisis y control de resultados.</p>
+      {/* --- Sección servicios personalizados BPO --- */}
+      <section className="bpo-section">
+        <h2>SERVICIOS PERSONALIZADOS BPO</h2>
+        <div className="bpo-grid">
+          <div className="bpo-card">
+            <div className="bpo-icon"><TeleventasIcon /></div>
+            <h3>Televentas</h3>
+            <p>Ventas de servicios y productos financieros por comunicación telefónica. Incluye desde la planificación hasta el análisis y control de resultados.</p>
+          </div>
+          <div className="bpo-card">
+            <div className="bpo-icon"><ClienteIcon /></div>
+            <h3>Servicio al cliente</h3>
+            <p>Recepción y gestión de llamadas para solución de consultas/eventualidades, logrando la satisfacción de los usuarios.</p>
+          </div>
+          <div className="bpo-card">
+            <div className="bpo-icon"><CobranzaIcon /></div>
+            <h3>Cobranzas</h3>
+            <p>Recuperación de cartera en todas sus etapas: preventiva, administrativa, prejurídica y jurídica.</p>
+          </div>
+          <div className="bpo-card">
+            <div className="bpo-icon"><MercadeoIcon /></div>
+            <h3>Mercadeo</h3>
+            <p>Manejo de objeciones y expansión de canales para mayor cobertura y mejores resultados en ventas.</p>
+          </div>
         </div>
-        <div className="bpo-card">
-          <div className="bpo-icon"><ClienteIcon /></div>
-          <h3>Servicio al cliente</h3>
-          <p>Recepción y gestión de llamadas para solución de consultas/eventualidades, logrando la satisfacción de los usuarios.</p>
-        </div>
-        <div className="bpo-card">
-          <div className="bpo-icon"><CobranzaIcon /></div>
-          <h3>Cobranzas</h3>
-          <p>Recuperación de cartera en todas sus etapas: preventiva, administrativa, prejurídica y jurídica.</p>
-        </div>
-        <div className="bpo-card">
-          <div className="bpo-icon"><MercadeoIcon /></div>
-          <h3>Mercadeo</h3>
-          <p>Manejo de objeciones y expansión de canales para mayor cobertura y mejores resultados en ventas.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
       {/* Beneficios - ahora resumidos y con igual tamaño */}
       <section className="benefits-section">

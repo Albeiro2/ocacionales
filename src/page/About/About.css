@@ -4,9 +4,10 @@
   background: transparent;
 }
 
+/* --- Tarjetas de información --- */
 .about-tarjetas-section {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 28px auto;
 }
 
 .about-tarjetas-grid {
@@ -21,7 +22,7 @@
   overflow: hidden;
   border-radius: 12px;
   padding: 20px;
-  min-height: 180px;
+  min-height: 270px;
   background: rgba(13,110,253,0.04); /* azul suave visible por defecto */
   border: 1px solid rgba(13,110,253,0.10);
   color: #0d2c4b;
@@ -31,7 +32,13 @@
   justify-content: flex-start;
 }
 
-/* Icono y texto estándar */
+.about-tarjeta-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
 .about-tarjeta-icon {
   display: flex;
   align-items: center;
@@ -49,7 +56,7 @@
   line-height: 1.45;
 }
 
-/* Hover general para tarjetas (no Misión con imagen) */
+/* Hover general para tarjetas (no Misión/Visión/Empresa/Calidad que tienen imagen) */
 .about-tarjeta:hover {
   box-shadow: 0 10px 30px rgba(2,6,23,0.08), 0 6px 12px rgba(13,110,253,0.10);
   transform: translateY(-6px);
@@ -57,21 +64,71 @@
   border-color: rgba(13,110,253,0.20);
 }
 
-/* --- Estilos especiales para la tarjeta Misión --- */
-.about-tarjeta-mision {
-  /* imagen en background via inline style desde JSX, aquí ajustes */
+/* --- EMPRESA y CALIDAD: fondo imagen, letras SIEMPRE visibles, sin icono --- */
+.about-tarjeta-empresa,
+.about-tarjeta-calidad {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  padding: 28px 20px;
+  border: 0;
+  background-color: #0b3b60;
+  min-height: 270px;
+}
+.about-tarjeta-empresa::before,
+.about-tarjeta-calidad::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(4,12,30,0.38), rgba(4,12,30,0.38));
+  z-index: 0;
+  transition: background 220ms ease, opacity 220ms ease;
+}
+.about-tarjeta-empresa h3,
+.about-tarjeta-calidad h3 {
+  color: #ffffff;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(2,6,23,0.45);
+}
+.about-tarjeta-empresa p,
+.about-tarjeta-calidad p {
+  color: #fff;
+  opacity: 1;
+  max-height: none;
+  transform: none;
+}
+.about-tarjeta-empresa .about-tarjeta-icon,
+.about-tarjeta-calidad .about-tarjeta-icon {
+  display: none !important;
+}
+.about-tarjeta-empresa:hover,
+.about-tarjeta-calidad:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(2,6,23,0.12), 0 6px 18px rgba(13,110,253,0.08);
+  border: none;
+  background-color: transparent;
+}
+.about-tarjeta-empresa:hover::before,
+.about-tarjeta-calidad:hover::before {
+  background: linear-gradient(rgba(4,12,30,0.22), rgba(4,12,30,0.22));
+}
+
+/* --- MISION y VISION: fondo imagen, icono y texto ocultos hasta hover, igual altura --- */
+.about-tarjeta-mision,
+.about-tarjeta-vision {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
   padding: 28px 20px;
-  min-height: 220px;
   border: 0;
-  background-color: #0b3b60; /* fallback si imagen no carga */
+  background-color: #0b3b60;
+  min-height: 270px;
 }
-
-/* overlay que oscurece la imagen por defecto; se aclara al hover */
-.about-tarjeta-mision::before {
+.about-tarjeta-mision::before,
+.about-tarjeta-vision::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -79,53 +136,50 @@
   transition: background 220ms ease, opacity 220ms ease;
   z-index: 0;
 }
-
-/* Contenido por encima del overlay */
-.about-tarjeta-mision .about-tarjeta-content {
+.about-tarjeta-mision .about-tarjeta-content,
+.about-tarjeta-vision .about-tarjeta-content {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
 }
-
-/* Mostrar solo el título por defecto: ocultar icono y párrafo */
 .about-tarjeta-mision .about-tarjeta-icon,
-.about-tarjeta-mision p {
+.about-tarjeta-mision p,
+.about-tarjeta-vision .about-tarjeta-icon,
+.about-tarjeta-vision p {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transform: translateY(8px);
   transition: opacity 260ms ease, transform 260ms ease, max-height 260ms ease;
 }
-
-/* El título siempre visible (ajustes para contraste) */
-.about-tarjeta-mision h3 {
+.about-tarjeta-mision h3,
+.about-tarjeta-vision h3 {
   color: #ffffff;
   font-size: 1.25rem;
   margin-bottom: 8px;
   text-shadow: 0 2px 8px rgba(2,6,23,0.45);
 }
-
-/* Al pasar el mouse: aclarar imagen y mostrar texto */
-.about-tarjeta-mision:hover::before {
+.about-tarjeta-mision:hover::before,
+.about-tarjeta-vision:hover::before {
   background: linear-gradient(rgba(4,12,30,0.28), rgba(4,12,30,0.28));
 }
 .about-tarjeta-mision:hover .about-tarjeta-icon,
-.about-tarjeta-mision:hover p {
+.about-tarjeta-mision:hover p,
+.about-tarjeta-vision:hover .about-tarjeta-icon,
+.about-tarjeta-vision:hover p {
   opacity: 1;
   max-height: 400px;
   transform: translateY(0);
 }
-
-/* Hover elevación también para la tarjeta misión */
-.about-tarjeta-mision:hover {
+.about-tarjeta-mision:hover,
+.about-tarjeta-vision:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 36px rgba(2,6,23,0.12), 0 6px 18px rgba(13,110,253,0.08);
   border: none;
 }
 
-
-/* Valores corporativos*/
+/* --- Valores corporativos (distinciones) --- */
 .distinciones-section {
   padding: 60px 20px 30px 20px;
   text-align: center;
@@ -180,10 +234,11 @@
 /* Responsive */
 @media (max-width: 900px) {
   .about-tarjetas-grid { grid-template-columns: 1fr; }
-  .about-tarjeta-mision { min-height: 160px; padding: 18px; }
+  .about-tarjeta-mision, .about-tarjeta-vision, .about-tarjeta-empresa, .about-tarjeta-calidad { min-height: 180px; padding: 18px; }
 }
 @media (max-width: 480px) {
   .about-tarjeta { padding: 14px; }
   .about-tarjeta h3 { font-size: 1rem; }
-  .about-tarjeta-mision h3 { font-size: 1.05rem; }
+  .about-tarjeta-mision h3, .about-tarjeta-vision h3,
+  .about-tarjeta-empresa h3, .about-tarjeta-calidad h3 { font-size: 1.05rem; }
 }

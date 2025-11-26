@@ -190,7 +190,6 @@
   .benefit-item { min-height: 110px; }
 }
 
-
 /* NUEVO: Servicios personalizados BPO */
 .bpo-section {
   background: #fff;
@@ -253,7 +252,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .cafe-card::before {
   content: "";
   position: absolute;
@@ -261,14 +259,12 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/cafe.jpg'); /* Cambia la ruta al valor real de images.cafe */
+  background-image: url('../../assets/cafe.jpg'); /* Cambia la ruta si usas otro path o import */
   background-size: cover;
   background-position: center;
   opacity: 0.7;
   z-index: 1;
 }
-
-/* Overlay negro aparece en hover */
 .cafe-card::after {
   content: "";
   position: absolute;
@@ -281,12 +277,9 @@
   transition: opacity 0.3s;
   z-index: 2;
 }
-
 .cafe-card:hover::after {
   opacity: 1;
 }
-
-/* Oculta el texto en la tarjeta por defecto */
 .cafe-card h3,
 .cafe-card p,
 .cafe-card p strong {
@@ -295,51 +288,107 @@
   font-weight: 700;
   text-shadow: none;
 }
-
-/* En hover, letras blancas con sombra */
 .cafe-card:hover h3,
 .cafe-card:hover p,
 .cafe-card:hover p strong {
   color: #fff;
   text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
 }
-
 .cafe-card:hover p strong {
   font-weight: 900;
 }
 .cafe-card:hover p {
   color: #fff;
 }
-
-/* Contenido por encima de los overlays */
 .cafe-card > * {
   position: relative;
   z-index: 3;
 }
-/* Oculta ícono por defecto en la tarjeta de cafetería */
 .cafe-card .step-icon {
   opacity: 0;
   transition: opacity 0.3s;
 }
-
-/* Muestra ícono solo en hover */
 .cafe-card:hover .step-icon {
   opacity: 1;
 }
 
+/* -------- OFICINA: TEXTO OCULTO HASTA HOVER, BLANCO SOBRE SOMBRA -------- */
+.oficina-card {
+  position: relative;
+  overflow: hidden;
+}
+.oficina-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/oficina.jpeg'); /* Cambia la ruta si usas otro path o import */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+  z-index: 1;
+}
+.oficina-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.oficina-card:hover::after {
+  opacity: 1;
+}
+.oficina-card h3,
+.oficina-card p,
+.oficina-card p strong {
+  color: transparent;
+  transition: color 0.3s;
+  font-weight: 700;
+  text-shadow: none;
+}
+.oficina-card:hover h3,
+.oficina-card:hover p,
+.oficina-card:hover p strong {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
+}
+.oficina-card:hover p strong {
+  font-weight: 900;
+}
+.oficina-card:hover p {
+  color: #fff;
+}
+.oficina-card > * {
+  position: relative;
+  z-index: 3;
+}
+.oficina-card .step-icon {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.oficina-card:hover .step-icon {
+  opacity: 1;
+}
 
+/* Hover efectos comunes */
 .step-card,
 .bpo-card,
 .distincion-card,
 .benefit-item {
-  background: rgba(13,110,253,0.04); /* azul suave visible por defecto */
+  background: rgba(13,110,253,0.04);
   border: 1px solid rgba(13,110,253,0.10);
   border-radius: 10px;
   padding: 18px;
   transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease, border-color 220ms ease;
 }
 
-/* Hover: sombra, leve elevación y acento azul más fuerte */
 .step-card:hover,
 .bpo-card:hover,
 .distincion-card:hover,
@@ -350,15 +399,12 @@
   border-color: rgba(13,110,253,0.30);
 }
 
-/* Ajustes opcionales para que el icono y el contenido se vean bien */
 .step-icon, .bpo-icon, .distincion-icon, .benefit-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 12px;
 }
-
-
 
 @media (max-width: 900px) {
   .distinciones-section h2 { font-size: 1.32rem; }
@@ -367,4 +413,133 @@
 @media (max-width: 600px) {
   .distinciones-grid { grid-template-columns: 1fr; }
   .distincion-card { min-height: 125px; max-width: 99vw; }
+}
+/* -------- BOTIQUÍN: TEXTO OCULTO HASTA HOVER, BLANCO SOBRE SOMBRA -------- */
+.botiquin-card {
+  position: relative;
+  overflow: hidden;
+}
+.botiquin-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/botiquin.jpg'); /* Cambia la ruta si usas otro path o import */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+  z-index: 1;
+}
+.botiquin-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.botiquin-card:hover::after {
+  opacity: 1;
+}
+.botiquin-card h3,
+.botiquin-card p,
+.botiquin-card p strong {
+  color: transparent;
+  transition: color 0.3s;
+  font-weight: 700;
+  text-shadow: none;
+}
+.botiquin-card:hover h3,
+.botiquin-card:hover p,
+.botiquin-card:hover p strong {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
+}
+.botiquin-card:hover p strong {
+  font-weight: 900;
+}
+.botiquin-card:hover p {
+  color: #fff;
+}
+.botiquin-card > * {
+  position: relative;
+  z-index: 3;
+}
+.botiquin-card .step-icon {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.botiquin-card:hover .step-icon {
+  opacity: 1;
+}
+
+/* -------- IMPRESORA: TEXTO OCULTO HASTA HOVER, BLANCO SOBRE SOMBRA -------- */
+.impresora-card {
+  position: relative;
+  overflow: hidden;
+}
+.impresora-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/impresora.jpg'); /* Cambia la ruta si usas otro path o import */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+  z-index: 1;
+}
+.impresora-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.impresora-card:hover::after {
+  opacity: 1;
+}
+.impresora-card h3,
+.impresora-card p,
+.impresora-card p strong {
+  color: transparent;
+  transition: color 0.3s;
+  font-weight: 700;
+  text-shadow: none;
+}
+.impresora-card:hover h3,
+.impresora-card:hover p,
+.impresora-card:hover p strong {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
+}
+.impresora-card:hover p strong {
+  font-weight: 900;
+}
+.impresora-card:hover p {
+  color: #fff;
+}
+.impresora-card > * {
+  position: relative;
+  z-index: 3;
+}
+.impresora-card .step-icon {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.impresora-card:hover .step-icon {
+  opacity: 1;
 }

@@ -10,13 +10,18 @@ import aliado7 from './aliado7.jpg';
 import cafe from './cafe.jpg';
 import mision from './mision.jpg';
 import oficina from './oficina.jpeg';
-
+import vision from './vision.webp';
+import empresa from './empresa.jpg';
+import calidad from './calidad.jpg';
 export const images = {
     fondo,
     logo,
     cafe,
     mision,
     oficina,
+    vision,
+    empresa,
+    calidad,
     aliados:[
         aliado1,
         aliado2,
