@@ -6,6 +6,7 @@ import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
 import Plan from '../Plan/Plan';
 import AboutV from '../AboutV/AboutV';
+import Footer from '../Footer/Footer';
 
 const HomePage = () => {
   const location = useLocation();
@@ -41,6 +42,10 @@ const HomePage = () => {
 
       <section id="contact">
         <Contact />
+      </section>
+
+      <section id="footer">
+        <Footer/>
       </section>
     </div>
   );
