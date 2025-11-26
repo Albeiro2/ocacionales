@@ -9,6 +9,14 @@ const eventosCategorias = [
   { nombre: 'Alimentos', key: 'alimentos' },
   { nombre: 'Animación', key: 'animacion' }
 ];
+
+const eventosExplicacion = {
+  ninos: 'Garantizamos el entretenimiento de los niños, ofreciendo un espectáculo sano.',
+  regalos: 'Sorprende a tus invitados con detalles y regalos únicos para cada ocasión.',
+  sonidos: 'Potenciamos tu evento con sonido profesional y ambiente musical perfecto.',
+  alimentos: 'Deliciosos alimentos y snacks para disfrutar en cada momento especial.',
+  animacion: 'Animamos tu evento con talento creativo y diversión para todos.'
+};
 // Íconos SVG simples para servicios
 const OfficeIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#007bff" viewBox="0 0 16 16">
@@ -129,6 +137,7 @@ const Service = () => {
 
   const [catActual, setCatActual] = useState('ninos');
   const [slide, setSlide] = useState(0);
+  const [hovering, setHovering] = useState(false);
 
   const imgs = images[catActual] || [];
 
@@ -232,19 +241,34 @@ const Service = () => {
       style={{ visibility: slide === 0 ? 'hidden' : 'visible', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)' }}
     >‹</button>
     <div className="eventos-carrusel">
-      {/* El carrusel muestra la imagen actual, anterior y siguiente (peek) */}
       {imgs.map((img, idx) => {
         let estado = 'evento-img-hidden';
         if (idx === slide) estado = 'evento-img-activa';
         else if (idx === slide - 1) estado = 'evento-img-anterior';
         else if (idx === slide + 1) estado = 'evento-img-siguiente';
+
+        // Solo overlay si es la primera imagen y está activa
+        const showOverlay = idx === 0 && estado === 'evento-img-activa' && hovering;
+
         return (
-          <img
+          <div
             key={img}
-            src={img}
-            alt=""
-            className={`evento-img ${estado}`}
-          />
+            className={`evento-img-wrapper ${estado}`}
+            onMouseEnter={() => { if (idx === 0 && estado === 'evento-img-activa') setHovering(true); }}
+            onMouseLeave={() => setHovering(false)}
+            style={{ position: 'absolute' }}
+          >
+            <img
+              src={img}
+              alt=""
+              className={`evento-img`}
+            />
+            {showOverlay && (
+              <div className="evento-explicacion-overlay show">
+                <span>{eventosExplicacion[catActual]}</span>
+              </div>
+            )}
+          </div>
         );
       })}
     </div>
