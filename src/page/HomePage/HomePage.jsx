@@ -23,13 +23,13 @@ const HomePage = () => {
 
   return (
     <div>
-      
-      <section id="service">
-        <Service />
-      </section>
 
       <section id="about">
         <About />
+      </section>
+      
+      <section id="service">
+        <Service />
       </section>
 
       <section id="plan">

@@ -22,7 +22,7 @@ const MenuBar = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const sections = ['service','about', 'plan', 'aboutV', 'contact'];
+      const sections = ['about','service', 'plan', 'aboutV', 'contact'];
       const observer = new IntersectionObserver(
         (entries) => {
           const visibleEntries = entries.filter(entry => entry.isIntersecting);
@@ -57,7 +57,7 @@ const MenuBar = () => {
       const id = location.hash.substring(1);
       setActiveSection(id);
     } else {
-      const sections = ['service','about', 'plan', 'aboutV', 'contact'];
+      const sections = ['about','service', 'plan', 'aboutV', 'contact'];
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -94,15 +94,6 @@ const MenuBar = () => {
         <ul className="navbar-links">
           <li>
             <a 
-              href="#service" 
-              onClick={() => handleNavigation('service')}
-              className={activeSection === 'service' ? 'active' : ''}
-            >
-              Servicios
-            </a>
-          </li>
-           <li>
-            <a 
               href="#about" 
               onClick={() => handleNavigation('about')}
               className={activeSection === 'about' ? 'active' : ''}
@@ -110,6 +101,17 @@ const MenuBar = () => {
               ¿Quiénes somos?
             </a>
           </li>
+
+          <li>
+            <a 
+              href="#service" 
+              onClick={() => handleNavigation('service')}
+              className={activeSection === 'service' ? 'active' : ''}
+            >
+              Servicios
+            </a>
+          </li>
+           
           <li>
             <a 
               href="#plan" 

@@ -265,8 +265,18 @@
 .about-logo-center {
   max-width: 1000px;
   margin: 0 auto 24px auto;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
+  flex-wrap: wrap;
+}
+
+.about-logo-image {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
 }
 
 .about-logo-line1 {
@@ -291,6 +301,8 @@
 
 /* Responsive */
 @media (max-width: 700px) {
+  .about-logo-center { gap: 12px; }
+  .about-logo-image { height: 80px; }
   .about-logo-line1 {
     font-size: 1.5rem;
     letter-spacing: 0.8px;

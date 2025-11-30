@@ -92,15 +92,18 @@ const ConfianzaIcon = () => (
 const About = () => (
   <div className="about-page-container">
     <section className="about-tarjetas-section">
-      {/* Marca corporativa (logo CSS + texto) */}
+      {/* Marca corporativa (logo imagen + texto) */}
       <div className="about-logo-center">
-  <div className="about-logo-line1">
-    TELEMARKETER <span>BPO</span>
-  </div>
-  <div className="about-logo-line2">
-    & LOGISTICS SAS
-  </div>
-</div>
+        <img src={images.logo} alt="Telemarketer BPO Logo" className="about-logo-image" />
+        <div>
+          <div className="about-logo-line1">
+            TELEMARKETER <span>BPO</span>
+          </div>
+          <div className="about-logo-line2">
+            & LOGISTICS SAS
+          </div>
+        </div>
+      </div>
 
 <div className="about-tarjetas-grid"></div>
       <div className="about-tarjetas-grid">
