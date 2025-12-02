@@ -200,7 +200,7 @@
   .benefit-item { min-height: 110px; }
 }
 
-/* -------- CAFETERÍA: COLOR ORIGINAL, OSCURECE SÓLO EN HOVER -------- */
+/* -------- CAFETERÍA: TEXTO SIEMPRE VISIBLE, SOLO ANIMACION DE MOVIMIENTO -------- */
 .cafe-card {
   position: relative;
   overflow: hidden;
@@ -226,46 +226,28 @@
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.55);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 2;
-}
-.cafe-card:hover::after {
   opacity: 1;
+  z-index: 2;
 }
 .cafe-card h3,
 .cafe-card p,
 .cafe-card p strong {
-  color: transparent;
-  transition: color 0.3s;
-  font-weight: 700;
-  text-shadow: none;
-}
-.cafe-card:hover h3,
-.cafe-card:hover p,
-.cafe-card:hover p strong {
   color: #fff;
+  font-weight: 700;
   text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
 }
-.cafe-card:hover p strong {
+.cafe-card p strong {
   font-weight: 900;
-}
-.cafe-card:hover p {
-  color: #fff;
 }
 .cafe-card > * {
   position: relative;
   z-index: 3;
 }
 .cafe-card .step-icon {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.cafe-card:hover .step-icon {
   opacity: 1;
 }
 
-/* -------- OFICINA: COLOR ORIGINAL, OSCURECE SÓLO EN HOVER -------- */
+/* -------- OFICINA: TEXTO SIEMPRE VISIBLE, SOLO ANIMACION DE MOVIMIENTO -------- */
 .oficina-card {
   position: relative;
   overflow: hidden;
@@ -291,46 +273,28 @@
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.55);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 2;
-}
-.oficina-card:hover::after {
   opacity: 1;
+  z-index: 2;
 }
 .oficina-card h3,
 .oficina-card p,
 .oficina-card p strong {
-  color: transparent;
-  transition: color 0.3s;
-  font-weight: 700;
-  text-shadow: none;
-}
-.oficina-card:hover h3,
-.oficina-card:hover p,
-.oficina-card:hover p strong {
   color: #fff;
+  font-weight: 700;
   text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
 }
-.oficina-card:hover p strong {
+.oficina-card p strong {
   font-weight: 900;
-}
-.oficina-card:hover p {
-  color: #fff;
 }
 .oficina-card > * {
   position: relative;
   z-index: 3;
 }
 .oficina-card .step-icon {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.oficina-card:hover .step-icon {
   opacity: 1;
 }
 
-/* -------- BOTIQUIN: COLOR ORIGINAL, OSCURECE SÓLO EN HOVER -------- */
+/* -------- BOTIQUIN: TEXTO SIEMPRE VISIBLE, SOLO ANIMACION DE MOVIMIENTO -------- */
 .botiquin-card {
   position: relative;
   overflow: hidden;
@@ -356,46 +320,28 @@
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.55);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 2;
-}
-.botiquin-card:hover::after {
   opacity: 1;
+  z-index: 2;
 }
 .botiquin-card h3,
 .botiquin-card p,
 .botiquin-card p strong {
-  color: transparent;
-  transition: color 0.3s;
-  font-weight: 700;
-  text-shadow: none;
-}
-.botiquin-card:hover h3,
-.botiquin-card:hover p,
-.botiquin-card:hover p strong {
   color: #fff;
+  font-weight: 700;
   text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
 }
-.botiquin-card:hover p strong {
+.botiquin-card p strong {
   font-weight: 900;
-}
-.botiquin-card:hover p {
-  color: #fff;
 }
 .botiquin-card > * {
   position: relative;
   z-index: 3;
 }
 .botiquin-card .step-icon {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.botiquin-card:hover .step-icon {
   opacity: 1;
 }
 
-/* -------- IMPRESORA: COLOR ORIGINAL, OSCURECE SÓLO EN HOVER -------- */
+/* -------- IMPRESORA: TEXTO SIEMPRE VISIBLE, SOLO ANIMACION DE MOVIMIENTO -------- */
 .impresora-card {
   position: relative;
   overflow: hidden;
@@ -421,42 +367,24 @@
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.55);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 2;
-}
-.impresora-card:hover::after {
   opacity: 1;
+  z-index: 2;
 }
 .impresora-card h3,
 .impresora-card p,
 .impresora-card p strong {
-  color: transparent;
-  transition: color 0.3s;
-  font-weight: 700;
-  text-shadow: none;
-}
-.impresora-card:hover h3,
-.impresora-card:hover p,
-.impresora-card:hover p strong {
   color: #fff;
+  font-weight: 700;
   text-shadow: 0 2px 12px rgba(40,40,40,.29), 0 4px 30px rgba(0,0,0,0.15);
 }
-.impresora-card:hover p strong {
+.impresora-card p strong {
   font-weight: 900;
-}
-.impresora-card:hover p {
-  color: #fff;
 }
 .impresora-card > * {
   position: relative;
   z-index: 3;
 }
 .impresora-card .step-icon {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.impresora-card:hover .step-icon {
   opacity: 1;
 }
 
