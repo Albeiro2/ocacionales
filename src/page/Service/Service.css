@@ -743,3 +743,8 @@
 
 /* Ensures children in grid/flex shrink properly */
 .step-card, .bpo-card, .benefit-item, .distincion-card { min-width: 0; }
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+    scroll-padding-bottom: 70px;
+}
