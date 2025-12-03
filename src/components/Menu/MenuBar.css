@@ -105,6 +105,64 @@
   border-bottom: 2px solid #005a9e;
 }
 
+/* Submenú */
+.navbar-item-with-submenu {
+  position: relative;
+}
+
+.submenu-arrow {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.submenu-arrow.open {
+  transform: rotate(180deg);
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 8px 0;
+  margin: 8px 0 0 0;
+  min-width: 200px;
+  z-index: 1001;
+}
+
+.submenu.active {
+  display: block;
+}
+
+.submenu li {
+  display: block;
+}
+
+.submenu li a {
+  display: block;
+  padding: 12px 20px;
+  color: #333333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
+  padding-bottom: 12px;
+}
+
+.submenu li a:hover {
+  background-color: #f5f5f5;
+  color: #005a9e;
+  border-bottom: none;
+}
+
 /* Contenedor de botones */
 .navbar-auth {
   display: flex;
@@ -237,6 +295,52 @@
     border-bottom: 1px solid rgba(0, 90, 158, 0.2);
     font-weight: 600;
   }
+  
+  /* Submenú en móvil */
+  .navbar-item-with-submenu {
+    width: 100%;
+  }
+  
+  .submenu {
+    position: static;
+    display: none;
+    border: none;
+    box-shadow: none;
+    background-color: #f9f9f9;
+    border-radius: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+  }
+  
+  .submenu.active {
+    display: block;
+  }
+  
+  .submenu li {
+    display: block;
+    width: 100%;
+  }
+  
+  .submenu li a {
+    display: block;
+    padding: 12px 20px 12px 40px;
+    color: #333333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 90, 158, 0.08);
+    background-color: #f9f9f9;
+  }
+  
+  .submenu li a:hover {
+    background-color: #f0f0f0;
+    color: #005a9e;
+    border-bottom: 1px solid rgba(0, 90, 158, 0.08);
+  }
+  
   .navbar-auth {
     margin: 15px 20px;
     padding: 0;

@@ -1,60 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Service.css';
 import { images } from '../../assets/assets';
-
-const eventosCategorias = [
-  { nombre: 'Niños', key: 'ninos' },
-  { nombre: 'Regalos', key: 'regalos' },
-  { nombre: 'Sonidos', key: 'sonidos' },
-  { nombre: 'Alimentos', key: 'alimentos' },
-  { nombre: 'Animación', key: 'animacion' }
-];
-
-const eventosExplicacion = {
-  ninos: 'Garantizamos el entretenimiento de los niños, ofreciendo un espectáculo sano.',
-  regalos: 'Sorprende a tus invitados con detalles y regalos únicos para cada ocasión.',
-  sonidos: 'Potenciamos tu evento con sonido profesional y ambiente musical perfecto.',
-  alimentos: 'Deliciosos alimentos y snacks para disfrutar en cada momento especial.',
-  animacion: 'Animamos tu evento con talento creativo y diversión para todos.'
-};
-// Íconos SVG simples para servicios
-const OfficeIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#007bff" viewBox="0 0 16 16">
-    <rect x="2" y="5" width="12" height="7" rx="1.8" fill="#dbe9f7" stroke="#007bff" strokeWidth="1.3"/>
-    <rect x="4" y="7" width="2" height="2.7" fill="#007bff"/>
-    <rect x="7" y="7" width="2" height="2.7" fill="#007bff"/>
-    <rect x="10" y="7" width="2" height="2.7" fill="#007bff"/>
-  </svg>
-);
-const PaperIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#28a745" viewBox="0 0 16 16">
-    <rect x="3" y="2" width="10" height="12" rx="1.6" fill="#eafbe8" stroke="#28a745" strokeWidth="1.3"/>
-    <rect x="5" y="5" width="6" height="1" fill="#28a745"/>
-    <rect x="5" y="7" width="6" height="1" fill="#28a745"/>
-    <rect x="5" y="9" width="6" height="1" fill="#28a745"/>
-  </svg>
-);
-const CoffeeIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#795548" viewBox="0 0 16 16">
-    <ellipse cx="8" cy="8" rx="6" ry="4" fill="#fbeee0"/>
-    <rect x="4" y="9" width="8" height="2" rx="1" fill="#795548"/>
-    <rect x="2" y="11" width="12" height="2" rx="1" fill="#c7b299"/>
-  </svg>
-);
-const MedkitIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#f44336" viewBox="0 0 16 16">
-    <rect x="3" y="5" width="10" height="7" rx="1.5" fill="#ffdede" stroke="#f44336" strokeWidth="1"/>
-    <rect x="7" y="8" width="2" height="6" rx="0.8" fill="#f44336"/>
-    <rect x="5" y="9" width="6" height="2" rx="0.8" fill="#f44336"/>
-  </svg>
-);
-const PrinterIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#494eea" viewBox="0 0 16 16">
-    <rect x="3" y="7" width="10" height="5" rx="1" fill="#e5e4fa" stroke="#494eea" strokeWidth="1"/>
-    <rect x="5" y="3" width="6" height="4" rx="1" fill="#494eea"/>
-    <rect x="6" y="10" width="4" height="2" rx="0.5" fill="#494eea"/>
-  </svg>
-);
+import SuppliesServices from './SuppliesServices';
+import PersonalizedServices from './PersonalizedServices';
+import Events from './Events';
 
 // Íconos para "Poder para tu empresa"
 const ComprasIcon = () => (
@@ -101,186 +50,24 @@ const ConfianzaIcon = () => (
   </svg>
 );
 
-// Íconos servicios personalizados BPO
-const TeleventasIcon = () => (
-  <svg width="44" height="44" viewBox="0 0 48 48">
-    <circle cx="24" cy="24" r="20" fill="#f7fafc"/>
-    <rect x="17" y="17" width="14" height="14" rx="3" fill="#0077c8"/>
-    <rect x="21" y="28" width="6" height="2" rx="1" fill="#74bcff"/>
-    <circle cx="34" cy="22" r="2.2" fill="#8ecdfc"/>
-  </svg>
-);
-const ClienteIcon = () => (
-  <svg width="44" height="44" viewBox="0 0 48 48">
-    <circle cx="24" cy="20" r="10" fill="#e0f9f4"/>
-    <rect x="12" y="32" width="24" height="8" rx="4" fill="#33c3ac"/>
-    <rect x="17" y="35" width="14" height="3" rx="1.5" fill="#4dddd2"/>
-  </svg>
-);
-const CobranzaIcon = () => (
-  <svg width="44" height="44" viewBox="0 0 48 48">
-    <rect x="6" y="20" width="36" height="16" rx="6" fill="#ffd9d4"/>
-    <rect x="18" y="16" width="12" height="8" rx="2" fill="#ea4b38"/>
-    <rect x="20" y="25" width="8" height="6" rx="2" fill="#fff"/>
-  </svg>
-);
-const MercadeoIcon = () => (
-  <svg width="44" height="44" viewBox="0 0 48 48">
-    <ellipse cx="24" cy="30" rx="15" ry="7" fill="#f6e4e3"/>
-    <rect x="19" y="15" width="10" height="15" rx="3" fill="#d26847"/>
-    <rect x="21" y="27" width="6" height="3" rx="1.5" fill="#ffb789"/>
-    <circle cx="34" cy="22" r="2" fill="#d26847"/>
-  </svg>
-);
-
 const Service = () => {
-
-  const [catActual, setCatActual] = useState('ninos');
-  const [slide, setSlide] = useState(0);
-  const [hovering, setHovering] = useState(false);
-
-  const imgs = images[catActual] || [];
-
-  const nextImg = () => setSlide(s => (s < imgs.length - 1 ? s + 1 : s));
-  const prevImg = () => setSlide(s => (s > 0 ? s - 1 : s));
-
   return (
     <div className="service-page-container">
 
-      {/* Hero */}
-
-      {/* Servicios */}
-      <section className="how-it-works-section">
-        <h2>¿Qué servicios y suministros ofrecemos?</h2>
-        <div className="steps-container">
-          <div className="step-card oficina-card">
-            <div className="step-icon"><OfficeIcon /></div>
-            <h3>Oficina y papelería</h3>
-            <p><strong>Servicio y suministro:</strong> Insumos para oficina y papelería de alta calidad, con atención personalizada.</p>
-          </div>
-          <div className="step-card cafe-card">
-            <div className="step-icon"><CoffeeIcon /></div>
-            <h3>Aseo y cafetería</h3>
-            <p><strong>Servicio y suministro:</strong> Productos para limpieza, cafetería y confort laboral.</p>
-          </div>
-          <div className="step-card botiquin-card">
-  <div className="step-icon"><MedkitIcon /></div>
-  <h3>Botiquín y ferretería</h3>
-  <p><strong>Servicio y suministro:</strong> Botiquines y herramientas para la oficina y salud ocupacional.</p>
-</div>
-<div className="step-card impresora-card">
-  <div className="step-icon"><PrinterIcon /></div>
-  <h3>Venta y alquiler de equipos de impresión</h3>
-  <p><strong>Servicio y suministro:</strong> Venta y renta de fotocopiadoras y multifuncionales de última generación.</p>
-</div>
-        </div>
-      </section>
-
-      {/* --- Sección servicios personalizados BPO --- */}
-      <section className="bpo-section">
-  <h2>Servicios personalizados</h2>
-  <div className="bpo-grid">
-    <div
-      className="bpo-card bpo-televentas"
-      style={{ backgroundImage: `url(${images.televenta})` }}
-    >
-      <div className="bpo-card-content">
-        <h3>Televentas</h3>
-        <p>Ventas de servicios y productos financieros por comunicación telefónica. Incluye desde la planificación hasta el análisis y control de resultados.</p>
+      {/* Servicios y suministros */}
+      <div id="supplies-services">
+        <SuppliesServices />
       </div>
-    </div>
-    <div
-      className="bpo-card bpo-cliente"
-      style={{ backgroundImage: `url(${images.cliente})` }}
-    >
-      <div className="bpo-card-content">
-        <h3>Servicio al cliente</h3>
-        <p>Recepción y gestión de llamadas para solución de consultas/eventualidades, logrando la satisfacción de los usuarios.</p>
+
+      {/* Servicios personalizados */}
+      <div id="personalized-services">
+        <PersonalizedServices />
       </div>
-    </div>
-    <div
-      className="bpo-card bpo-cobranza"
-      style={{ backgroundImage: `url(${images.cobranza})` }}
-    >
-      <div className="bpo-card-content">
-        <h3>Cobranzas</h3>
-        <p>Recuperación de cartera en todas sus etapas: preventiva, administrativa, prejurídica y jurídica.</p>
+
+      {/* Eventos */}
+      <div id="events">
+        <Events />
       </div>
-    </div>
-    <div
-      className="bpo-card bpo-mercadeo"
-      style={{ backgroundImage: `url(${images.mercadeo})` }}
-    >
-      <div className="bpo-card-content">
-        <h3>Mercadeo</h3>
-        <p>Manejo de objeciones y expansión de canales para mayor cobertura y mejores resultados en ventas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* EVENTOS */}
-<section className="eventos-section">
-  <h2>Eventos</h2>
-  <div className="eventos-categorias">
-    {eventosCategorias.map(cat => (
-      <button
-        key={cat.key}
-        className={`evento-categoria-boton${catActual === cat.key ? ' active' : ''}`}
-        onClick={() => { setCatActual(cat.key); setSlide(0); }}
-      >
-        {cat.nombre}
-      </button>
-    ))}
-  </div>
-  <div className="eventos-carrusel-wrap">
-    <button
-      className="evento-carrusel-btn prev"
-      onClick={prevImg}
-      disabled={slide === 0}
-      style={{ visibility: slide === 0 ? 'hidden' : 'visible', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)' }}
-    >‹</button>
-    <div className="eventos-carrusel">
-      {imgs.map((img, idx) => {
-        let estado = 'evento-img-hidden';
-        if (idx === slide) estado = 'evento-img-activa';
-        else if (idx === slide - 1) estado = 'evento-img-anterior';
-        else if (idx === slide + 1) estado = 'evento-img-siguiente';
-
-        // Solo overlay si es la primera imagen y está activa
-        const showOverlay = idx === 0 && estado === 'evento-img-activa' && hovering;
-
-        return (
-          <div
-            key={img}
-            className={`evento-img-wrapper ${estado}`}
-            onMouseEnter={() => { if (idx === 0 && estado === 'evento-img-activa') setHovering(true); }}
-            onMouseLeave={() => setHovering(false)}
-            style={{ position: 'absolute' }}
-          >
-            <img
-              src={img}
-              alt=""
-              className={`evento-img`}
-            />
-            {showOverlay && (
-              <div className="evento-explicacion-overlay show">
-                <span>{eventosExplicacion[catActual]}</span>
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
-    <button
-      className="evento-carrusel-btn next"
-      onClick={nextImg}
-      disabled={slide === imgs.length - 1}
-      style={{ visibility: slide === imgs.length - 1 ? 'hidden' : 'visible', position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)' }}
-    >›</button>
-  </div>
-</section>
-
 
       {/* Beneficios - ahora resumidos y con igual tamaño */}
       <section className="benefits-section">

@@ -1,25 +1,24 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 import About from '../About/About';
 import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
 import Plan from '../Plan/Plan';
-import AboutV from '../AboutV/AboutV';
 import Footer from '../Footer/Footer';
 
 const HomePage = () => {
-  const location = useLocation();
-
   useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
-  }, [location]);
+  }, []);
 
   return (
     <div>
@@ -34,10 +33,6 @@ const HomePage = () => {
 
       <section id="plan">
         <Plan />
-      </section>
-
-      <section id="aboutV">
-        <AboutV />
       </section>
 
       <section id="contact">
