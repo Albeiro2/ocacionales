@@ -147,11 +147,12 @@
 .about-tarjeta-mision p,
 .about-tarjeta-vision .about-tarjeta-icon,
 .about-tarjeta-vision p {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transform: translateY(8px);
+  opacity: 1;                /* Visible */
+  max-height: none;          /* Sin límite de altura */
+  overflow: visible;         /* Contenido visible */
+  transform: translateY(0);  /* Sin desplazamiento */
   transition: opacity 260ms ease, transform 260ms ease, max-height 260ms ease;
+  color: #ffffff;    
 }
 .about-tarjeta-mision h3,
 .about-tarjeta-vision h3 {
