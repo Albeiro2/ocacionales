@@ -227,39 +227,42 @@ html {
    BPO SECTION (Servicios Personalizados)
    ========================================= */
 .bpo-section {
-  background: #ffffff;
+  background: #2E8BC0;
   padding: 60px 20px;
   text-align: center;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
 }
 
 .bpo-section h2 {
   font-size: 2.5rem;
-  color: #005a9e;
+  color: #ffffff;
   margin-bottom: 50px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Grid para BPO */
+/* Grid para BPO - 3 columnas */
 .bpo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
   align-items: stretch;
-  justify-items: center;
   padding: 0 12px;
 }
 
-/* TARJETAS BPO */
+/* TARJETAS BPO CON FONDO BLANCO */
 .bpo-card {
-  background: #fff;
+  background: #ffffff !important;
   border-radius: 16px;
-  box-shadow: 0 2px 18px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
   padding: 32px 18px 24px 18px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   text-align: center;
   width: 100%;
-  max-width: 340px;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -269,21 +272,13 @@ html {
   position: relative;
   overflow: hidden;
   min-height: 280px;
-  border: 1px solid rgba(13,110,253,0.10);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: box-shadow 220ms ease, border-color 220ms ease;
+  border: none;
+  transition: box-shadow 220ms ease, transform 220ms ease;
 }
 
-/* Overlay oscuro para legibilidad */
+/* Eliminar overlays */
 .bpo-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(4, 12, 30, 0.5), rgba(4, 12, 30, 0.75));
-  z-index: 1;
-  transition: background 220ms ease;
+  display: none;
 }
 
 /* Contenedor de contenido */
@@ -299,24 +294,25 @@ html {
   box-sizing: border-box;
 }
 
-/* Tipografía BPO */
+/* Títulos en ROJO */
 .bpo-card h3 {
-  color: #fff;
+  color: #8B1A1A !important;
   font-size: 1.35rem;
   margin-bottom: 13px;
   line-height: 1.22;
   font-weight: 700;
-  text-shadow: 0 2px 8px rgba(2, 6, 23, 0.6);
+  text-shadow: none;
 }
 
+/* Descripción en gris oscuro */
 .bpo-card p {
-  color: #fff;
+  color: #425260 !important;
   line-height: 1.5;
   font-size: 1.07rem;
   margin: 0 auto;
   text-align: center;
   max-width: 95%;
-  text-shadow: 0 2px 12px rgba(20, 20, 40, 0.4), 0 4px 24px rgba(0, 0, 0, 0.2);
+  text-shadow: none;
 }
 
 /* Ocultar iconos en BPO */
@@ -324,15 +320,124 @@ html {
   display: none !important;
 }
 
-/* HOVER BPO - SIN TRANSFORM */
-.bpo-card:hover {
-  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12), 0 6px 12px rgba(13, 110, 253, 0.14);
-  border-color: rgba(13, 110, 253, 0.30);
+/* ========================================
+   FORMAS GEOMÉTRICAS DISTINTAS PARA BPO
+   ======================================== */
+
+/* Tarjeta 1: Televentas - Esquinas redondeadas alternadas */
+.bpo-televentas {
+  border-radius: 40px 15px 40px 15px;
 }
 
-.bpo-card:hover::before {
-  background: linear-gradient(to bottom, rgba(4, 12, 30, 0.4), rgba(4, 12, 30, 0.65));
+/* Tarjeta 2: Servicio al cliente - Esquina superior derecha cortada */
+.bpo-cliente {
+  border-radius: 15px 0px 15px 15px;
+  clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
 }
+
+/* Tarjeta 3: Cobranzas - Trapecio invertido */
+.bpo-cobranza {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  border-radius: 0 0 15px 15px;
+}
+
+/* Tarjeta 4: Mercadeo - Esquinas asimétricas */
+.bpo-mercadeo {
+  border-radius: 5px 35px 5px 35px;
+}
+
+/* ========================================
+   CARRUSEL DE IMÁGENES - 2 COLUMNAS
+   ======================================== */
+.bpo-carousel {
+  grid-column: span 2; /* Ocupa 2 columnas */
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+}
+
+.bpo-carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.bpo-carousel-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* HOVER BPO */
+.bpo-card:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+/* Tablets medianas (2 columnas) */
+@media (max-width: 900px) {
+  .bpo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bpo-card {
+    min-height: 220px;
+    padding: 24px 16px;
+  }
+  
+  /* Carrusel ocupa 2 columnas completas */
+  .bpo-carousel {
+    grid-column: span 2;
+    min-height: 220px;
+  }
+}
+
+/* Tablets pequeñas y móviles (1 columna) */
+@media (max-width: 600px) {
+  .bpo-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .bpo-card {
+    min-height: 180px;
+    max-width: 100%;
+  }
+  
+  /* Carrusel ocupa 1 columna en móviles */
+  .bpo-carousel {
+    grid-column: span 1;
+    min-height: 250px;
+  }
+  
+  /* Simplificar formas en móvil */
+  .bpo-cliente,
+  .bpo-cobranza {
+    clip-path: none;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bpo-carousel {
+    min-height: 200px;
+  }
+}
+
+
 
 /* =========================================
    BENEFITS SECTION
