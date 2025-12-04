@@ -62,24 +62,23 @@ html {
 .how-it-works-section {
   padding: 60px 20px;
   text-align: center;
-  background-color: #ffffff; /* Fondo blanco */
+  background-color: #ffffff;
 }
 
 .how-it-works-section h2 {
   font-size: 2.5rem;
-  color: #2E8BC0; /* Título principal en azul */
+  color: #2E8BC0;
   margin-bottom: 50px;
 }
 
 /* Grid para supplies */
 .steps-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
   align-items: stretch;
-  justify-items: center;
   padding: 0 12px;
 }
 
@@ -87,10 +86,8 @@ html {
 .step-card {
   border-radius: 16px;
   padding: 32px 18px 24px 18px;
-  margin-bottom: 20px;
   text-align: center;
   width: 100%;
-  max-width: 340px;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -123,7 +120,7 @@ html {
 .botiquin-card h3,
 .impresora-card h3 {
   font-size: 1.35rem;
-  color: #2E8BC0 !important; /* Azul BPO */
+  color: #2E8BC0 !important;
   margin-bottom: 13px;
   line-height: 1.22;
   font-weight: 700;
@@ -166,13 +163,114 @@ html {
   border-color: rgba(46, 139, 192, 0.4);
 }
 
+/* ========================================
+   CARRUSEL DE IMÁGENES SUPPLIES - 2 COLUMNAS
+   ======================================== */
+.supplies-carousel {
+  grid-column: span 2; /* Ocupa 2 columnas */
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(46, 139, 192, 0.15);
+}
+
+.supplies-carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.supplies-carousel-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* ========================================
+   RESPONSIVE SUPPLIES
+   ======================================== */
+
+/* Tablets medianas (2 columnas) */
+@media (max-width: 900px) {
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .step-card {
+    padding: 22px 16px;
+    min-height: 220px;
+  }
+  
+  /* Carrusel ocupa 2 columnas completas */
+  .supplies-carousel {
+    grid-column: span 2;
+    min-height: 220px;
+  }
+}
+
+/* Móviles grandes (1 columna) */
+@media (max-width: 600px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .step-card {
+    padding: 20px 16px;
+  }
+  
+  /* Carrusel ocupa 1 columna en móviles */
+  .supplies-carousel {
+    grid-column: span 1;
+    min-height: 250px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .how-it-works-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+  
+  .step-card {
+    padding: 16px 12px;
+  }
+  
+  .supplies-carousel {
+    min-height: 200px;
+  }
+  
+  .oficina-card,
+  .cafe-card,
+  .botiquin-card,
+  .impresora-card {
+    border-width: 1px;
+  }
+}
+
+/* Helpers */
+.step-card {
+  min-width: 0;
+}
+
+
 /* =========================================
    REAL ESTATE SECTION (Servicios Inmobiliarios)
    ========================================= */
 .realestate-section {
   padding: 60px 20px;
   text-align: center;
-  background-color: #f8f9fa;
+  background-color: #ffffff; /* Fondo blanco */
 }
 
 .realestate-section h2 {
@@ -181,15 +279,14 @@ html {
   margin-bottom: 50px;
 }
 
-/* Grid para real estate */
+/* Grid para real estate - 3 columnas */
 .realestate-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
   align-items: stretch;
-  justify-items: center;
   padding: 0 12px;
 }
 
@@ -202,7 +299,6 @@ html {
   padding: 32px 18px 24px 18px;
   text-align: center;
   width: 100%;
-  max-width: 340px;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -236,27 +332,97 @@ html {
   border-color: rgba(46, 139, 192, 0.4);
 }
 
-/* Responsive para real estate */
+/* ========================================
+   CARRUSEL DE IMÁGENES REAL ESTATE - 2 COLUMNAS
+   ======================================== */
+.realestate-carousel {
+  grid-column: span 2; /* Ocupa 2 columnas */
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(46, 139, 192, 0.15);
+}
+
+.realestate-carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.realestate-carousel-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* ========================================
+   RESPONSIVE REAL ESTATE
+   ======================================== */
+
+/* Tablets medianas (2 columnas) */
 @media (max-width: 900px) {
   .realestate-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+  
   .realestate-card {
     padding: 22px 16px;
+    min-height: 220px;
+  }
+  
+  /* Carrusel ocupa 2 columnas completas */
+  .realestate-carousel {
+    grid-column: span 2;
+    min-height: 220px;
   }
 }
 
-@media (max-width: 700px) {
-  .realestate-section h2 {
-    font-size: 1.55rem;
-    margin-bottom: 35px;
-  }
-}
-
-@media (max-width: 540px) {
+/* Móviles grandes (1 columna) */
+@media (max-width: 600px) {
   .realestate-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
+  
+  .realestate-card {
+    padding: 20px 16px;
+  }
+  
+  /* Carrusel ocupa 1 columna en móviles */
+  .realestate-carousel {
+    grid-column: span 1;
+    min-height: 250px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .realestate-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+  
+  .realestate-card {
+    padding: 16px 12px;
+  }
+  
+  .realestate-carousel {
+    min-height: 200px;
+  }
+}
+
+/* Helpers */
+.realestate-card {
+  min-width: 0;
 }
 
 

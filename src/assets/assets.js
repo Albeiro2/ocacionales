@@ -48,6 +48,9 @@ import cliente11 from './clientes/cliente11.jpg';
 import cliente12 from './clientes/cliente12.jpg';
 import botiquin from './botiquin.jpg';
 import impresora from './impresora.jpg';
+import inmobiliario1 from './inmobiliario/inmobiliario1.webp';
+import inmobiliario2 from './inmobiliario/inmobiliario2.webp';
+import inmobiliario3 from './inmobiliario/inmobiliario3.webp';
 export const images = {
     fondo,
     logo,
@@ -65,6 +68,7 @@ export const images = {
     calidad2,
     vision2,
     mision2,
+    inmobiliarios:[inmobiliario1,inmobiliario2,inmobiliario3],
     ninos:[nino1,nino2],
     regalos:[regalo1,regalo2,regalo3],
     sonidos:[sonido1,sonido2,sonido3],

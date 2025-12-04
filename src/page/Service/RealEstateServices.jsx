@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Service.css';
+import { images } from '../../assets/assets';
 
 const RealEstateServices = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const realEstateImages = images.inmobiliarios; // [inmobiliario1, inmobiliario2, inmobiliario3]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === realEstateImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Cambia cada 3 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="realestate-section">
       <h2>Servicios Inmobiliarios</h2>
@@ -24,6 +39,17 @@ const RealEstateServices = () => {
         <div className="realestate-card telefonica-card">
           <h3>Atención Telefónica</h3>
           <p>Las personas interesadas podrán contactarnos a los números telefónicos registrados de domingo a domingo. Con nuestro servicio, nuestros clientes no tienen que suministrar sus teléfonos privados para dar información sobre el inmueble.</p>
+        </div>
+
+        {/* Carrusel de imágenes - ocupa 2 columnas */}
+        <div className="realestate-carousel">
+          {realEstateImages.map((img, index) => (
+            <div
+              key={index}
+              className={`realestate-carousel-image ${index === currentImageIndex ? 'active' : ''}`}
+              style={{ backgroundImage: `url(${img})` }}
+            />
+          ))}
         </div>
       </div>
     </section>

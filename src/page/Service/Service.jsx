@@ -60,14 +60,14 @@ const Service = () => {
         <SuppliesServices />
       </div>
 
-      {/* Servicios inmobiliarios */}
-      <div id="realEstate-services">
-        <RealEstateServices />
-      </div>
-
       {/* Servicios personalizados */}
       <div id="personalized-services">
         <PersonalizedServices />
+      </div>
+
+       {/* Servicios inmobiliarios */}
+      <div id="realEstate-services">
+        <RealEstateServices />
       </div>
 
       {/* Eventos */}
