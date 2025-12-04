@@ -8,11 +8,7 @@ import aliado5 from './aliados/aliado5.jpg';
 import aliado6 from './aliados/aliado6.jpg';
 import aliado7 from './aliados/aliado7.jpg';
 import cafe from './cafe.jpg';
-import mision from './mision.jpg';
 import oficina from './oficina.jpeg';
-import vision from './vision.webp';
-import empresa from './empresa.jpg';
-import calidad from './calidad.jpg';
 import televenta from './televenta.jpg';
 import cliente from './serviciocliente.webp';
 import cobranza from './cobranza.png';
@@ -54,11 +50,7 @@ export const images = {
     fondo,
     logo,
     cafe,
-    mision,
     oficina,
-    vision,
-    empresa,
-    calidad,
     televenta,
     cliente,
     cobranza,
