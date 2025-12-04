@@ -4,6 +4,7 @@ import { images } from '../../assets/assets';
 import SuppliesServices from './SuppliesServices';
 import PersonalizedServices from './PersonalizedServices';
 import Events from './Events';
+import RealEstateServices from './RealEstateServices';
 
 // Íconos para "Poder para tu empresa"
 const ComprasIcon = () => (
@@ -57,6 +58,11 @@ const Service = () => {
       {/* Servicios y suministros */}
       <div id="supplies-services">
         <SuppliesServices />
+      </div>
+
+      {/* Servicios inmobiliarios */}
+      <div id="realEstate-services">
+        <RealEstateServices />
       </div>
 
       {/* Servicios personalizados */}

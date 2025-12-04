@@ -76,6 +76,16 @@ const MenuBar = () => {
                   Servicios y suministros
                 </a>
               </li>
+
+              <li>
+                <a 
+                  href="#realEstate-services"
+                  onClick={() => handleNavigation('realEstate-services')}
+                >
+                  Servicios inmobiliarios
+                </a>
+              </li>
+
               <li>
                 <a 
                   href="#personalized-services"

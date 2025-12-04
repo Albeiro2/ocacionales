@@ -46,11 +46,15 @@ import cliente9 from './clientes/cliente9.jpg';
 import cliente10 from './clientes/cliente10.jpg';
 import cliente11 from './clientes/cliente11.jpg';
 import cliente12 from './clientes/cliente12.jpg';
+import botiquin from './botiquin.jpg';
+import impresora from './impresora.jpg';
 export const images = {
     fondo,
     logo,
     cafe,
     oficina,
+    botiquin,
+    impresora,
     televenta,
     cliente,
     cobranza,
