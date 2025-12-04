@@ -107,62 +107,49 @@ const About = () => (
 
 <div className="about-tarjetas-grid"></div>
       <div className="about-tarjetas-grid">
+  {/* Empresa - SIN backgroundImage */}
+  <div className="about-tarjeta about-tarjeta-empresa">
+    <div className="about-tarjeta-content">
+      <h3>Nuestra empresa</h3>
+      <p>
+        Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
+      </p>
+    </div>
+  </div>
 
-        {/* Empresa: sin icono */}
-        <div
-          className="about-tarjeta about-tarjeta-empresa"
-          style={{ backgroundImage: `url(${images.empresa})` }}
-        >
-          <div className="about-tarjeta-content">
-            <h3>Nuestra empresa</h3>
-            <p>
-              Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
-            </p>
-          </div>
-        </div>
+  {/* Calidad - SIN backgroundImage */}
+  <div className="about-tarjeta about-tarjeta-calidad">
+    <div className="about-tarjeta-content">
+      <h3>Calidad del servicio</h3>
+      <p>
+        Nuestra área de auditoría garantiza procesos efectivos y transparentes, cumpliendo cada requerimiento y asegurando resultados confiables.
+      </p>
+    </div>
+  </div>
 
-        {/* Calidad del servicio: sin icono */}
-        <div
-          className="about-tarjeta about-tarjeta-calidad"
-          style={{ backgroundImage: `url(${images.calidad})` }}
-        >
-          <div className="about-tarjeta-content">
-            <h3>Calidad del servicio</h3>
-            <p>
-              Nuestra área de auditoría garantiza procesos efectivos y transparentes, cumpliendo cada requerimiento y asegurando resultados confiables.
-            </p>
-          </div>
-        </div>
+  {/* Misión - SIN backgroundImage */}
+  <div className="about-tarjeta about-tarjeta-mision">
+    <div className="about-tarjeta-content">
+      <h3>Misión</h3>
+      <div className="about-tarjeta-icon"><MisionIcon /></div>
+      <p>
+        Ser aliado estratégico en call/contact center, asesorías jurídicas, contables y más, participando en el crecimiento del cliente con ética, objetividad e integridad.
+      </p>
+    </div>
+  </div>
 
-        {/* Misión: sí tiene icono */}
-        <div
-          className="about-tarjeta about-tarjeta-mision"
-          style={{ backgroundImage: `url(${images.mision})` }}
-        >
-          <div className="about-tarjeta-content">
-            <h3>Misión</h3>
-            <div className="about-tarjeta-icon"><MisionIcon /></div>
-            <p>
-              Ser aliado estratégico en call/contact center, asesorías jurídicas, contables y más, participando en el crecimiento del cliente con ética, objetividad e integridad.
-            </p>
-          </div>
-        </div>
+  {/* Visión - SIN backgroundImage */}
+  <div className="about-tarjeta about-tarjeta-vision">
+    <div className="about-tarjeta-content">
+      <h3>Visión</h3>
+      <div className="about-tarjeta-icon"><VisionIcon /></div>
+      <p>
+        Ser líderes nacionales en nuestros servicios, reconocidos como aliados estratégicos por calidad y cumplimiento, contribuyendo al crecimiento de nuestros clientes y la sociedad.
+      </p>
+    </div>
+  </div>
+</div>
 
-        {/* Visión: sí tiene icono */}
-        <div
-          className="about-tarjeta about-tarjeta-mision about-tarjeta-vision"
-          style={{ backgroundImage: `url(${images.vision})` }}
-        >
-          <div className="about-tarjeta-content">
-            <h3>Visión</h3>
-            <div className="about-tarjeta-icon"><VisionIcon /></div>
-            <p>
-              Ser líderes nacionales en nuestros servicios, reconocidos como aliados estratégicos por calidad y cumplimiento, contribuyendo al crecimiento de nuestros clientes y la sociedad.
-            </p>
-          </div>
-        </div>
-
-      </div>
     </section>
 
     {/* Valores corporativos (distinciones) */}
