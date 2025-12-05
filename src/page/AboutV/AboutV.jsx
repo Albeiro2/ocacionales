@@ -98,75 +98,44 @@ const About = () => (
       className="aboutv-corporativo-imagen"
     />
 
-
     <section className="aboutv-tarjetas-section">
       <div className="aboutv-tarjetas-grid">
-
-
-        {/* Empresa: sin icono */}
-        <div
-          className="aboutv-tarjeta aboutv-tarjeta-empresa"
-          style={{ backgroundImage: `url(${images.empresa2})` }}
-        >
-          <div className="aboutv-tarjeta-content">
-            <h3>Vitreum</h3>
-            <p>
-              Corporacion Vitreum Organización sin animo de lucro, trabajamos para transformar la vida de niñas, niños, adolescentes y jóvenes promoviendo sus derechos y brindando oportunidades de desarrollo. A través de programas educativos, de salud y protección, impactamos positivamente el futuro de miles de personas, fomentando un mundo más justo e inclusivo
-            </p>
-          </div>
+        {/* Vitreum - sin icono */}
+        <div className="aboutv-tarjeta aboutv-tarjeta-vitreum">
+          <h3>Vitreum</h3>
+          <p>
+            Corporacion Vitreum Organización sin animo de lucro, trabajamos para transformar la vida de niñas, niños, adolescentes y jóvenes promoviendo sus derechos y brindando oportunidades de desarrollo. A través de programas educativos, de salud y protección, impactamos positivamente el futuro de miles de personas, fomentando un mundo más justo e inclusivo
+          </p>
         </div>
 
-
-        {/* Calidad del servicio: sin icono */}
-        <div
-          className="aboutv-tarjeta aboutv-tarjeta-calidad"
-          style={{ backgroundImage: `url(${images.calidad2})` }}
-        >
-          <div className="aboutv-tarjeta-content">
-            <h3>Orientación laboral</h3>
-            <p>
-              La Corporación Vitreum, como organización sin ánimo de lucro, orienta su labor mediante cuatro ejes: articular esfuerzos, facilitar acceso a información como centro de conocimiento, fortalecer institucionalmente a sus asociadas y promover un entorno que favorezca su labor, contribuyendo al desarrollo y la inversión social en Colombia
-            </p>
-          </div>
+        {/* Orientación laboral - sin icono */}
+        <div className="aboutv-tarjeta aboutv-tarjeta-orientacion">
+          <h3>Orientación laboral</h3>
+          <p>
+            La Corporación Vitreum, como organización sin ánimo de lucro, orienta su labor mediante cuatro ejes: articular esfuerzos, facilitar acceso a información como centro de conocimiento, fortalecer institucionalmente a sus asociadas y promover un entorno que favorezca su labor, contribuyendo al desarrollo y la inversión social en Colombia
+          </p>
         </div>
 
-
-        {/* Misión: sí tiene icono */}
-        <div
-          className="aboutv-tarjeta aboutv-tarjeta-mision"
-          style={{ backgroundImage: `url(${images.mision2})` }}
-        >
-          <div className="aboutv-tarjeta-content">
-            <h3>Misión</h3>
-            <div className="aboutv-tarjeta-icon"><MisionIcon /></div>
-            <p>
-              La Corporación Vitreum es una entidad sin ánimo de lucro que desde 2012 impulsa el desarrollo integral de personas y comunidades, promoviendo educación para el trabajo, acceso a salud y bienestar, y apoyo a la niñez y el adulto mayor para mejorar su calidad de vida. Ejecuta programas sociales y educativos, propios y en alianza con el Estado y otras entidades, guiándose por la transparencia, la ética y el compromiso con el desarrollo humano sostenible.
-            </p>
-          </div>
+        {/* Misión - sin icono */}
+        <div className="aboutv-tarjeta aboutv-tarjeta-mision">
+          <h3>Misión</h3>
+          <p>
+            La Corporación Vitreum es una entidad sin ánimo de lucro que desde 2012 impulsa el desarrollo integral de personas y comunidades, promoviendo educación para el trabajo, acceso a salud y bienestar, y apoyo a la niñez y el adulto mayor para mejorar su calidad de vida. Ejecuta programas sociales y educativos, propios y en alianza con el Estado y otras entidades, guiándose por la transparencia, la ética y el compromiso con el desarrollo humano sostenible.
+          </p>
         </div>
 
-
-        {/* Visión: sí tiene icono */}
-        <div
-          className="aboutv-tarjeta aboutv-tarjeta-mision aboutv-tarjeta-vision"
-          style={{ backgroundImage: `url(${images.vision2})` }}
-        >
-          <div className="aboutv-tarjeta-content">
-            <h3>Visión</h3>
-            <div className="aboutv-tarjeta-icon"><VisionIcon /></div>
-            <p>
-              Para 2035, la Corporación Vitreum será reconocida a nivel regional y nacional como líder en formación para el trabajo, promoción de la salud y protección de la niñez y el adulto mayor. Será una organización innovadora y confiable en la ejecución de proyectos sociales, destacada por su transparencia, calidad e impacto sostenible, consolidándose como referente en oportunidades, desarrollo humano e inclusión social.
-            </p>
-          </div>
+        {/* Visión - sin icono */}
+        <div className="aboutv-tarjeta aboutv-tarjeta-vision">
+          <h3>Visión</h3>
+          <p>
+            Para 2035, la Corporación Vitreum será reconocida a nivel regional y nacional como líder en formación para el trabajo, promoción de la salud y protección de la niñez y el adulto mayor. Será una organización innovadora y confiable en la ejecución de proyectos sociales, destacada por su transparencia, calidad e impacto sostenible, consolidándose como referente en oportunidades, desarrollo humano e inclusión social.
+          </p>
         </div>
-
-
       </div>
     </section>
 
-
     {/* Tarjeta declaración de servicio */}
-    <div className="aboutv-tarjeta aboutv-servicio-declaracion">
+    <div className="aboutv-servicio-declaracion">
       <h2>DECLARACIÓN DE SERVICIO</h2>
       <p>
         La Corporación Vitreum, como organización sin ánimo de lucro dedicada desde el año 2012 a la
@@ -186,8 +155,7 @@ const About = () => (
       </p>
     </div>
 
-
-    {/* Valores corporativos (distinciones) */}
+    {/* Valores corporativos */}
     <section className="aboutv-distinciones-section">
       <h2>¿Por qué somos la mejor opción?</h2>
       <div className="aboutv-distinciones-grid">
@@ -224,8 +192,7 @@ const About = () => (
       </div>
     </section>
 
-
-    {/* Temas de capacitaciones: imagen desde images.temas */}
+    {/* Temas de capacitaciones */}
     <section className="aboutv-temas-section">
       <h2>Temas de capacitaciones</h2>
       <div className="aboutv-temas-content">
@@ -234,6 +201,5 @@ const About = () => (
     </section>
   </div>
 );
-
 
 export default About;

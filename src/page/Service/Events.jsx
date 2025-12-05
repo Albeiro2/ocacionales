@@ -36,7 +36,7 @@ const Events = () => {
 
   return (
     <section className="eventos-section">
-      <h2>Eventos</h2>
+      <h2>Eventos y Catering</h2>
       
       {/* Categorías */}
       <div className="eventos-categorias">

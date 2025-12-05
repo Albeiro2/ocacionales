@@ -109,7 +109,7 @@ const MenuBar = () => {
                   href="#events"
                   onClick={() => handleNavigation('events')}
                 >
-                  Eventos
+                  Eventos y Catering
                 </a>
               </li>
             </ul>

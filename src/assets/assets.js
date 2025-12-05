@@ -1,4 +1,3 @@
-import fondo from './fondo.jpg';
 import logo from './logo.png';
 import aliado1 from './aliados/aliado1.jpg';
 import aliado2 from './aliados/aliado2.jpg';
@@ -29,10 +28,6 @@ import animar2 from './eventos/12.jpg';
 import animar3 from './eventos/13.jpg';
 import vitreum from './vitreum.png';
 import temas from './tema.png';
-import empresa2 from './empresa2.jpg';
-import calidad2 from './calidad2.jpg';
-import vision2 from './vision2.jpg';
-import mision2 from './mision2.jpg';
 /*alidaos*/
 import cliente1 from './clientes/cliente1.jpg';
 import cliente2 from './clientes/cliente2.jpg';
@@ -52,7 +47,6 @@ import inmobiliario1 from './inmobiliario/inmobiliario1.webp';
 import inmobiliario2 from './inmobiliario/inmobiliario2.webp';
 import inmobiliario3 from './inmobiliario/inmobiliario3.webp';
 export const images = {
-    fondo,
     logo,
     cafe,
     oficina,
@@ -64,10 +58,6 @@ export const images = {
     mercadeo,
     vitreum,
     temas,
-    empresa2,
-    calidad2,
-    vision2,
-    mision2,
     inmobiliarios:[inmobiliario1,inmobiliario2,inmobiliario3],
     ninos:[nino1,nino2],
     regalos:[regalo1,regalo2,regalo3],
