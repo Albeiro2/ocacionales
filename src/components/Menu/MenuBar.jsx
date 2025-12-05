@@ -94,6 +94,16 @@ const MenuBar = () => {
                   Servicios inmobiliarios
                 </a>
               </li>
+
+              <li>
+                <a 
+                  href="#features-services"
+                  onClick={() => handleNavigation('features-services')}
+                >
+                  Características de servicio
+                </a>
+              </li>
+
               <li>
                 <a 
                   href="#events"

@@ -426,10 +426,6 @@ html {
 }
 
 
-
-
-
-
 /* =========================================
    BPO SECTION (Servicios Personalizados)
    ========================================= */
@@ -643,6 +639,140 @@ html {
     min-height: 200px;
   }
 }
+
+/* =========================================
+   FEATURES SECTION (Características)
+   ========================================= */
+.features-section {
+  background: #2E8BC0; /* Fondo azul */
+  padding: 60px 20px;
+  text-align: center;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  color: #ffffff; /* Título blanco */
+  margin-bottom: 50px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Grid para características */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* Tarjetas de características */
+.feature-card {
+  background: #ffffff !important;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  padding: 32px 20px 24px 20px;
+  text-align: center;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  border: none;
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
+/* Títulos en ROJO */
+.feature-card h3 {
+  color: #8B1A1A !important;
+  font-size: 1.35rem;
+  margin-bottom: 13px;
+  line-height: 1.22;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+/* Descripción en gris oscuro */
+.feature-card p {
+  color: #425260 !important;
+  line-height: 1.5;
+  font-size: 1.07rem;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 95%;
+  text-shadow: none;
+  font-weight: 400;
+}
+
+/* Hover para características */
+.feature-card:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+}
+
+/* ========================================
+   RESPONSIVE FEATURES
+   ======================================== */
+
+/* Tablets grandes */
+@media (max-width: 1100px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets medianas */
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .feature-card {
+    padding: 24px 16px;
+    min-height: 180px;
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 600px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .feature-card {
+    padding: 20px 16px;
+    min-height: 160px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .features-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+  
+  .feature-card {
+    padding: 18px 14px;
+  }
+}
+
+/* Helpers */
+.feature-card {
+  min-width: 0;
+}
+
 
 
 
