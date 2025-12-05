@@ -28,27 +28,41 @@ const Events = () => {
   const nextImg = () => setSlide(s => (s < imgs.length - 1 ? s + 1 : s));
   const prevImg = () => setSlide(s => (s > 0 ? s - 1 : s));
 
+  const handleCategoryChange = (key) => {
+    setCatActual(key);
+    setSlide(0);
+    setHovering(false);
+  };
+
   return (
     <section className="eventos-section">
       <h2>Eventos</h2>
+      
+      {/* Categorías */}
       <div className="eventos-categorias">
         {eventosCategorias.map(cat => (
           <button
             key={cat.key}
-            className={`evento-categoria-boton${catActual === cat.key ? ' active' : ''}`}
-            onClick={() => { setCatActual(cat.key); setSlide(0); }}
+            className={`evento-categoria-boton ${catActual === cat.key ? 'active' : ''}`}
+            onClick={() => handleCategoryChange(cat.key)}
           >
             {cat.nombre}
           </button>
         ))}
       </div>
+
+      {/* Carrusel */}
       <div className="eventos-carrusel-wrap">
+        {/* Botón Anterior */}
         <button
-          className="evento-carrusel-btn prev"
+          className={`evento-carrusel-btn prev ${slide === 0 ? 'disabled' : ''}`}
           onClick={prevImg}
           disabled={slide === 0}
-          style={{ visibility: slide === 0 ? 'hidden' : 'visible', position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)' }}
-        >‹</button>
+        >
+          ‹
+        </button>
+
+        {/* Contenedor de imágenes */}
         <div className="eventos-carrusel">
           {imgs.map((img, idx) => {
             let estado = 'evento-img-hidden';
@@ -56,21 +70,21 @@ const Events = () => {
             else if (idx === slide - 1) estado = 'evento-img-anterior';
             else if (idx === slide + 1) estado = 'evento-img-siguiente';
 
-            // Solo overlay si es la primera imagen y está activa
-            const showOverlay = idx === 0 && estado === 'evento-img-activa' && hovering;
+            const isFirstImage = idx === 0;
+            const isActive = estado === 'evento-img-activa';
+            const showOverlay = isFirstImage && isActive && hovering;
 
             return (
               <div
-                key={img}
+                key={idx}
                 className={`evento-img-wrapper ${estado}`}
-                onMouseEnter={() => { if (idx === 0 && estado === 'evento-img-activa') setHovering(true); }}
+                onMouseEnter={() => { if (isFirstImage && isActive) setHovering(true); }}
                 onMouseLeave={() => setHovering(false)}
-                style={{ position: 'absolute' }}
               >
                 <img
                   src={img}
-                  alt=""
-                  className={`evento-img`}
+                  alt={`Evento ${catActual} ${idx + 1}`}
+                  className="evento-img"
                 />
                 {showOverlay && (
                   <div className="evento-explicacion-overlay show">
@@ -81,12 +95,20 @@ const Events = () => {
             );
           })}
         </div>
+
+        {/* Botón Siguiente */}
         <button
-          className="evento-carrusel-btn next"
+          className={`evento-carrusel-btn next ${slide === imgs.length - 1 ? 'disabled' : ''}`}
           onClick={nextImg}
           disabled={slide === imgs.length - 1}
-          style={{ visibility: slide === imgs.length - 1 ? 'hidden' : 'visible', position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)' }}
-        >›</button>
+        >
+          ›
+        </button>
+      </div>
+
+      {/* Indicador de posición */}
+      <div className="eventos-indicador">
+        {slide + 1} / {imgs.length}
       </div>
     </section>
   );
