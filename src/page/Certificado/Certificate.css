@@ -1,0 +1,135 @@
+.certificate-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  background: transparent;
+}
+
+.certificate-title {
+  font-size: 2.4rem;
+  color: #2E8BC0;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.certificate-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px;
+  width: 100%;
+  max-width: 700px;
+  min-height: 450px;
+  cursor: grab;
+  user-select: none;
+}
+
+.certificate-container:active {
+  cursor: grabbing;
+}
+
+.certificate-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  filter: drop-shadow(0 10px 30px rgba(46, 139, 192, 0.3));
+  backface-visibility: visible;
+}
+
+.certificate-wrapper.dragging {
+  transition: none;
+  filter: drop-shadow(0 15px 40px rgba(46, 139, 192, 0.5));
+}
+
+.certificate-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 3px solid #2E8BC0;
+  background: #ffffff;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+
+.certificate-instruction {
+  margin-top: 24px;
+  color: #425260;
+  font-size: 1.05rem;
+  text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-style: italic;
+}
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+  .certificate-section {
+    padding: 50px 16px;
+  }
+
+  .certificate-title {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+  
+  .certificate-container {
+    max-width: 600px;
+    min-height: 380px;
+  }
+  
+  .certificate-wrapper {
+    max-width: 500px;
+  }
+
+  .certificate-instruction {
+    font-size: 0.98rem;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  .certificate-section {
+    padding: 40px 12px;
+  }
+
+  .certificate-title {
+    font-size: 1.6rem;
+    margin-bottom: 28px;
+  }
+  
+  .certificate-container {
+    max-width: 100%;
+    min-height: 320px;
+  }
+  
+  .certificate-wrapper {
+    max-width: 100%;
+  }
+  
+  .certificate-image {
+    border-width: 2px;
+    border-radius: 8px;
+  }
+
+  .certificate-instruction {
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+}
+
+/* Para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .certificate-instruction {
+    display: none;
+  }
+  
+  .certificate-container {
+    cursor: default;
+  }
+}

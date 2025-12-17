@@ -5,6 +5,7 @@ import Service from '../Service/Service';
 import Contact from '../Contact/Contact';
 import Plan from '../Plan/Plan';
 import Footer from '../Footer/Footer';
+import Certificate from '../Certificado/Certificate';
 
 const HomePage = () => {
   useEffect(() => {
@@ -25,6 +26,10 @@ const HomePage = () => {
 
       <section id="about">
         <About />
+      </section>
+
+      <section id="certificate">
+      <Certificate/>
       </section>
       
       <section id="service">

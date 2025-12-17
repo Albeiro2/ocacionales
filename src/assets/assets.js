@@ -46,9 +46,14 @@ import impresora from './impresora.jpg';
 import inmobiliario1 from './inmobiliario/inmobiliario1.webp';
 import inmobiliario2 from './inmobiliario/inmobiliario2.webp';
 import inmobiliario3 from './inmobiliario/inmobiliario3.webp';
+
+//certificado
+import certificado from './certificado.jpg';
+
 export const images = {
     logo,
     cafe,
+    certificado,
     oficina,
     botiquin,
     impresora,
