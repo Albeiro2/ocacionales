@@ -1,13 +1,50 @@
 import React, { useState } from 'react';
-import './Contact.css'; // Estilos para la página de contacto
+import './Contact.css';
 
 const Contact = () => {
+  const [selectedCompany, setSelectedCompany] = useState('telemarketer');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     comment: '',
   });
+
+  const companyData = {
+    telemarketer: {
+      title: 'Telemarketer BPO',
+      color: '#2E8BC0',
+      email: 'telemarketergerencia@gmail.com',
+      locations: [
+        {
+          city: 'Bogotá D.C.',
+          address: 'Carrera 7 No. 64 50',
+          phone: '+57 3243869227'
+        },
+        {
+          city: 'Barranquilla',
+          address: 'Carrera 57 No. 74 71',
+          phone: '+57 3103612721'
+        }
+      ],
+      schedule: 'Lunes a Viernes, 9:00 AM - 5:00 PM'
+    },
+    vitreum: {
+      title: 'Corporación Vitreum',
+      color: '#34b97f',
+      email: 'contacto@vitreum.org',
+      locations: [
+        {
+          city: 'Bogotá D.C.',
+          address: 'Carrera 7 No. 64 50',
+          phone: '+57 3243869227'
+        }
+      ],
+      schedule: 'Lunes a Viernes, 8:00 AM - 6:00 PM'
+    }
+  };
+
+  const currentCompany = companyData[selectedCompany];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,52 +55,71 @@ const Contact = () => {
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  // Construye cuerpo
-  const body =
-    `Nombre: ${formData.name}\n` +
-    `Email: ${formData.email}\n` +
-    `Teléfono: ${formData.phone}\n` +
-    `Comentario:\n${formData.comment}`;
+    const body =
+      `Nombre: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Teléfono: ${formData.phone}\n` +
+      `Comentario:\n${formData.comment}`;
 
-  // Arma el mailto
-  const mailtoLink = `mailto:telemarketergerencia@gmail.com?subject=Consulta%20desde%20sitio%20web&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${currentCompany.email}?subject=Consulta%20desde%20sitio%20web%20${currentCompany.title}&body=${encodeURIComponent(body)}`;
 
-  // Abre el correo con los datos ya prellenados
-  window.location.href = mailtoLink;
+    window.location.href = mailtoLink;
 
-  // Opcional: limpiar formulario después de abrir el mail
-  setFormData({ name: '', email: '', phone: '', comment: '' });
-};
+    setFormData({ name: '', email: '', phone: '', comment: '' });
+  };
 
   return (
     <div className="contact-page-wrapper">
+      {/* Selector de empresa */}
+      <div className="company-selector">
+        <button
+          className={`company-button ${selectedCompany === 'telemarketer' ? 'active telemarketer' : ''}`}
+          onClick={() => setSelectedCompany('telemarketer')}
+        >
+          Telemarketer BPO
+        </button>
+        <button
+          className={`company-button ${selectedCompany === 'vitreum' ? 'active vitreum' : ''}`}
+          onClick={() => setSelectedCompany('vitreum')}
+        >
+          Corporación Vitreum
+        </button>
+      </div>
+
       <div className="contact-container">
         {/* Columna de Información */}
-        <div className="contact-info">
+        <div 
+          className="contact-info"
+          style={{ backgroundColor: currentCompany.color }}
+        >
           <h2>Contáctanos</h2>
+          <h3 className="company-name">{currentCompany.title}</h3>
           <p>
             ¿Tienes alguna pregunta o necesitas asistencia? Completa el formulario y nuestro equipo
             se pondrá en contacto contigo a la brevedad.
           </p>
+          
           <div className="info-item">
-            <strong>Email:</strong> <a href="telemarketergerencia@gmail.com">telemarketergerencia@gmail.com</a>
+            <strong>Email:</strong> 
+            <a href={`mailto:${currentCompany.email}`}>{currentCompany.email}</a>
           </div>
+
+          {currentCompany.locations.map((location, index) => (
+            <div key={index} className="location-group">
+              <div className="info-item">
+                <strong>{location.city}:</strong> {location.address}
+              </div>
+              <div className="info-item">
+                <strong>Teléfono:</strong> 
+                <a href={`tel:${location.phone}`}>{location.phone}</a>
+              </div>
+            </div>
+          ))}
+
           <div className="info-item">
-            <strong>Direccion:</strong> <a href="direccion:BogotáD.C.Carrera7No.6450">Bogotá D.C. Carrera 7 No. 64 50</a>
-          </div>
-          <div className="info-item">
-            <strong>Teléfono:</strong> <a href="tel:+573243869227">+57 3243869227</a>
-          </div>
-          <div className="info-item">
-            <strong>Direccion:</strong> <a href="direccion:BarranquillaCarrera57No.7471">Barranquilla Carrera 57 No. 74 71</a>
-          </div>
-          <div className="info-item">
-            <strong>Teléfono:</strong> <a href="tel:+573103612721">+57 3103612721</a>
-          </div>
-          <div className="info-item">
-            <strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 5:00 PM
+            <strong>Horario:</strong> {currentCompany.schedule}
           </div>
         </div>
 
@@ -113,7 +169,13 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="submit-button">Enviar Mensaje</button>
+            <button 
+              type="submit" 
+              className="submit-button"
+              style={{ backgroundColor: currentCompany.color }}
+            >
+              Enviar Mensaje
+            </button>
           </form>
         </div>
       </div>
