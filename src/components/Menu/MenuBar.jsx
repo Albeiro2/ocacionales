@@ -5,10 +5,12 @@ const MenuBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [serviciosSubmenuOpen, setServiciosSubmenuOpen] = useState(false);
+  const [telemarketerSubmenuOpen, setTelemarketerSubmenuOpen] = useState(false);
 
   const handleNavigation = (sectionId) => {
     setMenuOpen(false);
     setServiciosSubmenuOpen(false);
+    setTelemarketerSubmenuOpen(false);
     window.location.hash = sectionId;
   };
 
@@ -26,7 +28,7 @@ const MenuBar = () => {
 
   return (
     <nav className="medical-navbar">
-      <div className="navbar-logo" style={{cursor: 'pointer'}} onClick={() => handleNavigation('service')}>
+      <div className="navbar-logo" style={{cursor: 'pointer'}} onClick={() => handleNavigation('about')}>
         <div className="logo-link">
           <div className="logo-text-group">
             <div className="logo-title">
@@ -45,16 +47,41 @@ const MenuBar = () => {
       </div>
       <div className={`navbar-right-content ${menuOpen ? 'active' : ''}`}>
         <ul className="navbar-links">
-          <li>
+          
+          {/* SUBMENÚ TELEMARKETER */}
+          <li className="navbar-item-with-submenu">
             <a 
-              href="#about" 
-              onClick={() => handleNavigation('about')}
-              className={activeSection === 'about' ? 'active' : ''}
+              href="#telemarketer"
+              onClick={(e) => {
+                e.preventDefault();
+                setTelemarketerSubmenuOpen(!telemarketerSubmenuOpen);
+              }}
+              className={activeSection === 'about' || activeSection === 'certificate' ? 'active' : ''}
             >
-              ¿Quiénes somos?
+              Telemarketer
+              <span className={`submenu-arrow ${telemarketerSubmenuOpen ? 'open' : ''}`}>▼</span>
             </a>
+            <ul className={`submenu ${telemarketerSubmenuOpen ? 'active' : ''}`}>
+              <li>
+                <a 
+                  href="#about"
+                  onClick={() => handleNavigation('about')}
+                >
+                  Quiénes somos
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#certificate"
+                  onClick={() => handleNavigation('certificate')}
+                >
+                  Certificado
+                </a>
+              </li>
+            </ul>
           </li>
 
+          {/* SUBMENÚ SERVICIOS */}
           <li className="navbar-item-with-submenu">
             <a 
               href="#service"
@@ -62,7 +89,7 @@ const MenuBar = () => {
                 e.preventDefault();
                 setServiciosSubmenuOpen(!serviciosSubmenuOpen);
               }}
-              className={activeSection === 'service' ? 'active' : ''}
+              className={activeSection === 'service' || activeSection === 'supplies-services' || activeSection === 'personalized-services' || activeSection === 'realEstate-services' || activeSection === 'features-services' || activeSection === 'events' ? 'active' : ''}
             >
               Servicios
               <span className={`submenu-arrow ${serviciosSubmenuOpen ? 'open' : ''}`}>▼</span>
@@ -86,7 +113,7 @@ const MenuBar = () => {
                 </a>
               </li>
 
-                <li>
+              <li>
                 <a 
                   href="#realEstate-services"
                   onClick={() => handleNavigation('realEstate-services')}
