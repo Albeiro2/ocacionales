@@ -105,51 +105,59 @@ const About = () => (
         </div>
       </div>
 
-<div className="about-tarjetas-grid"></div>
       <div className="about-tarjetas-grid">
-  {/* Empresa - SIN backgroundImage */}
-  <div className="about-tarjeta about-tarjeta-empresa">
-    <div className="about-tarjeta-content">
-      <h3>Nuestra empresa</h3>
-      <p>
-        Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
-      </p>
-    </div>
-  </div>
+        {/* Empresa - Imagen IZQUIERDA */}
+        <div className="about-tarjeta about-tarjeta-empresa">
+          <div className="about-tarjeta-imagen">
+            <img src={images.about.empresa} alt="Nuestra Empresa" style={{ width: '100%', height: '350px', objectFit: 'cover' }}/>
+          </div>
+          <div className="about-tarjeta-content">
+            <h3>Nuestra empresa</h3>
+            <p>
+              Ofrecemos soluciones de BPO y servicios en Administración de Propiedad Horizontal, Inmobiliarios, Call Center y Logística, garantizando atención al cliente de calidad y eficiencia operativa con personal capacitado.
+            </p>
+          </div>
+        </div>
 
-  {/* Calidad - SIN backgroundImage */}
-  <div className="about-tarjeta about-tarjeta-calidad">
-    <div className="about-tarjeta-content">
-      <h3>Calidad del servicio</h3>
-      <p>
-        Nuestra área de auditoría garantiza procesos efectivos y transparentes, cumpliendo cada requerimiento y asegurando resultados confiables.
-      </p>
-    </div>
-  </div>
+        {/* Misión - Imagen DERECHA */}
+        <div className="about-tarjeta about-tarjeta-mision about-tarjeta-reverse">
+          <div className="about-tarjeta-imagen">
+            <img src={images.about.mision} alt="Misión" style={{ width: '100%', height: '350px', objectFit: 'cover' }}/>
+          </div>
+          <div className="about-tarjeta-content">
+            <h3>Misión</h3>
+            <p>
+              Ser aliado estratégico en call/contact center, asesorías jurídicas, contables y más, participando en el crecimiento del cliente con ética, objetividad e integridad.
+            </p>
+          </div>
+        </div>
 
-  {/* Misión - SIN backgroundImage */}
-  <div className="about-tarjeta about-tarjeta-mision">
-    <div className="about-tarjeta-content">
-      <h3>Misión</h3>
-      <div className="about-tarjeta-icon"><MisionIcon /></div>
-      <p>
-        Ser aliado estratégico en call/contact center, asesorías jurídicas, contables y más, participando en el crecimiento del cliente con ética, objetividad e integridad.
-      </p>
-    </div>
-  </div>
+        {/* Visión - Imagen IZQUIERDA */}
+        <div className="about-tarjeta about-tarjeta-vision">
+          <div className="about-tarjeta-imagen">
+            <img src={images.about.vision} alt="Visión" style={{ width: '100%', height: '350px', objectFit: 'cover' }}/>
+          </div>
+          <div className="about-tarjeta-content">
+            <h3>Visión</h3>
+            <p>
+              Ser líderes nacionales en nuestros servicios, reconocidos como aliados estratégicos por calidad y cumplimiento, contribuyendo al crecimiento de nuestros clientes y la sociedad.
+            </p>
+          </div>
+        </div>
 
-  {/* Visión - SIN backgroundImage */}
-  <div className="about-tarjeta about-tarjeta-vision">
-    <div className="about-tarjeta-content">
-      <h3>Visión</h3>
-      <div className="about-tarjeta-icon"><VisionIcon /></div>
-      <p>
-        Ser líderes nacionales en nuestros servicios, reconocidos como aliados estratégicos por calidad y cumplimiento, contribuyendo al crecimiento de nuestros clientes y la sociedad.
-      </p>
-    </div>
-  </div>
-</div>
-
+        {/* Calidad - Imagen DERECHA */}
+        <div className="about-tarjeta about-tarjeta-calidad about-tarjeta-reverse">
+          <div className="about-tarjeta-imagen">
+            <img src={images.about.calidad} alt="Calidad" style={{ width: '100%', height: '350px', objectFit: 'cover' }} />
+          </div>
+          <div className="about-tarjeta-content">
+            <h3>Calidad del servicio</h3>
+            <p>
+              Nuestra área de auditoría garantiza procesos efectivos y transparentes, cumpliendo cada requerimiento y asegurando resultados confiables.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     {/* Valores corporativos (distinciones) */}

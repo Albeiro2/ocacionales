@@ -3,39 +3,6 @@ import './AboutV.css';
 import { images } from '../../assets/assets';
 
 // Íconos SVG representativos:
-const EmpresaIcon = () => (
-  <svg width="44" height="44" viewBox="0 0 48 48">
-    <rect x="7" y="19" width="34" height="18" rx="5" fill="#e3f2fd"/>
-    <rect x="15" y="10" width="18" height="11" rx="4" fill="#38a9e0"/>
-    <rect x="20" y="25" width="8" height="7" rx="2" fill="#90caf9"/>
-    <rect x="13" y="33" width="5" height="4" rx="1" fill="#bddaf7"/>
-    <rect x="30" y="33" width="5" height="4" rx="1" fill="#bddaf7"/>
-  </svg>
-);
-const MisionIcon = () => (
-  <svg width="44" height="44" viewBox="0 0 48 48">
-    <circle cx="24" cy="24" r="20" fill="#e8fced"/>
-    <rect x="21" y="13" width="6" height="20" rx="2" fill="#34b97f"/>
-    <rect x="17" y="30" width="14" height="4" rx="2" fill="#56d399"/>
-    <circle cx="24" cy="19" r="3" fill="#34b97f"/>
-  </svg>
-);
-const VisionIcon = () => (
-  <svg width="44" height="44" viewBox="0 0 48 48">
-    <ellipse cx="24" cy="24" rx="18" ry="13" fill="#fffbe6"/>
-    <ellipse cx="24" cy="24" rx="11" ry="6" fill="#ffe59f"/>
-    <ellipse cx="24" cy="24" rx="4" ry="2" fill="#f7ce6f"/>
-  </svg>
-);
-const CalidadIcon = () => (
-  <svg width="44" height="44" viewBox="0 0 48 48">
-    <circle cx="24" cy="24" r="20" fill="#e3f6ff"/>
-    <rect x="19" y="17" width="10" height="14" rx="2" fill="#4db9e9"/>
-    <circle cx="24" cy="27" r="4" fill="#fff"/>
-    <path d="M18 32l6 4 6-4" stroke="#4db9e9" strokeWidth="2" fill="none"/>
-  </svg>
-);
-
 const PaperIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#28a745" viewBox="0 0 16 16">
     <rect x="3" y="2" width="10" height="12" rx="1.6" fill="#eafbe8" stroke="#28a745" strokeWidth="1.3"/>
@@ -91,7 +58,7 @@ const ConfianzaIcon = () => (
 
 const About = () => (
   <div className="aboutv-page-container">
-    {/* Título corporativo */}
+    {/* Imagen corporativa */}
     <img
       src={images.vitreum}
       alt="Corporación Vitreum"
@@ -100,41 +67,78 @@ const About = () => (
 
     <section className="aboutv-tarjetas-section">
       <div className="aboutv-tarjetas-grid">
-        {/* Vitreum - sin icono */}
+        
+        {/* Vitreum - Imagen IZQUIERDA */}
         <div className="aboutv-tarjeta aboutv-tarjeta-vitreum">
-          <h3>Vitreum</h3>
-          <p>
-            Corporacion Vitreum Organización sin animo de lucro, trabajamos para transformar la vida de niñas, niños, adolescentes y jóvenes promoviendo sus derechos y brindando oportunidades de desarrollo. A través de programas educativos, de salud y protección, impactamos positivamente el futuro de miles de personas, fomentando un mundo más justo e inclusivo
-          </p>
+          <div className="aboutv-tarjeta-imagen">
+            <img 
+              src={images.aboutV.empresaV} 
+              alt="Vitreum"
+              style={{ width: '100%', height: '350px', objectFit: 'cover' }}
+            />
+          </div>
+          <div className="aboutv-tarjeta-content">
+            <h3>Vitreum</h3>
+            <p>
+              Corporacion Vitreum Organización sin animo de lucro, trabajamos para transformar la vida de niñas, niños, adolescentes y jóvenes promoviendo sus derechos y brindando oportunidades de desarrollo. A través de programas educativos, de salud y protección, impactamos positivamente el futuro de miles de personas, fomentando un mundo más justo e inclusivo.
+            </p>
+          </div>
         </div>
 
-        {/* Orientación laboral - sin icono */}
-        <div className="aboutv-tarjeta aboutv-tarjeta-orientacion">
-          <h3>Orientación laboral</h3>
-          <p>
-            La Corporación Vitreum, como organización sin ánimo de lucro, orienta su labor mediante cuatro ejes: articular esfuerzos, facilitar acceso a información como centro de conocimiento, fortalecer institucionalmente a sus asociadas y promover un entorno que favorezca su labor, contribuyendo al desarrollo y la inversión social en Colombia
-          </p>
+        {/* Orientación laboral - Imagen DERECHA */}
+        <div className="aboutv-tarjeta aboutv-tarjeta-orientacion aboutv-tarjeta-reverse">
+          <div className="aboutv-tarjeta-imagen">
+            <img 
+              src={images.aboutV.calidadV} 
+              alt="Orientación laboral"
+              style={{ width: '100%', height: '350px', objectFit: 'cover' }}
+            />
+          </div>
+          <div className="aboutv-tarjeta-content">
+            <h3>Orientación laboral</h3>
+            <p>
+              La Corporación Vitreum, como organización sin ánimo de lucro, orienta su labor mediante cuatro ejes: articular esfuerzos, facilitar acceso a información como centro de conocimiento, fortalecer institucionalmente a sus asociadas y promover un entorno que favorezca su labor, contribuyendo al desarrollo y la inversión social en Colombia.
+            </p>
+          </div>
         </div>
 
-        {/* Misión - sin icono */}
+        {/* Misión - Imagen IZQUIERDA */}
         <div className="aboutv-tarjeta aboutv-tarjeta-mision">
-          <h3>Misión</h3>
-          <p>
-            La Corporación Vitreum es una entidad sin ánimo de lucro que desde 2012 impulsa el desarrollo integral de personas y comunidades, promoviendo educación para el trabajo, acceso a salud y bienestar, y apoyo a la niñez y el adulto mayor para mejorar su calidad de vida. Ejecuta programas sociales y educativos, propios y en alianza con el Estado y otras entidades, guiándose por la transparencia, la ética y el compromiso con el desarrollo humano sostenible.
-          </p>
+          <div className="aboutv-tarjeta-imagen">
+            <img 
+              src={images.aboutV.misionV} 
+              alt="Misión"
+              style={{ width: '100%', height: '350px', objectFit: 'cover' }}
+            />
+          </div>
+          <div className="aboutv-tarjeta-content">
+            <h3>Misión</h3>
+            <p>
+              La Corporación Vitreum es una entidad sin ánimo de lucro que desde 2012 impulsa el desarrollo integral de personas y comunidades, promoviendo educación para el trabajo, acceso a salud y bienestar, y apoyo a la niñez y el adulto mayor para mejorar su calidad de vida. Ejecuta programas sociales y educativos, propios y en alianza con el Estado y otras entidades, guiándose por la transparencia, la ética y el compromiso con el desarrollo humano sostenible.
+            </p>
+          </div>
         </div>
 
-        {/* Visión - sin icono */}
-        <div className="aboutv-tarjeta aboutv-tarjeta-vision">
-          <h3>Visión</h3>
-          <p>
-            Para 2035, la Corporación Vitreum será reconocida a nivel regional y nacional como líder en formación para el trabajo, promoción de la salud y protección de la niñez y el adulto mayor. Será una organización innovadora y confiable en la ejecución de proyectos sociales, destacada por su transparencia, calidad e impacto sostenible, consolidándose como referente en oportunidades, desarrollo humano e inclusión social.
-          </p>
+        {/* Visión - Imagen DERECHA */}
+        <div className="aboutv-tarjeta aboutv-tarjeta-vision aboutv-tarjeta-reverse">
+          <div className="aboutv-tarjeta-imagen">
+            <img 
+              src={images.aboutV.visionV} 
+              alt="Visión"
+              style={{ width: '100%', height: '350px', objectFit: 'cover' }}
+            />
+          </div>
+          <div className="aboutv-tarjeta-content">
+            <h3>Visión</h3>
+            <p>
+              Para 2035, la Corporación Vitreum será reconocida a nivel regional y nacional como líder en formación para el trabajo, promoción de la salud y protección de la niñez y el adulto mayor. Será una organización innovadora y confiable en la ejecución de proyectos sociales, destacada por su transparencia, calidad e impacto sostenible, consolidándose como referente en oportunidades, desarrollo humano e inclusión social.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    {/* Tarjeta declaración de servicio */}
+    {/* Declaración de servicio */}
     <div className="aboutv-servicio-declaracion">
       <h2>DECLARACIÓN DE SERVICIO</h2>
       <p>

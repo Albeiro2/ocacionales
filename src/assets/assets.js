@@ -43,9 +43,22 @@ import cliente11 from './clientes/cliente11.jpg';
 import cliente12 from './clientes/cliente12.jpg';
 import botiquin from './botiquin.jpg';
 import impresora from './impresora.jpg';
-import inmobiliario1 from './inmobiliario/inmobiliario1.webp';
+import inmobiliario1 from './inmobiliario/inmobiliaria1.jpeg';
 import inmobiliario2 from './inmobiliario/inmobiliario2.webp';
 import inmobiliario3 from './inmobiliario/inmobiliario3.webp';
+import inmobiliario4 from './inmobiliario/inmobiliaria4.jpeg';
+
+/*about*/
+import empresa from './about/empresa.jpeg';
+import mision from './about/mision.jpeg';
+import vision from './about/vision.jpeg';
+import calidad from './about/calidad.jpeg';
+
+/*aboutV*/
+import empresaV from './aboutV/empresaV.jpeg';
+import misionV from './aboutV/misionV.jpeg';
+import visionV from './aboutV/visionV.jpeg';
+import calidadV from './aboutV/calidadV.jpeg';
 
 //certificado
 import certificado from './certificado.jpg';
@@ -63,7 +76,9 @@ export const images = {
     mercadeo,
     vitreum,
     temas,
-    inmobiliarios:[inmobiliario1,inmobiliario2,inmobiliario3],
+    about:{mision,vision,empresa,calidad},
+    aboutV:{misionV,visionV,empresaV,calidadV},
+    inmobiliarios:[inmobiliario1,inmobiliario2,inmobiliario3,inmobiliario4],
     ninos:[nino1,nino2],
     regalos:[regalo1,regalo2,regalo3],
     sonidos:[sonido1,sonido2,sonido3],

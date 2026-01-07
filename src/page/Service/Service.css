@@ -57,588 +57,612 @@ html {
 }
 
 /* =========================================
-   HOW IT WORKS SECTION (Supplies/Suministros)
+   SUPPLIES SECTION (Servicios y Suministros) - LAYOUT ESCALERA
    ========================================= */
-.how-it-works-section {
+.supplies-section-escalera {
   padding: 60px 20px;
-  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
   background-color: #ffffff;
 }
 
-.how-it-works-section h2 {
+.supplies-section-escalera h2 {
+  text-align: center;
   font-size: 2.5rem;
   color: #2E8BC0;
   margin-bottom: 50px;
+  font-weight: 800;
 }
 
-/* Grid para supplies */
-.steps-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  align-items: stretch;
-  padding: 0 12px;
-}
-
-/* Estilo base para tarjetas de supplies */
-.step-card {
-  border-radius: 16px;
-  padding: 32px 18px 24px 18px;
-  text-align: center;
-  width: 100%;
-  min-width: 0;
+.supplies-grid-escalera {
   display: flex;
   flex-direction: column;
+  gap: 40px;
+}
+
+/* Cada item de servicio Supplies */
+.supplies-item {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(46, 139, 192, 0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  min-height: 300px;
+}
+
+/* Items con imagen a la DERECHA */
+.supplies-item.supplies-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Contenedor de imagen - 45% del ancho */
+.supplies-imagen {
+  flex: 0 0 45%;
+  min-height: 300px;
+  overflow: hidden;
+  background: #f0f0f0;
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
+  justify-content: center;
 }
 
-/* OCULTAR ICONOS */
-.step-icon {
-  display: none !important;
+.supplies-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
 }
 
-/* TARJETAS ESPECÍFICAS CON FONDO BLANCO Y BORDE AZUL */
+/* Hover en imagen */
+.supplies-item:hover .supplies-imagen img {
+  transform: scale(1.05);
+}
+
+/* Contenedor de contenido - 55% del ancho */
+.supplies-content {
+  flex: 1;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.supplies-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2E8BC0;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.supplies-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #425260;
+  margin: 0;
+}
+
+/* Hover en item completo */
+.supplies-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  border-color: rgba(46, 139, 192, 0.4);
+}
+
+/* ========================================
+   RESPONSIVE SERVICIOS Y SUMINISTROS
+   ======================================== */
+
+/* Tablets (menos de 900px) */
+@media (max-width: 900px) {
+  .supplies-imagen {
+    flex: 0 0 40%;
+    min-height: 250px;
+  }
+  
+  .supplies-content {
+    padding: 30px 25px;
+  }
+  
+  .supplies-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .supplies-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Móviles (menos de 768px) - Layout vertical */
+@media (max-width: 768px) {
+  .supplies-item,
+  .supplies-item.supplies-reverse {
+    flex-direction: column;
+  }
+  
+  .supplies-imagen {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 220px;
+    max-height: 280px;
+  }
+  
+  .supplies-content {
+    width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .supplies-content h3 {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  
+  .supplies-content p {
+    text-align: center;
+    font-size: 0.98rem;
+  }
+}
+
+/* Móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+  .supplies-section-escalera {
+    padding: 40px 16px;
+  }
+  
+  .supplies-section-escalera h2 {
+    font-size: 2rem;
+    margin-bottom: 35px;
+  }
+  
+  .supplies-grid-escalera {
+    gap: 30px;
+  }
+  
+  .supplies-imagen {
+    min-height: 200px;
+    max-height: 240px;
+  }
+  
+  .supplies-content {
+    padding: 24px 16px;
+  }
+  
+  .supplies-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .supplies-content p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Eliminar clases antiguas Supplies que ya no se usan */
+.how-it-works-section,
+.steps-container,
+.step-card,
+.step-icon,
 .oficina-card,
 .cafe-card,
 .botiquin-card,
-.impresora-card {
-  background: #ffffff !important;
-  border: 1px solid rgba(46, 139, 192, 0.2);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Títulos en AZUL */
-.oficina-card h3,
-.cafe-card h3,
-.botiquin-card h3,
-.impresora-card h3 {
-  font-size: 1.35rem;
-  color: #2E8BC0 !important;
-  margin-bottom: 13px;
-  line-height: 1.22;
-  font-weight: 700;
-  position: relative;
-  z-index: 3;
-}
-
-/* Descripción en gris oscuro */
-.oficina-card p,
-.cafe-card p,
-.botiquin-card p,
-.impresora-card p {
-  color: #425260 !important;
-  line-height: 1.5;
-  font-size: 1.07rem;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 95%;
-  font-weight: 400;
-  text-shadow: none;
-  position: relative;
-  z-index: 3;
-}
-
-.oficina-card p strong,
-.cafe-card p strong,
-.botiquin-card p strong,
-.impresora-card p strong {
-  font-weight: 600;
-  color: #425260;
-}
-
-/* Hover para supplies */
-.oficina-card:hover,
-.cafe-card:hover,
-.botiquin-card:hover,
-.impresora-card:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  transform: translateY(-4px);
-  border-color: rgba(46, 139, 192, 0.4);
-}
-
-/* ========================================
-   CARRUSEL DE IMÁGENES SUPPLIES - 2 COLUMNAS
-   ======================================== */
-.supplies-carousel {
-  grid-column: span 2; /* Ocupa 2 columnas */
-  position: relative;
-  width: 100%;
-  min-height: 280px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(46, 139, 192, 0.15);
-}
-
+.impresora-card,
+.supplies-carousel,
 .supplies-carousel-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  display: none !important;
 }
 
-.supplies-carousel-image.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-/* ========================================
-   RESPONSIVE SUPPLIES
-   ======================================== */
-
-/* Tablets medianas (2 columnas) */
-@media (max-width: 900px) {
-  .steps-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  
-  .step-card {
-    padding: 22px 16px;
-    min-height: 220px;
-  }
-  
-  /* Carrusel ocupa 2 columnas completas */
-  .supplies-carousel {
-    grid-column: span 2;
-    min-height: 220px;
-  }
-}
-
-/* Móviles grandes (1 columna) */
-@media (max-width: 600px) {
-  .steps-container {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  
-  .step-card {
-    padding: 20px 16px;
-  }
-  
-  /* Carrusel ocupa 1 columna en móviles */
-  .supplies-carousel {
-    grid-column: span 1;
-    min-height: 250px;
-  }
-}
-
-/* Móviles pequeños */
-@media (max-width: 480px) {
-  .how-it-works-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 35px;
-  }
-  
-  .step-card {
-    padding: 16px 12px;
-  }
-  
-  .supplies-carousel {
-    min-height: 200px;
-  }
-  
-  .oficina-card,
-  .cafe-card,
-  .botiquin-card,
-  .impresora-card {
-    border-width: 1px;
-  }
-}
-
-/* Helpers */
-.step-card {
-  min-width: 0;
-}
 
 
 /* =========================================
-   REAL ESTATE SECTION (Servicios Inmobiliarios)
+   REAL ESTATE SECTION (Servicios Inmobiliarios) - LAYOUT ESCALERA
    ========================================= */
 .realestate-section {
   padding: 60px 20px;
-  text-align: center;
-  background-color: #ffffff; /* Fondo blanco */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .realestate-section h2 {
+  text-align: center;
   font-size: 2.5rem;
   color: #2E8BC0;
   margin-bottom: 50px;
+  font-weight: 800;
 }
 
-/* Grid para real estate - 3 columnas */
-.realestate-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  align-items: stretch;
-  padding: 0 12px;
-}
-
-/* Tarjetas de servicios inmobiliarios */
-.realestate-card {
-  background: #ffffff !important;
-  border: 1px solid rgba(46, 139, 192, 0.2);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  border-radius: 16px;
-  padding: 32px 18px 24px 18px;
-  text-align: center;
-  width: 100%;
-  min-width: 0;
+.realestate-grid-escalera {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
+  gap: 40px;
 }
 
-.realestate-card h3 {
-  font-size: 1.35rem;
-  color: #2E8BC0 !important;
-  margin-bottom: 13px;
-  line-height: 1.22;
-  font-weight: 700;
-}
-
-.realestate-card p {
-  color: #425260 !important;
-  line-height: 1.5;
-  font-size: 1.07rem;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 95%;
-  font-weight: 400;
-}
-
-.realestate-card:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  transform: translateY(-4px);
-  border-color: rgba(46, 139, 192, 0.4);
-}
-
-/* ========================================
-   CARRUSEL DE IMÁGENES REAL ESTATE - 2 COLUMNAS
-   ======================================== */
-.realestate-carousel {
-  grid-column: span 2; /* Ocupa 2 columnas */
-  position: relative;
-  width: 100%;
-  min-height: 280px;
-  border-radius: 16px;
+/* Cada item de servicio */
+.realestate-item {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 18px rgba(46, 139, 192, 0.15);
+  background: #ffffff;
+  border: 1px solid rgba(46, 139, 192, 0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  min-height: 300px;
 }
 
-.realestate-carousel-image {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Items con imagen a la DERECHA (escalera) */
+.realestate-item.realestate-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Contenedor de imagen - 45% del ancho */
+.realestate-imagen {
+  flex: 0 0 45%;
+  min-height: 300px;
+  overflow: hidden;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.realestate-imagen img {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
 }
 
-.realestate-carousel-image.active {
-  opacity: 1;
-  z-index: 1;
+/* Hover en imagen */
+.realestate-item:hover .realestate-imagen img {
+  transform: scale(1.05);
+}
+
+/* Contenedor de contenido - 55% del ancho */
+.realestate-content {
+  flex: 1;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.realestate-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2E8BC0;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.realestate-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #425260;
+  margin: 0;
+}
+
+/* Hover en item completo */
+.realestate-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
 /* ========================================
-   RESPONSIVE REAL ESTATE
+   RESPONSIVE SERVICIOS INMOBILIARIOS
    ======================================== */
 
-/* Tablets medianas (2 columnas) */
+/* Tablets (menos de 900px) */
 @media (max-width: 900px) {
-  .realestate-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  
-  .realestate-card {
-    padding: 22px 16px;
-    min-height: 220px;
-  }
-  
-  /* Carrusel ocupa 2 columnas completas */
-  .realestate-carousel {
-    grid-column: span 2;
-    min-height: 220px;
-  }
-}
-
-/* Móviles grandes (1 columna) */
-@media (max-width: 600px) {
-  .realestate-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  
-  .realestate-card {
-    padding: 20px 16px;
-  }
-  
-  /* Carrusel ocupa 1 columna en móviles */
-  .realestate-carousel {
-    grid-column: span 1;
+  .realestate-imagen {
+    flex: 0 0 40%;
     min-height: 250px;
   }
+  
+  .realestate-content {
+    padding: 30px 25px;
+  }
+  
+  .realestate-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .realestate-content p {
+    font-size: 1rem;
+  }
 }
 
-/* Móviles pequeños */
+/* Móviles (menos de 768px) - Layout vertical */
+@media (max-width: 768px) {
+  .realestate-item,
+  .realestate-item.realestate-reverse {
+    flex-direction: column;
+  }
+  
+  .realestate-imagen {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 220px;
+    max-height: 280px;
+  }
+  
+  .realestate-content {
+    width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .realestate-content h3 {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  
+  .realestate-content p {
+    text-align: center;
+    font-size: 0.98rem;
+  }
+}
+
+/* Móviles pequeños (menos de 480px) */
 @media (max-width: 480px) {
+  .realestate-section {
+    padding: 40px 16px;
+  }
+  
   .realestate-section h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 35px;
   }
   
-  .realestate-card {
-    padding: 16px 12px;
+  .realestate-grid-escalera {
+    gap: 30px;
   }
   
-  .realestate-carousel {
+  .realestate-imagen {
     min-height: 200px;
+    max-height: 240px;
+  }
+  
+  .realestate-content {
+    padding: 24px 16px;
+  }
+  
+  .realestate-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .realestate-content p {
+    font-size: 0.95rem;
   }
 }
 
-/* Helpers */
-.realestate-card {
-  min-width: 0;
+/* Eliminar clases antiguas que ya no se usan */
+.realestate-grid,
+.realestate-card,
+.inmobiliaria-card,
+.publicidad-card,
+.citas-card,
+.telefonica-card,
+.realestate-carousel,
+.realestate-carousel-image {
+  display: none !important;
 }
+
 
 
 /* =========================================
-   BPO SECTION (Servicios Personalizados)
+   BPO SECTION (Servicios Personalizados) - LAYOUT ESCALERA
    ========================================= */
-.bpo-section {
+.bpo-section-escalera {
   background: #2E8BC0;
   padding: 60px 20px;
-  text-align: center;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   position: relative;
 }
 
-.bpo-section h2 {
+.bpo-section-escalera h2 {
+  text-align: center;
   font-size: 2.5rem;
   color: #ffffff;
   margin-bottom: 50px;
+  font-weight: 800;
   text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Grid para BPO - 3 columnas */
-.bpo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1000px;
+.bpo-grid-escalera {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Cada item de servicio BPO */
+.bpo-item {
+  display: flex;
+  flex-direction: row;
   align-items: stretch;
-  padding: 0 12px;
-}
-
-/* TARJETAS BPO CON FONDO BLANCO */
-.bpo-card {
-  background: #ffffff !important;
-  border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
-  padding: 32px 18px 24px 18px;
-  margin-bottom: 0;
-  text-align: center;
-  width: 100%;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  position: relative;
+  gap: 0;
+  border-radius: 15px;
   overflow: hidden;
-  min-height: 280px;
-  border: none;
-  transition: box-shadow 220ms ease, transform 220ms ease;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  min-height: 300px;
 }
 
-/* Eliminar overlays */
-.bpo-card::before {
-  display: none;
+/* Items con imagen a la DERECHA */
+.bpo-item.bpo-reverse {
+  flex-direction: row-reverse;
 }
 
-/* Contenedor de contenido */
-.bpo-card-content {
-  position: relative;
-  z-index: 2;
+/* Contenedor de imagen - 45% del ancho */
+.bpo-imagen {
+  flex: 0 0 45%;
+  min-height: 300px;
+  overflow: hidden;
+  background: #f0f0f0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
 }
 
-/* Títulos en ROJO */
-.bpo-card h3 {
-  color: #8B1A1A !important;
-  font-size: 1.35rem;
-  margin-bottom: 13px;
-  line-height: 1.22;
-  font-weight: 700;
-  text-shadow: none;
-}
-
-/* Descripción en gris oscuro */
-.bpo-card p {
-  color: #425260 !important;
-  line-height: 1.5;
-  font-size: 1.07rem;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 95%;
-  text-shadow: none;
-}
-
-/* Ocultar iconos en BPO */
-.bpo-card .bpo-icon {
-  display: none !important;
-}
-
-/* ========================================
-   FORMAS GEOMÉTRICAS DISTINTAS PARA BPO
-   ======================================== */
-
-/* Tarjeta 1: Televentas - Esquinas redondeadas alternadas */
-.bpo-televentas {
-  border-radius: 40px 15px 40px 15px;
-}
-
-/* Tarjeta 2: Servicio al cliente - Esquina superior derecha cortada */
-.bpo-cliente {
-  border-radius: 15px 0px 15px 15px;
-  clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
-}
-
-/* Tarjeta 3: Cobranzas - Trapecio invertido */
-.bpo-cobranza {
-  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-  border-radius: 0 0 15px 15px;
-}
-
-/* Tarjeta 4: Mercadeo - Esquinas asimétricas */
-.bpo-mercadeo {
-  border-radius: 5px 35px 5px 35px;
-}
-
-/* ========================================
-   CARRUSEL DE IMÁGENES - 2 COLUMNAS
-   ======================================== */
-.bpo-carousel {
-  grid-column: span 2; /* Ocupa 2 columnas */
-  position: relative;
-  width: 100%;
-  min-height: 280px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
-}
-
-.bpo-carousel-image {
-  position: absolute;
-  top: 0;
-  left: 0;
+.bpo-imagen img {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
 }
 
-.bpo-carousel-image.active {
-  opacity: 1;
-  z-index: 1;
+/* Hover en imagen */
+.bpo-item:hover .bpo-imagen img {
+  transform: scale(1.05);
 }
 
-/* HOVER BPO */
-.bpo-card:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  transform: translateY(-4px);
+/* Contenedor de contenido - 55% del ancho */
+.bpo-content {
+  flex: 1;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bpo-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #8B1A1A;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.bpo-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #425260;
+  margin: 0;
+}
+
+/* Hover en item completo */
+.bpo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE SERVICIOS PERSONALIZADOS
    ======================================== */
 
-/* Tablets medianas (2 columnas) */
+/* Tablets (menos de 900px) */
 @media (max-width: 900px) {
-  .bpo-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .bpo-card {
-    min-height: 220px;
-    padding: 24px 16px;
-  }
-  
-  /* Carrusel ocupa 2 columnas completas */
-  .bpo-carousel {
-    grid-column: span 2;
-    min-height: 220px;
-  }
-}
-
-/* Tablets pequeñas y móviles (1 columna) */
-@media (max-width: 600px) {
-  .bpo-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  
-  .bpo-card {
-    min-height: 180px;
-    max-width: 100%;
-  }
-  
-  /* Carrusel ocupa 1 columna en móviles */
-  .bpo-carousel {
-    grid-column: span 1;
+  .bpo-imagen {
+    flex: 0 0 40%;
     min-height: 250px;
   }
   
-  /* Simplificar formas en móvil */
-  .bpo-cliente,
-  .bpo-cobranza {
-    clip-path: none;
-    border-radius: 15px;
+  .bpo-content {
+    padding: 30px 25px;
+  }
+  
+  .bpo-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .bpo-content p {
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .bpo-carousel {
-    min-height: 200px;
+/* Móviles (menos de 768px) - Layout vertical */
+@media (max-width: 768px) {
+  .bpo-item,
+  .bpo-item.bpo-reverse {
+    flex-direction: column;
+  }
+  
+  .bpo-imagen {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 220px;
+    max-height: 280px;
+  }
+  
+  .bpo-content {
+    width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .bpo-content h3 {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  
+  .bpo-content p {
+    text-align: center;
+    font-size: 0.98rem;
   }
 }
+
+/* Móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+  .bpo-section-escalera {
+    padding: 40px 16px;
+  }
+  
+  .bpo-section-escalera h2 {
+    font-size: 2rem;
+    margin-bottom: 35px;
+  }
+  
+  .bpo-grid-escalera {
+    gap: 30px;
+  }
+  
+  .bpo-imagen {
+    min-height: 200px;
+    max-height: 240px;
+  }
+  
+  .bpo-content {
+    padding: 24px 16px;
+  }
+  
+  .bpo-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .bpo-content p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Eliminar clases antiguas BPO que ya no se usan */
+.bpo-section,
+.bpo-grid,
+.bpo-card,
+.bpo-card-content,
+.bpo-televentas,
+.bpo-cliente,
+.bpo-cobranza,
+.bpo-mercadeo,
+.bpo-carousel,
+.bpo-carousel-image,
+.bpo-icon {
+  display: none !important;
+}
+
 
 /* =========================================
    FEATURES SECTION (Características)

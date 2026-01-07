@@ -2,15 +2,15 @@
    CONTENEDOR GENERAL
    ========================================= */
 .aboutv-page-container {
-  padding: 60px 20px;
+  padding: 20px 18px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: #ffffff;
+  background: transparent;
 }
 
 /* Imagen corporativa */
 .aboutv-corporativo-imagen {
   display: block;
-  margin: 0 auto 50px auto;
+  margin: 0 auto 35px auto;
   max-width: 690px;
   width: 100%;
   height: auto;
@@ -18,65 +18,219 @@
 }
 
 /* =========================================
-   TARJETAS PRINCIPALES (4 tarjetas)
+   TARJETAS PRINCIPALES - FORMATO ESCALERA
    ========================================= */
 .aboutv-tarjetas-section {
-  max-width: 1000px;
-  margin: 0 auto 60px auto;
+  max-width: 1200px;
+  margin: 0 auto 28px auto;
 }
 
 .aboutv-tarjetas-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-/* Estilo base para las 4 tarjetas principales */
-.aboutv-tarjeta {
-  background: #ffffff !important;
-  border: 1px solid rgba(52, 185, 127, 0.2);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  border-radius: 16px;
-  padding: 32px 20px 24px 20px;
-  text-align: center;
-  width: 100%;
-  min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  box-sizing: border-box;
-  transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
-  position: relative;
+  gap: 30px;
+}
+
+/* Estilo base para las tarjetas con layout horizontal */
+.aboutv-tarjeta {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 15px;
   overflow: hidden;
-  min-height: 280px;
+  background: #ffffff;
+  border: 1px solid rgba(52, 185, 127, 0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: box-shadow 300ms ease, transform 300ms ease, border-color 300ms ease;
+  min-height: 350px;
+}
+
+/* Tarjetas con imagen a la DERECHA */
+.aboutv-tarjeta-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Contenedor de imagen - 45% del ancho */
+.aboutv-tarjeta-imagen {
+  flex: 0 0 45%;
+  min-height: 350px;
+  overflow: hidden;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutv-tarjeta-imagen img {
+  display: block;
+  transition: transform 300ms ease;
+}
+
+/* Hover en imagen */
+.aboutv-tarjeta:hover .aboutv-tarjeta-imagen img {
+  transform: scale(1.05);
+}
+
+/* Contenedor de contenido - 55% del ancho */
+.aboutv-tarjeta-content {
+  flex: 1;
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Títulos en VERDE */
 .aboutv-tarjeta h3 {
-  font-size: 1.35rem;
-  color: #34b97f !important; /* Verde del logo */
-  margin-bottom: 13px;
-  line-height: 1.22;
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
   font-weight: 700;
+  color: #34b97f !important;
+  letter-spacing: -0.3px;
 }
 
 /* Descripción en gris oscuro */
 .aboutv-tarjeta p {
-  color: #425260 !important;
-  line-height: 1.5;
-  font-size: 1.07rem;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 95%;
-  font-weight: 400;
+  margin: 0;
+  color: #425260;
+  line-height: 1.6;
+  font-size: 1.02rem;
 }
 
-/* Hover para las 4 tarjetas */
+/* Hover en item completo */
 .aboutv-tarjeta:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
   border-color: rgba(52, 185, 127, 0.4);
+}
+
+/* Colores específicos por tarjeta (bordes sutiles) */
+.aboutv-tarjeta-vitreum {
+  border-left: 4px solid #34b97f;
+}
+
+.aboutv-tarjeta-orientacion {
+  border-right: 4px solid #26a69a;
+}
+
+.aboutv-tarjeta-mision {
+  border-left: 4px solid #56d399;
+}
+
+.aboutv-tarjeta-vision {
+  border-right: 4px solid #80cbc4;
+}
+
+/* ========================================
+   RESPONSIVE TARJETAS
+   ======================================== */
+
+/* Tablets (menos de 900px) */
+@media (max-width: 900px) {
+  .aboutv-tarjeta {
+    min-height: 300px;
+  }
+  
+  .aboutv-tarjeta-imagen {
+    flex: 0 0 40%;
+    min-height: 300px;
+  }
+  
+  .aboutv-tarjeta-imagen img {
+    height: 300px !important;
+  }
+  
+  .aboutv-tarjeta-content {
+    padding: 25px 20px;
+  }
+  
+  .aboutv-tarjeta h3 {
+    font-size: 1.35rem;
+  }
+  
+  .aboutv-tarjeta p {
+    font-size: 1rem;
+  }
+}
+
+/* Móviles (menos de 768px): layout vertical */
+@media (max-width: 768px) {
+  .aboutv-tarjeta,
+  .aboutv-tarjeta-reverse {
+    flex-direction: column;
+  }
+  
+  .aboutv-tarjeta-imagen {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 280px;
+    max-height: 400px;
+  }
+  
+  .aboutv-tarjeta-imagen img {
+    height: 280px !important;
+  }
+  
+  .aboutv-tarjeta-content {
+    width: 100%;
+    padding: 25px 20px;
+    text-align: center;
+  }
+  
+  .aboutv-tarjeta h3 {
+    text-align: center;
+    font-size: 1.25rem;
+  }
+  
+  .aboutv-tarjeta p {
+    text-align: center;
+    font-size: 0.98rem;
+  }
+  
+  /* Eliminar bordes laterales en móvil */
+  .aboutv-tarjeta-vitreum,
+  .aboutv-tarjeta-orientacion,
+  .aboutv-tarjeta-mision,
+  .aboutv-tarjeta-vision {
+    border-left: none;
+    border-right: none;
+    border-top: 4px solid #34b97f;
+  }
+}
+
+/* Móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+  .aboutv-tarjetas-section {
+    padding: 0;
+  }
+  
+  .aboutv-tarjetas-grid {
+    gap: 25px;
+  }
+  
+  .aboutv-tarjeta-imagen {
+    min-height: 240px;
+    max-height: 350px;
+  }
+  
+  .aboutv-tarjeta-imagen img {
+    height: 240px !important;
+  }
+  
+  .aboutv-tarjeta-content {
+    padding: 20px 16px;
+  }
+  
+  .aboutv-tarjeta h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+  
+  .aboutv-tarjeta p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 }
 
 /* =========================================
@@ -124,8 +278,8 @@
    ¿POR QUÉ SOMOS LA MEJOR OPCIÓN?
    ========================================= */
 .aboutv-distinciones-section {
-  background: #34b97f; /* Fondo verde */
-  padding: 60px 20px;
+  background: #34b97f;
+  padding: 60px 20px 30px 20px;
   text-align: center;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -134,66 +288,205 @@
 }
 
 .aboutv-distinciones-section h2 {
-  font-size: 2.5rem;
-  color: #ffffff; /* Título blanco */
-  margin-bottom: 50px;
+  font-size: 2.4rem;
+  color: #ffffff;
+  margin-bottom: 44px;
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .aboutv-distinciones-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 33px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 12px;
 }
 
 .aboutv-distincion-card {
   background: #ffffff !important;
-  border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
-  padding: 32px 20px 24px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  padding: 32px 18px 22px 18px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 260px;
+  min-height: 275px;
+  max-width: 100%;
+  margin: 0 auto;
   justify-content: flex-start;
-  box-sizing: border-box;
-  transition: box-shadow 220ms ease, transform 220ms ease;
-  border: none;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.aboutv-distincion-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  background: #ffffff !important;
 }
 
 .aboutv-distincion-icon {
-  margin-bottom: 15px;
-  margin-top: 2px;
-  height: 60px;
-  width: 60px;
+  margin-bottom: 12px;
+  height: 55px;
+  width: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .aboutv-distincion-card h3 {
-  font-size: 1.25rem;
-  color: #34b97f !important; /* Títulos verdes */
-  margin-bottom: 10px;
+  font-size: 1.19rem;
+  color: #34b97f !important;
+  margin-bottom: 7px;
   font-weight: 700;
 }
 
 .aboutv-distincion-card p {
-  color: #425260;
-  font-size: 1.05rem;
-  line-height: 1.5;
-  text-align: center;
+  color: #565656;
+  font-size: 1.02rem;
+  line-height: 1.45;
 }
 
-/* Hover para tarjetas de valores */
-.aboutv-distincion-card:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  transform: translateY(-4px);
+/* ========================================
+   FORMAS GEOMÉTRICAS DISTINTAS
+   ======================================== */
+
+/* Tarjeta 1: Esquinas muy redondeadas */
+.aboutv-distincion-card:nth-child(1) {
+  border-radius: 40px 15px 40px 15px;
+  background: #ffffff !important;
+}
+
+/* Tarjeta 2: Esquina superior derecha cortada */
+.aboutv-distincion-card:nth-child(2) {
+  border-radius: 15px 0px 15px 15px;
+  clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+  background: #ffffff !important;
+}
+
+/* Tarjeta 3: Forma de ticket */
+.aboutv-distincion-card:nth-child(3) {
+  border-radius: 15px;
+  position: relative;
+  background: #ffffff !important;
+}
+.aboutv-distincion-card:nth-child(3)::before,
+.aboutv-distincion-card:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #34b97f;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.aboutv-distincion-card:nth-child(3)::before {
+  left: -10px;
+}
+.aboutv-distincion-card:nth-child(3)::after {
+  right: -10px;
+}
+
+/* Tarjeta 4: Hexágono */
+.aboutv-distincion-card:nth-child(4) {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  border-radius: 0;
+  background: #ffffff !important;
+}
+
+/* Tarjeta 5: Esquinas asimétricas */
+.aboutv-distincion-card:nth-child(5) {
+  border-radius: 5px 35px 5px 35px;
+  background: #ffffff !important;
+}
+
+/* Tarjeta 6: Trapecio invertido */
+.aboutv-distincion-card:nth-child(6) {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  border-radius: 0 0 15px 15px;
+  background: #ffffff !important;
+}
+
+/* Forzar hover en todas sin fondo de color */
+.aboutv-distincion-card:nth-child(1):hover,
+.aboutv-distincion-card:nth-child(2):hover,
+.aboutv-distincion-card:nth-child(3):hover,
+.aboutv-distincion-card:nth-child(4):hover,
+.aboutv-distincion-card:nth-child(5):hover,
+.aboutv-distincion-card:nth-child(6):hover {
+  background: #ffffff !important;
+}
+
+/* ========================================
+   RESPONSIVE DISTINCIONES
+   ======================================== */
+
+/* Tablets grandes (menos de 1024px): mantener 3 columnas pero más compacto */
+@media (max-width: 1024px) {
+  .aboutv-distinciones-grid {
+    gap: 24px;
+    padding: 0 16px;
+  }
+}
+
+/* Tablets medianas (menos de 900px): 2 columnas */
+@media (max-width: 900px) {
+  .aboutv-distinciones-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .aboutv-distincion-card {
+    min-height: 240px;
+  }
+}
+
+/* Tablets pequeñas y móviles grandes (menos de 600px): 1 columna */
+@media (max-width: 600px) {
+  .aboutv-distinciones-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 20px;
+  }
+  
+  .aboutv-distincion-card {
+    min-height: 220px;
+    max-width: 400px;
+  }
+  
+  /* Simplificar formas complejas en móvil */
+  .aboutv-distincion-card:nth-child(2),
+  .aboutv-distincion-card:nth-child(4),
+  .aboutv-distincion-card:nth-child(6) {
+    clip-path: none;
+    border-radius: 15px;
+  }
+}
+
+/* Móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+  .aboutv-distinciones-section {
+    padding: 40px 16px 24px 16px;
+  }
+  
+  .aboutv-distinciones-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+  }
+  
+  .aboutv-distincion-card {
+    padding: 24px 16px 18px 16px;
+    min-height: 200px;
+  }
+  
+  .aboutv-distincion-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .aboutv-distincion-card p {
+    font-size: 0.95rem;
+  }
 }
 
 /* =========================================
@@ -227,49 +520,19 @@
   display: block;
 }
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-
-/* Tablets medianas */
-@media (max-width: 900px) {
-  .aboutv-tarjetas-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  .aboutv-tarjeta {
-    min-height: 240px;
-    padding: 24px 18px;
-  }
-  
-  .aboutv-distinciones-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .aboutv-distincion-card {
-    min-height: 220px;
-  }
-}
+/* ========================================
+   RESPONSIVE ADICIONAL
+   ======================================== */
 
 /* Móviles grandes */
 @media (max-width: 700px) {
   .aboutv-page-container {
-    padding: 40px 15px;
+    padding: 20px 15px;
   }
   
   .aboutv-corporativo-imagen {
     max-width: 92vw;
-    margin-bottom: 35px;
-  }
-  
-  .aboutv-tarjeta h3 {
-    font-size: 1.2rem;
-  }
-  
-  .aboutv-tarjeta p {
-    font-size: 1rem;
+    margin-bottom: 30px;
   }
   
   .aboutv-servicio-declaracion {
@@ -280,43 +543,12 @@
     font-size: 1.5rem;
   }
   
-  .aboutv-distinciones-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 35px;
-  }
-  
   .aboutv-temas-section h2 {
     font-size: 1.8rem;
   }
 }
 
-/* Móviles pequeños */
-@media (max-width: 600px) {
-  .aboutv-distinciones-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  .aboutv-distincion-card {
-    min-height: 200px;
-    padding: 24px 16px;
-  }
-  
-  .aboutv-tarjeta {
-    min-height: 220px;
-    padding: 20px 16px;
-  }
-}
-
 @media (max-width: 480px) {
-  .aboutv-tarjeta h3 {
-    font-size: 1.1rem;
-  }
-  
-  .aboutv-tarjeta p {
-    font-size: 0.95rem;
-  }
-  
   .aboutv-servicio-declaracion h2 {
     font-size: 1.3rem;
   }

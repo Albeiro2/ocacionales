@@ -4,187 +4,259 @@
   background: transparent;
 }
 
-/* --- Tarjetas de información (SIN IMÁGENES, SIN ICONOS, CENTRADAS) --- */
+/* --- Tarjetas de información (imagen alternada izq/der) --- */
 .about-tarjetas-section {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto 28px auto;
 }
 
 .about-tarjetas-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-/* Estilo base para las tarjetas */
+/* Estilo base para las tarjetas con layout horizontal */
 .about-tarjeta {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 12px;
-  padding: 28px 24px;
-  min-height: 220px;
-  background: #ffffff !important;
+  background: #ffffff;
   border: 1px solid rgba(46, 139, 192, 0.2);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  color: #425260;
-  transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centrado vertical */
-  align-items: center; /* Centrado horizontal */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: box-shadow 300ms ease, transform 300ms ease, border-color 300ms ease;
+  min-height: 300px;
 }
 
-.about-tarjeta-content {
-  position: relative;
-  z-index: 2;
+/* Tarjetas con imagen a la DERECHA */
+.about-tarjeta-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Contenedor de imagen - 45% del ancho */
+.about-tarjeta-imagen {
+  flex: 0 0 45%;
+  min-height: 300px;
+  overflow: hidden;
+  background: #f0f0f0;
   display: flex;
-  flex-direction: column;
-  height: auto;
-  justify-content: center;
   align-items: center;
-  text-align: center; /* Texto centrado */
-  width: 100%;
+  justify-content: center;
 }
 
-/* OCULTAR TODOS LOS ICONOS */
-.about-tarjeta-icon {
-  display: none !important;
+.about-tarjeta-imagen img {
+   display: block;
+  transition: transform 300ms ease;
 }
 
-/* TÍTULOS EN AZUL BPO - CENTRADOS */
+/* Hover en imagen */
+.about-tarjeta:hover .about-tarjeta-imagen img {
+  transform: scale(1.05);
+}
+
+/* Contenedor de contenido - 55% del ancho */
+.about-tarjeta-content {
+  flex: 1;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Títulos en azul BPO */
 .about-tarjeta h3 {
-  margin: 0 0 12px 0;
-  font-size: 1.35rem;
+  margin: 0 0 16px 0;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #2E8BC0 !important;
-  text-shadow: none;
-  text-align: center;
+  letter-spacing: -0.3px;
 }
 
 .about-tarjeta p {
   margin: 0;
   color: #425260;
-  line-height: 1.5;
-  font-size: 1.02rem;
-  text-align: center;
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
-/* Hover */
+/* Hover en item completo */
 .about-tarjeta:hover {
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
   border-color: rgba(46, 139, 192, 0.4);
 }
 
-/* ELIMINAR estilos específicos de imagen de fondo */
-.about-tarjeta-empresa,
-.about-tarjeta-calidad,
-.about-tarjeta-mision,
+/* Colores específicos por tarjeta (bordes sutiles) */
+.about-tarjeta-empresa {
+  border-left: 4px solid #2E8BC0;
+}
+
+.about-tarjeta-mision {
+  border-right: 4px solid #34b97f;
+}
+
 .about-tarjeta-vision {
-  background: #ffffff !important;
-  background-image: none !important;
-  background-size: unset;
-  background-position: unset;
-  background-repeat: unset;
-  color: #425260;
-  padding: 28px 24px;
-  border: 1px solid rgba(46, 139, 192, 0.2);
-  min-height: 220px;
-  justify-content: center;
-  align-items: center;
+  border-left: 4px solid #f7ce6f;
 }
 
-/* Eliminar overlays de imagen */
-.about-tarjeta-empresa::before,
-.about-tarjeta-calidad::before,
-.about-tarjeta-mision::before,
-.about-tarjeta-vision::before {
-  display: none;
+.about-tarjeta-calidad {
+  border-right: 4px solid #4db9e9;
 }
 
-/* Títulos centrados en azul */
-.about-tarjeta-empresa h3,
-.about-tarjeta-calidad h3,
-.about-tarjeta-mision h3,
-.about-tarjeta-vision h3 {
-  color: #2E8BC0 !important;
-  font-size: 1.35rem;
-  margin-bottom: 12px;
-  text-shadow: none;
-  text-align: center;
-}
+/* ========================================
+   RESPONSIVE TARJETAS
+   ======================================== */
 
-/* Párrafos centrados */
-.about-tarjeta-empresa p,
-.about-tarjeta-calidad p,
-.about-tarjeta-mision p,
-.about-tarjeta-vision p {
-  color: #425260 !important;
-  opacity: 1;
-  max-height: none;
-  transform: none;
-  text-shadow: none;
-  text-align: center;
-}
-
-/* Contenido centrado para todas */
-.about-tarjeta-empresa .about-tarjeta-content,
-.about-tarjeta-calidad .about-tarjeta-content,
-.about-tarjeta-mision .about-tarjeta-content,
-.about-tarjeta-vision .about-tarjeta-content {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Ocultar iconos completamente */
-.about-tarjeta-empresa .about-tarjeta-icon,
-.about-tarjeta-calidad .about-tarjeta-icon,
-.about-tarjeta-mision .about-tarjeta-icon,
-.about-tarjeta-vision .about-tarjeta-icon {
-  display: none !important;
-}
-
-/* Hover limpio */
-.about-tarjeta-empresa:hover,
-.about-tarjeta-calidad:hover,
-.about-tarjeta-mision:hover,
-.about-tarjeta-vision:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  border: 1px solid rgba(46, 139, 192, 0.4);
-  background: #ffffff !important;
-}
-
-/* Responsive */
+/* Tablets (menos de 900px) */
 @media (max-width: 900px) {
-  .about-tarjetas-grid { 
-    grid-template-columns: 1fr; 
+  .about-tarjeta-imagen {
+    flex: 0 0 40%;
+    min-height: 250px;
   }
-  .about-tarjeta-mision, .about-tarjeta-vision, 
-  .about-tarjeta-empresa, .about-tarjeta-calidad { 
-    min-height: 180px; 
-    padding: 20px; 
+  
+  .about-tarjeta-content {
+    padding: 30px 25px;
+  }
+  
+  .about-tarjeta h3 {
+    font-size: 1.4rem;
+  }
+  
+  .about-tarjeta p {
+    font-size: 1rem;
   }
 }
 
+/* Móviles (menos de 768px): layout vertical */
+@media (max-width: 768px) {
+  .about-tarjeta,
+  .about-tarjeta-reverse {
+    flex-direction: column;
+  }
+  
+  .about-tarjeta-imagen {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 220px;
+    max-height: 280px;
+  }
+  
+  .about-tarjeta-content {
+    width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .about-tarjeta h3 {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  
+  .about-tarjeta p {
+    text-align: center;
+    font-size: 0.98rem;
+  }
+  
+  /* Eliminar bordes laterales en móvil */
+  .about-tarjeta-empresa,
+  .about-tarjeta-mision,
+  .about-tarjeta-vision,
+  .about-tarjeta-calidad {
+    border-left: none;
+    border-right: none;
+    border-top: 4px solid #2E8BC0;
+  }
+}
+
+/* Móviles pequeños (menos de 480px) */
 @media (max-width: 480px) {
-  .about-tarjeta { 
-    padding: 18px; 
+  .about-tarjetas-section {
+    padding: 0;
   }
-  .about-tarjeta h3 { 
-    font-size: 1.15rem; 
+  
+  .about-tarjetas-grid {
+    gap: 30px;
   }
+  
+  .about-tarjeta-imagen {
+    min-height: 200px;
+    max-height: 240px;
+  }
+  
+  .about-tarjeta-content {
+    padding: 24px 16px;
+  }
+  
+  .about-tarjeta h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
   .about-tarjeta p {
     font-size: 0.95rem;
-  }
-  .about-tarjeta-mision h3, .about-tarjeta-vision h3,
-  .about-tarjeta-empresa h3, .about-tarjeta-calidad h3 { 
-    font-size: 1.15rem; 
+    line-height: 1.5;
   }
 }
 
+/* Logo textual centrado sobre las tarjetas */
+.about-logo-center {
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  flex-wrap: wrap;
+}
 
+.about-logo-image {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+}
+
+.about-logo-line1 {
+  color: #1e3d55;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  font-size: 2.1rem;
+}
+
+.about-logo-line1 span {
+  color: #2077bb;
+  font-weight: 900;
+}
+
+.about-logo-line2 {
+  margin-top: 4px;
+  color: #8B1A1A;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 2.1rem;
+}
+
+/* Responsive logo */
+@media (max-width: 700px) {
+  .about-logo-center { 
+    gap: 12px;
+    margin-bottom: 35px;
+  }
+  .about-logo-image { 
+    height: 80px; 
+  }
+  .about-logo-line1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.8px;
+  }
+  .about-logo-line2 {
+    font-size: 0.98rem;
+    letter-spacing: 0.7px;
+  }
+}
 
 /* --- Valores corporativos (distinciones) - FONDO AZUL BPO COMPLETO --- */
 .distinciones-section {
@@ -207,7 +279,7 @@
 /* GRID: 3 columnas en desktop, responsive en tablets/móviles */
 .distinciones-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+  grid-template-columns: repeat(3, 1fr);
   gap: 33px;
   max-width: 1200px;
   margin: 0 auto;
@@ -224,7 +296,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 275px;
-  max-width: 100%; /* Ocupa el ancho disponible del grid */
+  max-width: 100%;
   margin: 0 auto;
   justify-content: flex-start;
   transition: transform 220ms ease, box-shadow 220ms ease;
@@ -331,7 +403,7 @@
 }
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE DISTINCIONES
    ======================================== */
 
 /* Tablets grandes (menos de 1024px): mantener 3 columnas pero más compacto */
@@ -398,91 +470,5 @@
   
   .distincion-card p {
     font-size: 0.95rem;
-  }
-}
-
-/*Fina corporativos*/
-
-
-
-/* Responsive */
-@media (max-width: 900px) {
-  .about-tarjetas-grid { grid-template-columns: 1fr; }
-  .about-tarjeta-mision, .about-tarjeta-vision, .about-tarjeta-empresa, .about-tarjeta-calidad { min-height: 180px; padding: 18px; }
-}
-@media (max-width: 480px) {
-  .about-tarjeta { padding: 14px; }
-  .about-tarjeta h3 { font-size: 1rem; }
-  .about-tarjeta-mision h3, .about-tarjeta-vision h3,
-  .about-tarjeta-empresa h3, .about-tarjeta-calidad h3 { font-size: 1.05rem; }
-}
-
-.about-tarjeta-empresa .about-tarjeta-content,
-.about-tarjeta-calidad .about-tarjeta-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* centro vertical */
-  align-items: center;       /* centro horizontal */
-  text-align: center;        /* centra el texto */
-}
-
-.about-tarjeta-empresa h3,
-.about-tarjeta-calidad h3,
-.about-tarjeta-empresa p,
-.about-tarjeta-calidad p {
-  text-align: center;
-  width: 100%;
-}
-
-/* Logo textual centrado sobre las tarjetas */
-.about-logo-center {
-  max-width: 1000px;
-  margin: 0 auto 24px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  flex-wrap: wrap;
-}
-
-.about-logo-image {
-  height: 200px;
-  width: auto;
-  object-fit: contain;
-}
-
-.about-logo-line1 {
-  color: #1e3d55;            /* azul principal */
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  font-size: 2.1rem;
-}
-
-.about-logo-line1 span {
-  color: #2077bb;            /* BPO resaltado */
-  font-weight: 900;
-}
-
-.about-logo-line2 {
-  margin-top: 4px;
-  color: #8B1A1A;
-  font-weight: 800;
-  letter-spacing: 1px;
-  font-size: 2.1rem;
-}
-
-/* Responsive */
-@media (max-width: 700px) {
-  .about-logo-center { gap: 12px; }
-  .about-logo-image { height: 80px; }
-  .about-logo-line1 {
-    font-size: 1.5rem;
-    letter-spacing: 0.8px;
-  }
-  .about-logo-line2 {
-    font-size: 0.98rem;
-    letter-spacing: 0.7px;
   }
 }
