@@ -1,16 +1,62 @@
-# React + Vite
+***
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌐 README — Landing Page BPO
 
-Currently, two official plugins are available:
+```markdown
+# 🌐 Landing Page — Empresa BPO | Responsive Design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Landing page empresarial responsive para una empresa de servicios BPO
+(Business Process Outsourcing), construida con HTML, CSS y JavaScript.
+Diseño generado con apoyo de IA, con estructura y control de calidad
+totalmente a cargo del desarrollador.
 
-## React Compiler
+## 📌 Descripción
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Página web estática y responsive que presenta los servicios de una empresa
+BPO de manera profesional. El flujo de trabajo combina el uso de herramientas
+de IA para acelerar el proceso de diseño, manteniendo el control humano
+sobre la arquitectura del proyecto, la semántica HTML y la calidad del código.
 
-## Expanding the ESLint configuration
+## 🚀 Secciones de la página
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🏠 **Hero / Banner principal** — Presentación de la empresa con llamada a la acción
+- 🎯 **Servicios** — Descripción de los servicios BPO ofrecidos
+- 💼 **Nosotros** — Historia y propuesta de valor de la empresa
+- 📊 **Estadísticas / Logros** — Datos y métricas que refuerzan la confianza
+- 📞 **Contacto** — Formulario y datos de contacto
+- 🦶 **Footer** — Redes sociales, enlaces útiles y créditos
+
+## 🤖 Metodología: Desarrollo asistido por IA
+
+Este proyecto fue construido bajo una metodología híbrida:
+
+| Aspecto | Responsable |
+|---|---|
+| Estructura HTML y semántica | 👨‍💻 Desarrollador |
+| Arquitectura de componentes | 👨‍💻 Desarrollador |
+| Control de errores y revisión | 👨‍💻 Desarrollador |
+| Propuestas de diseño visual | 🤖 IA |
+| Paleta de colores y tipografía | 🤖 IA (revisada por desarrollador) |
+| Generación inicial de estilos CSS | 🤖 IA (ajustada por desarrollador) |
+
+> ⚠️ El uso de IA fue intencionalmente controlado: cada sugerencia
+> fue revisada, adaptada y validada para evitar errores de accesibilidad,
+> semántica y rendimiento.
+
+## 🛠️ Tecnologías
+
+| Tecnología | Uso |
+|---|---|
+| HTML5 | Estructura semántica |
+| CSS3 | Estilos, animaciones y responsive |
+| JavaScript | Interactividad y comportamiento |
+| Flexbox / Grid | Sistema de layout responsive |
+| Media Queries | Adaptación a distintos dispositivos |
+
+## 📱 Responsive Design
+
+La página es completamente adaptable a:
+- 🖥️ Escritorio (1200px+)
+- 💻 Laptop (992px)
+- 📱 Tablet (768px)
+- 📲 Móvil (480px y menos)
